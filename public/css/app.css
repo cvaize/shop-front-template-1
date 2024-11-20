@@ -845,7 +845,6 @@ button, select {
 .shop-sidebar-brand:focus,
 .shop-sidebar-catalog-btn:focus,
 .shop-sidebar-menu-block:focus,
-.shop-sidebar-menu-account:focus,
 .shop-sidebar-menu-account-dropdown-link:focus {
     box-shadow: 0 0 0 2px rgba(var(--shop-app-color), 0.5);
 }
@@ -858,6 +857,7 @@ button, select {
     overflow: hidden;
     width: 100%;
     height: 18.75rem;
+    border-radius: 0.6rem;
 }
 
 .shop-slider-controls {
@@ -916,7 +916,6 @@ button, select {
     min-height: 100%;
     overflow: hidden;
     position: relative;
-    border-radius: 0.6rem;
     transition: transform .3s, filter .3s, opacity .3s;
 }
 
@@ -1329,6 +1328,80 @@ button, select {
     display: block;
 }
 
+.shop-header {
+}
+
+.shop-footer {
+}
+
+.shop-footer-nav {
+    padding: 3rem 0 2rem 0;
+    background-color: rgb(var(--shop-app-light-background-color));
+}
+
+.shop-footer-nav-lists {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.shop-footer-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 1rem;
+    width: 25%;
+}
+
+.shop-footer-nav-list-item {
+
+}
+
+.shop-footer-nav-header {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.shop-footer-nav-link {
+    color: inherit;
+    padding: 0.25rem 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.shop-footer-copyright-nav {
+    padding: 1.5rem 0 1rem 0;
+    background-color: rgba(var(--shop-app-color), 0.2);
+}
+
+.shop-footer-copyright-nav-list {
+    list-style: none;
+    margin: 0 -1rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.shop-footer-copyright-nav-list-item {
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-footer-copyright-nav-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.shop-footer-copyright-nav-list-item-right-offset {
+    margin-left: auto;
+}
+
+.shop-footer-nav-link:hover, .shop-footer-copyright-nav-link:hover {
+    opacity: 0.5;
+}
+
 @media (min-width: 1400px) and (max-width: 1460px) {
     .shop-container {
         max-width: 1320px;
@@ -1505,6 +1578,15 @@ button, select {
         margin-left: 0;
         width: 100%;
     }
+
+    .shop-footer-nav {
+        padding: 2rem 0 1rem 0;
+    }
+
+    .shop-footer-nav-list {
+        width: 50%;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 470px) {
@@ -1548,5 +1630,9 @@ button, select {
     .shop-products-fw-list-item {
         min-width: 100%;
         max-width: 100%;
+    }
+
+    .shop-footer-copyright-nav-list-item-right-offset {
+        margin-left: 0;
     }
 }
