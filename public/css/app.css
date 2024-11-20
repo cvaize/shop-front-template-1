@@ -1402,6 +1402,51 @@ button, select {
     opacity: 0.5;
 }
 
+.shop-pagination {
+    margin: 0;
+    display: flex;
+    padding: 0;
+    list-style: none;
+}
+
+.shop-pagination-item {
+    list-style: none;
+    margin-left: -0.0625rem;
+}
+
+.shop-pagination-item:first-child {
+    margin-left: 0;
+}
+
+.shop-pagination-item:first-child .shop-pagination-link {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.shop-pagination-item:last-child .shop-pagination-link {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.shop-pagination-link {
+    position: relative;
+    display: block;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    color: rgb(var(--shop-app-color));
+    text-decoration: none;
+    background-color: transparent;
+    border: 0.0625rem solid rgba(var(--shop-app-color), 0.1);
+}
+
+a.shop-pagination-link:hover, button.shop-pagination-link:hover {
+    background-color: rgba(var(--shop-app-color), 0.1);
+}
+
+a.shop-pagination-link:active, button.shop-pagination-link:active {
+    background-color: rgba(var(--shop-app-color), 0.2);
+}
+
 @media (min-width: 1400px) and (max-width: 1460px) {
     .shop-container {
         max-width: 1320px;
