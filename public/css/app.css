@@ -488,8 +488,6 @@ button, select {
 }
 
 .shop-btn {
-    display: flex;
-    align-items: center;
     height: 2.5rem;
     line-height: 1;
     font-weight: 600;
@@ -506,15 +504,17 @@ button, select {
     text-decoration: none;
 }
 
-.shop-sidebar-catalog-btn {
-    margin-left: auto;
-    margin-right: 1rem;
-}
-
 .shop-btn {
     display: inline-block;
     padding: 0.5rem 1rem;
     height: auto;
+}
+
+.shop-sidebar-catalog-btn {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 1rem;
 }
 
 .shop-btn:disabled {
@@ -1710,6 +1710,13 @@ a.shop-pagination-link:active, button.shop-pagination-link:active {
 .shop-cart-header {
     display: flex;
     flex-wrap: wrap;
+}
+
+.shop-cart-description {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.8;
 }
 
 .shop-cart-header-products-count {
