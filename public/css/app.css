@@ -2148,7 +2148,7 @@ a.shop-cart-product-name:hover {
     flex-wrap: wrap;
 }
 
-.shop-settings-card {
+.shop-settings-card, .shop-points-card {
     box-shadow: 0 0.2rem 0.6rem 0.2rem rgba(var(--shop-app-light-background-color), 1);
     border-radius: 1.5rem;
     margin-bottom: 1rem;
@@ -2252,6 +2252,49 @@ a.shop-cart-product-name:hover {
 .shop-settings-edit-checkbox:checked ~ .shop-settings-footer .shop-settings-edit-btn {
     display: none;
 }
+
+.shop-points {
+}
+
+.shop-points-card {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-points-panel {
+    flex-basis: 33.3333%;
+    width: 33.3333%;
+    padding: 0.5rem;
+}
+
+.shop-points-panel-wrapper {
+    background: rgba(var(--shop-app-light-background-color), 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.shop-points-panel-name {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.shop-points-panel-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.shop-points-panel-value:before {
+    content: 'Б';
+    font-size: 1rem;
+    font-weight: 900;
+    display: inline-block;
+    padding: 0.05rem 0.4rem;
+    background: rgba(var(--shop-app-danger-color), 0.2);
+    border-radius: 0.4rem;
+}
+
 
 @media (min-width: 1400px) and (max-width: 1460px) {
     .shop-container {
@@ -2536,6 +2579,11 @@ a.shop-cart-product-name:hover {
         max-width: 100%;
         min-width: 100%;
         flex-grow: unset;
+    }
+
+    .shop-points-panel {
+        flex-basis: 100%;
+        width: 100%;
     }
 }
 
