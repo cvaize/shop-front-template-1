@@ -839,11 +839,12 @@
     <main class="shop-content">
         <hr class="shop-content-hr">
         <div class="shop-container">
-            <h1 class="shop-h1">Баллы и бонусы</h1>
+            <h1 class="shop-h1">Баллы и купоны</h1>
             <hr class="shop-content-hr" style="margin: 1rem 0;">
 
             <div class="shop-points">
                 <div class="shop-points-card">
+                    <div class="shop-points-card-header">Баллы и бонусы</div>
                     <div class="shop-points-panel">
                         <div class="shop-points-panel-wrapper">
                             <div class="shop-points-panel-name">
@@ -871,6 +872,60 @@
                             </div>
                             <div class="shop-points-panel-value">
                                 400
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-points-card">
+                    <label for="shop-points-add-input" class="shop-points-card-header">Купоны</label>
+                    <form action="/" class="shop-points-add-panel">
+                        <input id="shop-points-add-input" class="shop-points-add-input shop-form-control" type="text" placeholder="Кодовое слово купона">
+                        <button class="shop-points-add-btn shop-btn" type="submit">Применить</button>
+                    </form>
+                    <div class="shop-points-list-panel">
+                        <div class="shop-tabs">
+                            <input id="shop-tabs-0" class="shop-tabs-checkbox" type="radio" name="shop-tabs-1" hidden="hidden" checked>
+                            <nav class="shop-tabs-nav">
+                                <label for="shop-tabs-0" class="shop-tabs-link">Ваши купоны</label>
+                            </nav>
+                            <div class="shop-tabs-content">
+                                <div class="shop-tabs-pane">
+
+                                    <table class="shop-table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Кодовое слово</th>
+                                            <th scope="col">Дата и время активации</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>WOW30</td>
+                                            <td>01.01.2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td>OZON21</td>
+                                            <td>01.01.2024</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <div style="display: flex">
+                                        <nav aria-label="Page navigation example" style="margin: 0 auto 0 0;">
+                                            <ul class="shop-pagination">
+                                                <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">1</a></li>
+                                                <li class="shop-pagination-item"><span class="shop-pagination-link">...</span></li>
+                                                <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">7</a></li>
+                                                <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">8</a></li>
+                                                <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">9</a></li>
+                                                <li class="shop-pagination-item"><span class="shop-pagination-link">...</span></li>
+                                                <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">10</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
