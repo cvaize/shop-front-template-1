@@ -470,6 +470,7 @@ button, select {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    align-items: center;
 }
 
 .shop-sidebar-brand {
@@ -496,15 +497,30 @@ button, select {
     vertical-align: middle;
     border-radius: 0.4rem;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem 0.6rem 1rem;
     color: inherit;
     background-color: rgb(var(--shop-app-light-background-color));
-    border: 0;
     cursor: pointer;
     opacity: 1;
     user-select: none;
     outline: none;
     text-decoration: none;
+    border: 1px solid rgb(var(--shop-app-light-background-color));
+}
+
+.shop-btn .shop-icon-svg{
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+}
+
+.shop-btn-outline {
+    background-color: rgb(var(--shop-app-background-color));
+    border-color: rgba(var(--shop-app-color), 0.5);
+}
+
+.shop-btn-outline.shop-active {
+    background-color: rgb(var(--shop-app-light-background-color));
+    border-color: rgb(var(--shop-app-light-background-color));
 }
 
 .shop-sidebar-catalog-btn {
@@ -512,6 +528,7 @@ button, select {
     align-items: center;
     margin-left: auto;
     margin-right: 1rem;
+    height: 2.5rem;
 }
 
 .shop-btn:disabled {
@@ -605,6 +622,10 @@ button, select {
     cursor: pointer;
     opacity: 1;
     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem 0.1rem 0.2rem 0.1rem;
 }
 
 .shop-sidebar-search-submit:focus {
@@ -710,6 +731,7 @@ button, select {
     width: 1.25rem;
     height: 0.875rem;
     margin-right: 0.6rem;
+    margin-bottom: -0.1rem;
 }
 
 .shop-sidebar-burger::before,
@@ -2460,6 +2482,210 @@ a.shop-cart-product-name:hover {
 .shop-table > tbody > tr > th.shop-table-active,
 .shop-table > tbody > tr.shop-table-active > * {
     background-color: rgba(var(--shop-app-color), 0.2);
+}
+
+.shop-comparison {
+}
+
+.shop-comparison-container {
+
+}
+
+.shop-comparison-nav-radio-input {
+}
+
+.shop-comparison-categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.shop-comparison-categories-btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1.5rem 0.7rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.shop-comparison-categories-btn-number {
+    opacity: 0.5;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.shop-comparison-nav {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.shop-comparison-nav-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-comparison-nav-radio-label:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.shop-comparison-nav-radio-label:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.shop-comparison-btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-comparison-btn-icon-svg {
+}
+
+.shop-comparison-rows {
+
+}
+
+.shop-comparison-row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 -1rem;
+}
+
+.shop-comparison-card, .shop-comparison-price, .shop-comparison-in-count, .shop-comparison-out-count, .shop-comparison-characteristic {
+    width: 15rem;
+}
+
+.shop-comparison-card {
+    position: relative;
+    padding: 1rem;
+    cursor: grab;
+    border: 1px dashed transparent;
+    border-radius: 1rem;
+    user-select: none;
+}
+
+.shop-comparison-card:hover {
+    border-color: rgb(var(--shop-app-light-background-color));
+}
+
+.shop-comparison-row-small-offset {
+    padding-top: 1rem;
+    display: block;
+}
+
+.shop-comparison-row-big-offset {
+    padding-top: 2rem;
+    display: block;
+}
+
+.shop-comparison-picture {
+    position: relative;
+    width: 5.625rem;
+    height: 5.625rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    pointer-events: none;
+}
+
+.shop-comparison-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem;
+}
+
+.shop-comparison-remove-btn {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 1.8rem;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0.5rem;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.shop-comparison-remove-btn:hover {
+    opacity: 0.4;
+}
+
+.shop-comparison-sku {
+    font-size: 1rem;
+    opacity: 0.5;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.shop-comparison-name {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.shop-comparison-cart-form {
+    display: block;
+}
+
+.shop-comparison-cart-btn {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.shop-comparison-price, .shop-comparison-in-count, .shop-comparison-out-count {
+    line-height: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    opacity: 0.6;
+}
+
+.shop-comparison-bold {
+    font-weight: 700;
+    opacity: 1;
+}
+
+.shop-comparison-price {
+    padding-bottom: 1rem;
+}
+
+.shop-comparison-in-count {
+    padding-bottom: 0.25rem;
+}
+
+.shop-comparison-out-count {
+    padding-bottom: 0.25rem;
+}
+
+.shop-comparison-characteristic {
+    padding: 0.2rem 1rem;
+}
+
+.shop-comparison-characteristic-label {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.6;
+    margin-bottom: 0.1rem;
+}
+
+.shop-comparison-characteristic-value {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+#shop-comparison-radio-distinguishing:checked ~ .shop-comparison-nav [for="shop-comparison-radio-distinguishing"],
+#shop-comparison-radio-all:checked ~ .shop-comparison-nav [for="shop-comparison-radio-all"] {
+    background-color: rgb(var(--shop-app-light-background-color));
+    border-color: rgb(var(--shop-app-light-background-color));
 }
 
 
