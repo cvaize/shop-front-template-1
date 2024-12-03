@@ -497,7 +497,7 @@ button, select {
     vertical-align: middle;
     border-radius: 0.4rem;
     font-size: 1rem;
-    padding: 0.4rem 1rem 0.6rem 1rem;
+    padding: 0.4rem 1rem 0.5rem 1rem;
     color: inherit;
     background-color: rgb(var(--shop-app-light-background-color));
     cursor: pointer;
@@ -2485,6 +2485,8 @@ a.shop-cart-product-name:hover {
 }
 
 .shop-comparison {
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 
 .shop-comparison-container {
@@ -2503,7 +2505,7 @@ a.shop-cart-product-name:hover {
 .shop-comparison-categories-btn {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
-    padding: 0.5rem 1.5rem 0.7rem 1.5rem;
+    padding: 0.5rem 1.5rem 0.6rem 1.5rem;
     font-size: 1.1rem;
 }
 
@@ -2515,7 +2517,6 @@ a.shop-cart-product-name:hover {
 }
 
 .shop-comparison-nav {
-    margin-bottom: 2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -2547,17 +2548,27 @@ a.shop-cart-product-name:hover {
 }
 
 .shop-comparison-rows {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2rem 0;
+}
 
+.shop-comparison-row:before, .shop-comparison-row:after {
+    content: "";
+    display: block;
+    height: 1px;
+    min-width: calc((100vw - 1460px) / 2);
 }
 
 .shop-comparison-row {
     display: flex;
     flex-wrap: nowrap;
-    margin: 0 -1rem;
 }
 
 .shop-comparison-card, .shop-comparison-price, .shop-comparison-in-count, .shop-comparison-out-count, .shop-comparison-characteristic {
-    width: 15rem;
+    max-width: 15rem;
+    min-width: 15rem;
 }
 
 .shop-comparison-card {
@@ -2701,6 +2712,10 @@ a.shop-cart-product-name:hover {
     .shop-cart-cards {
         width: calc(100% - 26rem);
     }
+
+    .shop-comparison-row:before, .shop-comparison-row:after {
+        min-width: calc((100vw - 1320px) / 2);
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
@@ -2719,11 +2734,19 @@ a.shop-cart-product-name:hover {
     .shop-cart-cards {
         width: calc(100% - 26rem);
     }
+
+    .shop-comparison-row:before, .shop-comparison-row:after {
+        min-width: calc((100vw - 1140px) / 2);
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .shop-container {
         max-width: 960px;
+    }
+
+    .shop-comparison-row:before, .shop-comparison-row:after {
+        min-width: calc((100vw - 960px) / 2);
     }
 }
 
@@ -2830,6 +2853,10 @@ a.shop-cart-product-name:hover {
         max-width: 50%;
         min-width: 50%;
         flex-grow: unset;
+    }
+
+    .shop-comparison-row:before, .shop-comparison-row:after {
+        min-width: calc((100vw - 720px) / 2);
     }
 }
 
@@ -2986,6 +3013,14 @@ a.shop-cart-product-name:hover {
 
     .shop-points-add-btn {
         margin: 0 0 1rem auto;
+    }
+
+    .shop-comparison-rows {
+        padding: 1rem 0;
+    }
+
+    .shop-comparison-row:before, .shop-comparison-row:after {
+        min-width: calc((100vw - 540px) / 2);
     }
 }
 
