@@ -871,10 +871,25 @@
                 {
                     display: flex;
                 }
+                .shop-comparison-nav, .shop-comparison-categories {
+                    display: none;
+                }
+                .shop-comparison-categories-btn-radio-input ~ .shop-comparison-container .shop-comparison-cleared-block {
+                    display: none;
+                }
+                .shop-comparison-categories-btn-radio-input ~ .shop-comparison-container .shop-comparison-nav,
+                .shop-comparison-categories-btn-radio-input ~ .shop-comparison-container .shop-comparison-categories {
+                    display: flex;
+                }
             </style>
 
             <div class="shop-comparison-container shop-container">
                 <h1 class="shop-h1">Сравнение</h1>
+
+                <div class="shop-comparison-cleared-block">
+                    <b>Список пуст</b> <br>
+                    Выбрать можно из товаров на главной или через поиск
+                </div>
 
                 <div class="shop-comparison-categories">
                     <label for="shop-comparison-categories-btn-radio-input-1" class="shop-comparison-categories-btn shop-btn shop-btn-outline">
@@ -889,7 +904,7 @@
                         <label for="shop-comparison-radio-distinguishing" class="shop-comparison-nav-radio-label shop-btn shop-btn-outline">Различающиеся</label>
                         <label for="shop-comparison-radio-all" class="shop-comparison-nav-radio-label shop-btn shop-btn-outline">Все</label>
                     </div>
-                    <form action="/clear-comparison-list">
+                    <form class="js-clear-comparison-list-form" action="/clear-comparison-list">
                         <button class="shop-comparison-btn shop-btn shop-btn-outline" type="submit">
                             <svg class="shop-comparison-btn-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg"
                                  width="24"
@@ -922,12 +937,15 @@
             <div data-comparison-for="shop-comparison-categories-btn-radio-input-1" class="shop-comparison-rows">
                 <div class="shop-comparison-row">
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -935,18 +953,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -954,18 +975,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -973,18 +997,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -992,18 +1019,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -1011,18 +1041,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -1030,18 +1063,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -1049,18 +1085,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -1068,7 +1107,7 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
@@ -1423,12 +1462,15 @@
             <div data-comparison-for="shop-comparison-categories-btn-radio-input-2" class="shop-comparison-rows">
                 <div class="shop-comparison-row">
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -1436,18 +1478,21 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
                     </div>
                     <div class="shop-comparison-card">
+                        <a class="shop-comparison-card-link" href="/" aria-label="VIATTI BRINA NORDICO V-522 205/60 R16 92T"></a>
                         <picture class="shop-comparison-picture">
                             <img class="shop-comparison-img" src="/images/300x300.svg" alt="">
                         </picture>
-                        <button class="shop-comparison-remove-btn">
-                            <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        </button>
+                        <form class="js-remove-comparison-item-form" action="/remove-comparison-item">
+                            <button class="shop-comparison-remove-btn" type="submit">
+                                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                            </button>
+                        </form>
                         <div class="shop-comparison-sku">
                             арт.63715
                         </div>
@@ -1455,7 +1500,7 @@
                             VIATTI BRINA NORDICO V-522 205/60 R16 92T
                         </div>
                         <form class="shop-comparison-cart-form" action="/">
-                            <button class="shop-comparison-cart-btn shop-btn shop-btn-outline" type="submit">
+                            <button class="shop-comparison-cart-btn shop-btn" type="submit">
                                 В корзину
                             </button>
                         </form>
@@ -1560,6 +1605,98 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                'use strict';
+
+                ;(function () {
+                    'use strict';
+
+                    let radioInputs = null;
+                    let firstNotCheckedRadioInput = null;
+                    let selectedRadioInput = null;
+                    let selectedLabel = null;
+                    let selectedRows = null;
+
+                    function preAction() {
+                        radioInputs = document.querySelectorAll('.shop-comparison-categories-btn-radio-input');
+                        firstNotCheckedRadioInput = null;
+                        selectedRadioInput = null;
+                        selectedLabel = null;
+                        selectedRows = null;
+
+                        for (let i = 0; i < radioInputs.length; i++) {
+                            let radioInput = radioInputs[i];
+                            if (radioInput.checked) {
+                                let radioInputId = radioInput.getAttribute('id');
+
+                                selectedRadioInput = radioInput;
+                                selectedLabel = document.querySelector(`[for="${radioInputId}"]`);
+                                selectedRows = document.querySelector(`[data-comparison-for="${radioInputId}"]`);
+                            } else if (!firstNotCheckedRadioInput) {
+                                firstNotCheckedRadioInput = radioInput;
+                            }
+                        }
+                    }
+
+                    function clearComparisonList(event) {
+                        event && event.preventDefault();
+                        preAction();
+                        if (firstNotCheckedRadioInput) firstNotCheckedRadioInput.checked = true;
+                        if (selectedRadioInput) selectedRadioInput.remove();
+                        if (selectedLabel) selectedLabel.remove();
+                        if (selectedRows) selectedRows.remove();
+                    }
+
+                    function removeComparisonItem(event) {
+                        event && event.preventDefault();
+                        preAction();
+
+                        let item = event.target.closest('.shop-comparison-card');
+                        let itemIndex = -1;
+                        let length = -1;
+
+                        if (item) {
+                            length = item.parentElement.children.length;
+                            if (length === 1) {
+                                clearComparisonList();
+                            } else {
+                                for (let i = 0; i < length; i++) {
+                                    if (item.parentElement.children[i] === item) {
+                                        itemIndex = i;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (itemIndex !== -1 && length !== -1 && selectedRows) {
+                            let rowsElements = selectedRows.querySelectorAll('.shop-comparison-row');
+
+                            for (let i = 0; i < rowsElements.length; i++) {
+                                rowsElements[i].children[itemIndex].remove();
+                            }
+
+                            if (selectedLabel) {
+                                let number = selectedLabel.querySelector('.shop-comparison-categories-btn-number');
+                                if (number) {
+                                    number.innerHTML = length - 1;
+                                }
+                            }
+                        }
+                    }
+
+                    let clearComparisonListForm = document.querySelector('.js-clear-comparison-list-form');
+                    let clearComparisonItemForms = document.querySelectorAll('.js-remove-comparison-item-form');
+
+                    if (clearComparisonListForm) clearComparisonListForm.addEventListener('submit', clearComparisonList);
+                    if (clearComparisonItemForms.length) {
+                        for (let i = 0; i < clearComparisonItemForms.length; i++) {
+                            clearComparisonItemForms[i].addEventListener('submit', removeComparisonItem);
+                        }
+                    }
+                })();
+            </script>
         </div>
         <br>
         <br>

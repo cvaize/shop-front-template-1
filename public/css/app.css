@@ -2574,9 +2574,19 @@ a.shop-cart-product-name:hover {
 .shop-comparison-card {
     position: relative;
     padding: 1rem;
-    cursor: grab;
     border: 1px dashed transparent;
     border-radius: 1rem;
+    user-select: none;
+}
+
+.shop-comparison-card-link {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
     user-select: none;
 }
 
@@ -2625,6 +2635,7 @@ a.shop-cart-product-name:hover {
     padding: 0.5rem;
     opacity: 0.5;
     cursor: pointer;
+    z-index: 3;
 }
 
 .shop-comparison-remove-btn:hover {
@@ -2650,6 +2661,8 @@ a.shop-cart-product-name:hover {
 .shop-comparison-cart-btn {
     padding-left: 2rem;
     padding-right: 2rem;
+    position: relative;
+    z-index: 3;
 }
 
 .shop-comparison-price, .shop-comparison-in-count, .shop-comparison-out-count {
@@ -2693,10 +2706,12 @@ a.shop-cart-product-name:hover {
     line-height: 1.2;
 }
 
-#shop-comparison-radio-distinguishing:checked ~ .shop-comparison-nav [for="shop-comparison-radio-distinguishing"],
-#shop-comparison-radio-all:checked ~ .shop-comparison-nav [for="shop-comparison-radio-all"] {
-    background-color: rgb(var(--shop-app-light-background-color));
-    border-color: rgb(var(--shop-app-light-background-color));
+.shop-comparison-row-big-offset ~ .shop-comparison-row:hover {
+    background-color: rgba(var(--shop-app-light-background-color), 0.5);
+}
+
+.shop-comparison-cleared-block {
+    font-size: 1rem;
 }
 
 
