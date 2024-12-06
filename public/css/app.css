@@ -508,6 +508,11 @@ button, select {
     border: 1px solid rgb(var(--shop-app-light-background-color));
 }
 
+.shop-btn-square {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+}
+
 .shop-btn .shop-icon-svg{
     margin-top: -1rem;
     margin-bottom: -1rem;
@@ -2574,13 +2579,10 @@ a.shop-cart-product-name:hover {
 .shop-comparison-card {
     position: relative;
     padding: 1rem;
-    border: 1px dashed transparent;
-    border-radius: 1rem;
-    user-select: none;
 }
 
-.shop-comparison-card-link {
-    display: block;
+.shop-comparison-card-drop {
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -2588,10 +2590,18 @@ a.shop-cart-product-name:hover {
     height: 100%;
     z-index: 2;
     user-select: none;
+    cursor: grab;
+    border: 1px dashed transparent;
+    border-radius: 1rem;
 }
 
-.shop-comparison-card:hover {
+.shop-comparison-card-drop:hover {
     border-color: rgb(var(--shop-app-light-background-color));
+}
+
+.shop-comparison-to-product-link {
+    position: relative;
+    z-index: 3;
 }
 
 .shop-comparison-row-small-offset {
