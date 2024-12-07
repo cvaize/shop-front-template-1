@@ -88,6 +88,8 @@
 .shop-comparison-card {
     position: relative;
     padding: 1rem;
+    background: rgb(var(--shop-app-background-color));
+    z-index: 1;
 }
 
 .shop-comparison-card-drop {

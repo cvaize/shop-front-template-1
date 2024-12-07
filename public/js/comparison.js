@@ -8,6 +8,9 @@
     let selectedRadioInput = null;
     let selectedLabel = null;
     let selectedRows = null;
+    let dragAndDropCard = null;
+    let dragAndDropCards = [];
+    let dragAndDropStartMouseXPosition = 0;
 
     let cardDrops = document.querySelectorAll('.shop-comparison-card-drop');
     let clearComparisonListForm = document.querySelector('.js-clear-comparison-list-form');
@@ -81,15 +84,86 @@
         }
     }
 
-    function startDragAndDrop (event) {
-        console.log(event)
-        event.target.style.cursor = 'grabbing';
-
+    function getMouseXPositionFromEvent(event) {
+        let pageX = event.pageX;
+        if (event.pageX == null && event.clientX != null) {
+            let doc = document.documentElement, body = document.body;
+            pageX = event.clientX + (doc && doc.scrollLeft || body && body.scrollLeft || 0) - (doc && doc.clientLeft || body && body.clientLeft || 0);
+        }
+        return pageX;
     }
 
-    function endDragAndDrop (event) {
-        console.log(event)
-        event.target.style.cursor = 'grab';
+    // function getMousePositionFromEvent(event){
+    //     let pageX = event.pageX;
+    //     let pageY = event.pageY;
+    //     if ( event.pageX == null && event.clientX != null ) {
+    //         let doc = document.documentElement, body = document.body;
+    //         pageX = event.clientX + (doc && doc.scrollLeft || body && body.scrollLeft || 0) - (doc && doc.clientLeft || body && body.clientLeft || 0);
+    //         pageY = event.clientY + (doc && doc.scrollTop  || body && body.scrollTop  || 0) - (doc   && doc.clientTop  || body && body.clientTop  || 0);
+    //     }
+    // }
+
+    function moveDragAndDrop(event) {
+        requestAnimationFrame(function () {
+            if (dragAndDropCard === null || !Number.isInteger(dragAndDropStartMouseXPosition)) {
+                stopMoveDragAndDrop()
+                return;
+            }
+            let positionX = (dragAndDropStartMouseXPosition - getMouseXPositionFromEvent(event)) * -1;
+
+            dragAndDropCard.style.zIndex = '5';
+            dragAndDropCard.style.transform = `translateX(${positionX}px)`;
+        });
+        // console.log(event)
+    }
+
+    function clickDragAndDrop() {
+        console.log('Click')
+        stopMoveDragAndDrop();
+    }
+
+    function stopMoveDragAndDrop() {
+        document.removeEventListener('mousemove', moveDragAndDrop);
+        document.removeEventListener('click', clickDragAndDrop);
+        if (dragAndDropCard) {
+            document.body.style.cursor = 'auto';
+            dragAndDropCards = dragAndDropCard.parentNode.querySelectorAll('.shop-comparison-card');
+            for (let i = 0; i < dragAndDropCards.length; i++) {
+                dragAndDropCards[i].style.zIndex = '1';
+                dragAndDropCards[i].style.transform = 'translateX(0px)';
+                dragAndDropCards[i].style.opacity = '1';
+                dragAndDropCards[i].style.pointerEvents = 'auto';
+                let drop = dragAndDropCards[i].querySelector('.shop-comparison-card-drop');
+                if (drop) {
+                    drop.style.cursor = 'grab';
+                }
+            }
+        }
+        dragAndDropCard = null;
+    }
+
+    function startDragAndDrop(event) {
+        stopMoveDragAndDrop();
+        dragAndDropCard = event.target ? event.target.closest('.shop-comparison-card') : null;
+        dragAndDropCard = dragAndDropCard ? dragAndDropCard : null;
+        dragAndDropStartMouseXPosition = getMouseXPositionFromEvent(event);
+
+        if (dragAndDropCard && Number.isInteger(dragAndDropStartMouseXPosition)) {
+            dragAndDropCards = dragAndDropCard.parentNode.querySelectorAll('.shop-comparison-card');
+            for (let i = 0; i < dragAndDropCards.length; i++) {
+                dragAndDropCards[i].style.opacity = '0.5';
+                let drop = dragAndDropCards[i].querySelector('.shop-comparison-card-drop');
+                if (drop) {
+                    drop.style.cursor = 'grabbing';
+                }
+            }
+            document.body.style.cursor = 'grabbing';
+            dragAndDropCard.style.opacity = '1';
+            dragAndDropCard.style.pointerEvents = 'none';
+            document.addEventListener('mousemove', moveDragAndDrop);
+            document.addEventListener('click', clickDragAndDrop);
+        }
+        // console.log(event)
     }
 
     if (clearComparisonListForm) clearComparisonListForm.addEventListener('submit', clearComparisonList);
@@ -98,12 +172,11 @@
             clearComparisonItemForms[i].addEventListener('submit', removeComparisonItem);
         }
     }
-    window.startDragAndDrop = startDragAndDrop;
     if (cardDrops.length) {
         for (let i = 0; i < cardDrops.length; i++) {
             cardDrops[i].style.display = 'block';
             cardDrops[i].addEventListener('mousedown', startDragAndDrop);
-            cardDrops[i].addEventListener('mouseup', endDragAndDrop);
+            cardDrops[i].addEventListener('mouseup', stopMoveDragAndDrop);
         }
     }
 })();
