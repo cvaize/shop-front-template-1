@@ -75,6 +75,14 @@
     min-width: calc((100vw - 1460px) / 2);
 }
 
+.shop-comparison-row:before {
+    order: -1;
+}
+
+.shop-comparison-row:after {
+    order: 9999;
+}
+
 .shop-comparison-row {
     display: flex;
     flex-wrap: nowrap;
