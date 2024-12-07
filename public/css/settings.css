@@ -1,0 +1,152 @@
+.shop-settings {
+}
+
+.shop-settings-body-description {
+    width: 100%;
+    padding: 0 calc(100% - 40rem) 0 0.5rem;
+    font-weight: 500;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-settings-card, .shop-points-card {
+    box-shadow: 0 0.2rem 0.6rem 0.2rem rgba(var(--shop-app-light-background-color), 1);
+    border-radius: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.shop-settings-edit-checkbox {
+}
+
+.shop-settings-card-header {
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem 0.25rem 1.5rem;
+}
+
+.shop-settings-card-header-icon {
+    margin-right: 0.5rem;
+}
+
+.shop-settings-body {
+    padding: 0.25rem 1.5rem 0 3.1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-settings-footer {
+    padding: 0.25rem 1.5rem 1rem 3.6rem;
+}
+
+.shop-setting {
+    flex-basis: 20%;
+    width: 20%;
+    display: block;
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+.shop-setting-label {
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.shop-setting-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.shop-setting-input-label {
+    display: none;
+    margin-bottom: 0.5rem;
+}
+
+.shop-setting-input {
+    width: 100%;
+    min-width: auto;
+}
+
+.shop-settings-footer {
+}
+
+.shop-settings-edit-btn {
+}
+
+.shop-settings-save-btn {
+    display: none;
+
+}
+
+.shop-setting-fio {
+    flex-basis: auto;
+    width: auto;
+    max-width: 20rem;
+    flex-grow: 1;
+}
+
+.shop-setting-birthday {
+    flex-basis: 10rem;
+    min-width: 10rem;
+}
+
+.shop-setting-tel {
+    flex-basis: 10rem;
+    min-width: 10rem;
+}
+
+.shop-setting-email {
+    flex-basis: 12rem;
+    min-width: 12rem;
+}
+
+.shop-setting-gender {
+    flex-basis: 10rem;
+    min-width: 10rem;
+}
+
+.shop-settings-edit-checkbox:checked ~ .shop-settings-body .shop-setting-input-label,
+.shop-settings-edit-checkbox:checked ~ .shop-settings-footer .shop-settings-save-btn {
+    display: block;
+}
+
+.shop-settings-edit-checkbox:checked ~ .shop-settings-body .shop-setting-value,
+.shop-settings-edit-checkbox:checked ~ .shop-settings-footer .shop-settings-edit-btn {
+    display: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .shop-setting {
+        flex-basis: 50%;
+        width: 50%;
+        max-width: 50%;
+        min-width: 50%;
+        flex-grow: unset;
+    }
+}
+
+@media (max-width: 767px) {
+    .shop-setting {
+        flex-basis: 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        flex-grow: unset;
+    }
+}
+
+@media (max-width: 470px) {
+    .shop-setting {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .shop-settings-body {
+        padding-left: 1.5rem;
+    }
+
+    .shop-settings-footer {
+        padding-left: 1.5rem;
+    }
+}
