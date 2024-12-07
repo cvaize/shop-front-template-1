@@ -93,16 +93,6 @@
         return pageX;
     }
 
-    // function getMousePositionFromEvent(event){
-    //     let pageX = event.pageX;
-    //     let pageY = event.pageY;
-    //     if ( event.pageX == null && event.clientX != null ) {
-    //         let doc = document.documentElement, body = document.body;
-    //         pageX = event.clientX + (doc && doc.scrollLeft || body && body.scrollLeft || 0) - (doc && doc.clientLeft || body && body.clientLeft || 0);
-    //         pageY = event.clientY + (doc && doc.scrollTop  || body && body.scrollTop  || 0) - (doc   && doc.clientTop  || body && body.clientTop  || 0);
-    //     }
-    // }
-
     function moveDragAndDrop(event) {
         requestAnimationFrame(function () {
             if (dragAndDropCard === null || !Number.isInteger(dragAndDropStartMouseXPosition)) {
@@ -169,19 +159,24 @@
     }
 
     function mouseEnterDragAndDrop(event) {
-        let enterCard = event.target;
-        let enterCardOrderVarName = String(enterCard.style.order)
-            .replace('var(', '').replace(')', '')
-            .replace(';', '').trim();
-        let dragAndDropCardOrderVarName = String(dragAndDropCard.style.order)
-            .replace('var(', '').replace(')', '')
-            .replace(';', '').trim();
+        requestAnimationFrame(function () {
+            let enterCard = event.target;
+            let enterCardOrderVarName = String(enterCard.style.order)
+                .replace('var(', '').replace(')', '')
+                .replace(';', '').trim();
+            let dragAndDropCardOrderVarName = String(dragAndDropCard.style.order)
+                .replace('var(', '').replace(')', '')
+                .replace(';', '').trim();
 
-        let enterCardOrderVarValue = comparison.style.getPropertyValue(enterCardOrderVarName);
-        let dragAndDropCardOrderVarValue = comparison.style.getPropertyValue(dragAndDropCardOrderVarName);
+            let enterCardOrderVarValue = comparison.style.getPropertyValue(enterCardOrderVarName);
+            let dragAndDropCardOrderVarValue = comparison.style.getPropertyValue(dragAndDropCardOrderVarName);
 
-        comparison.style.setProperty(enterCardOrderVarName, dragAndDropCardOrderVarValue);
-        comparison.style.setProperty(dragAndDropCardOrderVarName, enterCardOrderVarValue);
+            let x = dragAndDropCard.getBoundingClientRect().left;
+            comparison.style.setProperty(enterCardOrderVarName, dragAndDropCardOrderVarValue);
+            comparison.style.setProperty(dragAndDropCardOrderVarName, enterCardOrderVarValue);
+            dragAndDropStartMouseXPosition -= x - dragAndDropCard.getBoundingClientRect().left;
+            moveDragAndDrop(event);
+        });
     }
 
     function destroy(){
