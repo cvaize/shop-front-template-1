@@ -93,10 +93,11 @@
         return pageX;
     }
 
-    function moveDragAndDrop(event) {
+    // Start drag and drop card
+    function cardMove(event) {
         requestAnimationFrame(function () {
             if (dragAndDropCard === null || !Number.isInteger(dragAndDropStartMouseXPosition)) {
-                stopMoveDragAndDrop()
+                stopCardMove()
                 return;
             }
             let positionX = (dragAndDropStartMouseXPosition - getMouseXPositionFromEvent(event)) * -1;
@@ -106,13 +107,9 @@
         });
     }
 
-    function clickDragAndDrop() {
-        stopMoveDragAndDrop();
-    }
-
-    function stopMoveDragAndDrop() {
-        document.removeEventListener('mousemove', moveDragAndDrop);
-        document.removeEventListener('click', clickDragAndDrop);
+    function stopCardMove() {
+        document.removeEventListener('mousemove', cardMove);
+        document.removeEventListener('click', stopCardMove);
         if (dragAndDropCard) {
             document.body.style.cursor = 'auto';
             for (let i = 0; i < dragAndDropCards.length; i++) {
@@ -120,7 +117,7 @@
                 dragAndDropCards[i].style.transform = 'translateX(0px)';
                 dragAndDropCards[i].style.opacity = '1';
                 dragAndDropCards[i].style.pointerEvents = 'auto';
-                dragAndDropCards[i].removeEventListener('mouseenter', mouseEnterDragAndDrop);
+                dragAndDropCards[i].removeEventListener('mouseenter', replaceCardsOnHover);
 
                 let drop = dragAndDropCards[i].querySelector('.shop-comparison-card-drop');
                 if (drop) {
@@ -131,8 +128,8 @@
         dragAndDropCard = null;
     }
 
-    function startDragAndDrop(event) {
-        stopMoveDragAndDrop();
+    function startCardMove(event) {
+        stopCardMove();
         dragAndDropCard = event.target ? event.target.closest('.shop-comparison-card') : null;
         dragAndDropCard = dragAndDropCard ? dragAndDropCard : null;
         dragAndDropStartMouseXPosition = getMouseXPositionFromEvent(event);
@@ -146,19 +143,19 @@
                 if (drop) {
                     drop.style.cursor = 'grabbing';
                 }
-                dragAndDropCards[i].removeEventListener('mouseenter', mouseEnterDragAndDrop);
-                dragAndDropCards[i].addEventListener('mouseenter', mouseEnterDragAndDrop);
+                dragAndDropCards[i].removeEventListener('mouseenter', replaceCardsOnHover);
+                dragAndDropCards[i].addEventListener('mouseenter', replaceCardsOnHover);
             }
 
             document.body.style.cursor = 'grabbing';
             dragAndDropCard.style.opacity = '1';
             dragAndDropCard.style.pointerEvents = 'none';
-            document.addEventListener('mousemove', moveDragAndDrop);
-            document.addEventListener('click', clickDragAndDrop);
+            document.addEventListener('mousemove', cardMove);
+            document.addEventListener('click', stopCardMove);
         }
     }
 
-    function mouseEnterDragAndDrop(event) {
+    function replaceCardsOnHover(event) {
         requestAnimationFrame(function () {
             let enterCard = event.target;
             let enterCardOrderVarName = String(enterCard.style.order)
@@ -175,9 +172,10 @@
             comparison.style.setProperty(enterCardOrderVarName, dragAndDropCardOrderVarValue);
             comparison.style.setProperty(dragAndDropCardOrderVarName, enterCardOrderVarValue);
             dragAndDropStartMouseXPosition -= x - dragAndDropCard.getBoundingClientRect().left;
-            moveDragAndDrop(event);
+            cardMove(event);
         });
     }
+    // End drag and drop card
 
     function destroy(){
         if (clearComparisonListForm) {
@@ -191,8 +189,8 @@
         if (cardDrops.length) {
             for (let i = 0; i < cardDrops.length; i++) {
                 cardDrops[i].style.display = 'none';
-                cardDrops[i].removeEventListener('mousedown', startDragAndDrop);
-                cardDrops[i].removeEventListener('mouseup', stopMoveDragAndDrop);
+                cardDrops[i].removeEventListener('mousedown', startCardMove);
+                cardDrops[i].removeEventListener('mouseup', stopCardMove);
             }
         }
     }
@@ -204,6 +202,7 @@
         if (!comparison) {
             return;
         }
+
         cardDrops = comparison.querySelectorAll('.shop-comparison-card-drop');
         clearComparisonListForm = comparison.querySelector('.js-clear-comparison-list-form');
         clearComparisonItemForms = comparison.querySelectorAll('.js-remove-comparison-item-form');
@@ -219,8 +218,8 @@
         if (cardDrops.length) {
             for (let i = 0; i < cardDrops.length; i++) {
                 cardDrops[i].style.display = 'block';
-                cardDrops[i].addEventListener('mousedown', startDragAndDrop);
-                cardDrops[i].addEventListener('mouseup', stopMoveDragAndDrop);
+                cardDrops[i].addEventListener('mousedown', startCardMove);
+                cardDrops[i].addEventListener('mouseup', stopCardMove);
             }
         }
 
@@ -244,6 +243,7 @@
             }
             startLength += cardElemsLength;
         }
+        preAction();
     }
 
     init();
