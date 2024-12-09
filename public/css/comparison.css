@@ -61,11 +61,16 @@
 .shop-comparison-btn-icon-svg {
 }
 
+.shop-comparison-left-btn, .shop-comparison-right-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .shop-comparison-rows {
     max-width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 2rem 0;
+    padding: 0 0 2rem 0;
 }
 
 .shop-comparison-row:before, .shop-comparison-row:after {
@@ -274,6 +279,6 @@
     }
 
     .shop-comparison-rows {
-        padding: 1rem 0;
+        padding: 0 0 1rem 0;
     }
 }

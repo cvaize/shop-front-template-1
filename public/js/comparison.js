@@ -7,6 +7,8 @@
     let cardDrops = [];
     let clearComparisonListForm = null;
     let clearComparisonItemForms = [];
+    let leftBtn = null;
+    let rightBtn = null;
     let radioInputs = null;
     let firstNotCheckedRadioInput = null;
     let selectedRadioInput = null;
@@ -175,9 +177,46 @@
             cardMove(event);
         });
     }
+
     // End drag and drop card
 
-    function destroy(){
+    function clickLeft(event) {
+        if (selectedRows) {
+            let card = selectedRows.querySelector('.shop-comparison-card');
+
+            if(card){
+                selectedRows.scrollTo({
+                    left: selectedRows.scrollLeft - card.getBoundingClientRect().width,
+                    behavior: "smooth",
+                });
+            }
+        }
+    }
+
+    function clickRight(event) {
+        if (selectedRows) {
+            let card = selectedRows.querySelector('.shop-comparison-card');
+
+            if(card){
+                selectedRows.scrollTo({
+                    left: selectedRows.scrollLeft + card.getBoundingClientRect().width,
+                    behavior: "smooth",
+                });
+            }
+        }
+    }
+
+    function destroy() {
+        if (leftBtn) {
+            leftBtn.removeEventListener('click', clickLeft);
+            leftBtn.style.opacity = '0';
+            leftBtn.style.pointerEvents = 'none';
+        }
+        if (rightBtn) {
+            rightBtn.removeEventListener('click', clickRight);
+            rightBtn.style.opacity = '0';
+            rightBtn.style.pointerEvents = 'none';
+        }
         if (clearComparisonListForm) {
             clearComparisonListForm.removeEventListener('submit', clearComparisonList);
         }
@@ -195,7 +234,7 @@
         }
     }
 
-    function init(){
+    function init() {
         destroy();
 
         comparison = document.querySelector('.shop-comparison');
@@ -203,9 +242,24 @@
             return;
         }
 
+        leftBtn = comparison.querySelector('.shop-comparison-left-btn');
+        rightBtn = comparison.querySelector('.shop-comparison-right-btn');
+
         cardDrops = comparison.querySelectorAll('.shop-comparison-card-drop');
         clearComparisonListForm = comparison.querySelector('.js-clear-comparison-list-form');
         clearComparisonItemForms = comparison.querySelectorAll('.js-remove-comparison-item-form');
+
+        if (leftBtn) {
+            leftBtn.addEventListener('click', clickLeft);
+            leftBtn.style.opacity = '1';
+            leftBtn.style.pointerEvents = 'auto';
+        }
+        if (rightBtn) {
+            rightBtn.addEventListener('click', clickRight);
+            rightBtn.style.opacity = '1';
+            rightBtn.style.pointerEvents = 'auto';
+        }
+
 
         if (clearComparisonListForm) {
             clearComparisonListForm.addEventListener('submit', clearComparisonList);
