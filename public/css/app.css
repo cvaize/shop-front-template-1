@@ -490,6 +490,7 @@ button, select {
 }
 
 .shop-btn {
+    position: relative;
     display: inline-block;
     height: auto;
     line-height: 1;
@@ -540,6 +541,45 @@ button, select {
     pointer-events: none;
     opacity: 0.6;
 }
+
+.shop-btn.shop-loading {
+    pointer-events: none;
+    user-select: none;
+}
+
+.shop-btn.shop-loading * {
+    pointer-events: none;
+    user-select: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.shop-btn.shop-loading::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 0.25rem solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: shop-button-loading-spinner 1s ease infinite;
+}
+
+@keyframes shop-button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
 
 .shop-sidebar-catalog-btn:hover, .shop-btn:hover {
     opacity: 0.8;

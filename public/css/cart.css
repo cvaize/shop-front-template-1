@@ -165,6 +165,10 @@ a.shop-cart-product-name:hover {
     color: rgb(var(--shop-app-color));
 }
 
+.shop-cart-product-count-minus-submit:disabled, .shop-cart-product-count-plus-submit:disabled {
+    opacity: 1;
+}
+
 .shop-cart-product-count-minus-submit {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
