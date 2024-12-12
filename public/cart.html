@@ -16,16 +16,17 @@
             errorText: 'Тестовый текст ошибки',
             couponErrorText: 'Тестовый текст ошибки',
             productCount: 4,
-            totalWeight: '4 товара • 1.01 кг',
+            totalWeight: '4 товара • 1.20 кг',
             totalItems: [
-                {label: 'Товары (4)', value: '4 000 руб.', accent: false},
-                {label: 'Скидка', value: '- 500 руб.', accent: true},
+                {label: 'Товары (4)', value: '5 000 руб.', accent: false},
+                {label: 'Скидка', value: '- 1 000 руб.', accent: true},
                 {label: 'Купон AWD213', value: '- 400 руб.', accent: true},
             ],
-            totalPrice: '3 100 руб.',
+            totalPrice: '3 600 руб.',
             items: [
                 {
-                    id: '1',
+                    id: '10',
+                    productId: '100',
                     productLink: './product.html',
                     favoriteLink: './favorite.html',
                     deleteLink: './cart.html',
@@ -40,6 +41,7 @@
                     },
                     price: '1 000 руб.',
                     oldPrice: '',
+                    weight: '300',
                     count: '1',
                     minCount: '1',
                     maxCount: '10',
@@ -49,7 +51,8 @@
                     favorite: true
                 },
                 {
-                    id: '2',
+                    id: '20',
+                    productId: '200',
                     productLink: './product.html',
                     favoriteLink: './favorite.html',
                     deleteLink: './cart.html',
@@ -63,7 +66,8 @@
                         ]
                     },
                     price: '1 000 руб.',
-                    oldPrice: '1 525 руб.',
+                    oldPrice: '1 500 руб.',
+                    weight: '300',
                     count: '1',
                     minCount: '1',
                     maxCount: '10',
@@ -73,7 +77,8 @@
                     favorite: false
                 },
                 {
-                    id: '3',
+                    id: '30',
+                    productId: '300',
                     productLink: './product.html',
                     favoriteLink: './favorite.html',
                     deleteLink: './cart.html',
@@ -88,6 +93,7 @@
                     },
                     price: '1 000 руб.',
                     oldPrice: '',
+                    weight: '300',
                     count: '1',
                     minCount: '1',
                     maxCount: '10',
@@ -97,7 +103,8 @@
                     favorite: true
                 },
                 {
-                    id: '4',
+                    id: '40',
+                    productId: '400',
                     productLink: './product.html',
                     favoriteLink: './favorite.html',
                     deleteLink: './cart.html',
@@ -111,7 +118,8 @@
                         ]
                     },
                     price: '1 000 руб.',
-                    oldPrice: '1 525 руб.',
+                    oldPrice: '1 500 руб.',
+                    weight: '300',
                     count: '1',
                     minCount: '1',
                     maxCount: '10',
@@ -956,6 +964,7 @@
         <div class="shop-container">
             <br>
             <div class="shop-cart">
+                <form id="shop-cart-form" class="shop-cart-form" action="/public/cart.html" method="post"></form>
                 <div class="shop-cart-header">
                     <h1 class="shop-h1 shop-cart-set-content-is-empty" data-empty-content="Корзина пуста">Корзина</h1>
                     <div class="shop-cart-header-products-count shop-cart-hide-is-empty">
@@ -970,7 +979,7 @@
                 </a>
                 <div class="shop-cart-container">
                     <div class="shop-cart-cards">
-                        <form action="/" class="shop-cart-selecting-card shop-cart-card">
+                        <div class="shop-cart-selecting-card shop-cart-card">
                             <input class="shop-form-checkbox shop-cart-selecting-checkbox" type="checkbox" id="shop-cart-selecting-checkbox" hidden>
                             <label class="shop-cart-selecting-checkbox-label shop-form-checkbox-label"
                                    for="shop-cart-selecting-checkbox">
@@ -980,19 +989,20 @@
                                 </svg>
                                 Выбрать все
                             </label>
-                            <button class="shop-cart-delete-selecting-submit shop-btn" type="submit">
+                            <button class="shop-cart-remove-selecting-submit shop-btn" type="submit" form="shop-cart-form" name="action" value="remove-selected">
                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                      viewBox="0 0 24 24">
                                     <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
                                 </svg>
                                 Удалить выбранные
                             </button>
-                        </form>
-                        <div class="shop-cart-card shop-cart-products">
-                            <div class="shop-cart-product" data-cart-product-id="1">
-                                <div class="shop-cart-product-checkbox-wrapper">
-                                    <input class="shop-form-checkbox shop-cart-product-checkbox" type="checkbox"
-                                           id="shop-cart-selecting-checkbox-11" hidden>
+                        </div>
+                        <div class="shop-cart-card shop-cart-items">
+                            <div class="shop-cart-item" data-cart-item-id="11">
+                                <input type="hidden" form="shop-cart-form" name="items[11][id]" value="11" hidden>
+                                <div class="shop-cart-item-checkbox-wrapper">
+                                    <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
+                                           id="shop-cart-selecting-checkbox-11" form="shop-cart-form" name="items[11][selected]" value="11" hidden>
                                     <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-11">
                                         <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                                              width="24"
@@ -1001,28 +1011,28 @@
                                         </svg>
                                     </label>
                                 </div>
-                                <a href="#" class="shop-cart-product-image-wrapper">
-                                    <picture class="shop-cart-product-image-picture">
-                                        <img class="shop-cart-product-image" src="./svg/300x300.svg" alt="Product 1">
+                                <a href="#" class="shop-cart-item-image-wrapper">
+                                    <picture class="shop-cart-item-image-picture">
+                                        <img class="shop-cart-item-image" src="./svg/300x300.svg" alt="Product 1">
                                     </picture>
                                 </a>
-                                <div class="shop-cart-product-content-wrapper">
-                                    <a href="#" class="shop-cart-product-name">
+                                <div class="shop-cart-item-content-wrapper">
+                                    <a href="#" class="shop-cart-item-name">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid
                                         cupiditate dolor doloribus eius ex fugiat
                                     </a>
-                                    <div class="shop-cart-product-characteristics">
+                                    <div class="shop-cart-item-characteristics">
                                         цвет белый, прозрачный; размер 44-46;
                                     </div>
                                 </div>
-                                <div class="shop-cart-product-price-wrapper">
-                                    <div class="shop-cart-product-prices">
-                                        <div class="shop-cart-product-price">501 руб.</div>
-                                        <div class="shop-cart-product-old-price" style="display: none">1 525 руб.</div>
+                                <div class="shop-cart-item-price-wrapper">
+                                    <div class="shop-cart-item-prices">
+                                        <div class="shop-cart-item-price">501 руб.</div>
+                                        <div class="shop-cart-item-old-price" style="display: none">1 525 руб.</div>
                                     </div>
-                                    <div class="shop-cart-product-count-wrapper">
-                                        <form class="shop-cart-product-count-minus-form" action="/minus">
-                                            <button class="shop-cart-product-count-minus-submit shop-btn" type="submit"
+                                    <div class="shop-cart-item-count-wrapper">
+                                        <form class="shop-cart-item-count-minus-form" action="/minus">
+                                            <button class="shop-cart-item-count-minus-submit shop-btn" type="submit"
                                                     disabled>
                                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                                      height="24" viewBox="0 0 24 24">
@@ -1030,14 +1040,14 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <form class="shop-cart-product-count-count-form" action="/count">
-                                            <label class="shop-cart-product-count-count-label">
-                                                <input class="shop-cart-product-count-count-input" type="number" min="1"
+                                        <form class="shop-cart-item-count-count-form" action="/count">
+                                            <label class="shop-cart-item-count-count-label">
+                                                <input class="shop-cart-item-count-count-input" type="number" min="1"
                                                        max="100" value="1">
                                             </label>
                                         </form>
-                                        <form class="shop-cart-product-count-plus-form" action="/plus">
-                                            <button class="shop-cart-product-count-plus-submit shop-btn" type="submit">
+                                        <form class="shop-cart-item-count-plus-form" action="/plus">
+                                            <button class="shop-cart-item-count-plus-submit shop-btn" type="submit">
                                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                                      height="24" viewBox="0 0 24 24">
                                                     <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
@@ -1046,11 +1056,11 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="shop-cart-product-actions">
-                                    <form class="shop-cart-product-favorite" action="/favorite">
-                                        <button class="shop-cart-product-favorite-btn shop-btn shop-active"
+                                <div class="shop-cart-item-actions">
+                                    <form class="shop-cart-item-favorite" action="/favorite">
+                                        <button class="shop-cart-item-favorite-btn shop-btn shop-active"
                                                 type="submit">
-                                            <svg class="shop-cart-product-favorite-icon shop-icon-svg"
+                                            <svg class="shop-cart-item-favorite-icon shop-icon-svg"
                                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24">
                                                 <path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
@@ -1059,8 +1069,8 @@
                                             </svg>
                                         </button>
                                     </form>
-                                    <form class="shop-cart-product-delete" action="/delete">
-                                        <button class="shop-cart-product-delete-btn shop-btn" type="submit">
+                                    <form class="shop-cart-item-delete" action="/delete">
+                                        <button class="shop-cart-item-delete-btn shop-btn" type="submit">
                                             <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                                  height="24" viewBox="0 0 24 24">
                                                 <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
@@ -1069,11 +1079,12 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="shop-cart-product" data-cart-product-id="2">
-                                <div class="shop-cart-product-checkbox-wrapper">
-                                    <input class="shop-form-checkbox shop-cart-product-checkbox" type="checkbox"
-                                           id="shop-cart-selecting-checkbox-1" hidden>
-                                    <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-1">
+                            <div class="shop-cart-item" data-cart-item-id="22">
+                                <input type="hidden" form="shop-cart-form" name="items[22][id]" value="22" hidden>
+                                <div class="shop-cart-item-checkbox-wrapper">
+                                    <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
+                                           id="shop-cart-selecting-checkbox-22" form="shop-cart-form" name="items[22][selected]" value="22" hidden>
+                                    <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-22">
                                         <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                                              width="24"
                                              height="24" viewBox="0 0 24 24">
@@ -1081,26 +1092,26 @@
                                         </svg>
                                     </label>
                                 </div>
-                                <a href="#" class="shop-cart-product-image-wrapper">
-                                    <picture class="shop-cart-product-image-picture">
-                                        <img class="shop-cart-product-image" src="./svg/300x300_2.svg" alt="Product 2">
+                                <a href="#" class="shop-cart-item-image-wrapper">
+                                    <picture class="shop-cart-item-image-picture">
+                                        <img class="shop-cart-item-image" src="./svg/300x300_2.svg" alt="Product 2">
                                     </picture>
                                 </a>
-                                <div class="shop-cart-product-content-wrapper">
-                                    <a href="#" class="shop-cart-product-name">
+                                <div class="shop-cart-item-content-wrapper">
+                                    <a href="#" class="shop-cart-item-name">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid
                                         cupiditate dolor doloribus eius ex fugiat
                                     </a>
-                                    <div class="shop-cart-product-characteristics"></div>
+                                    <div class="shop-cart-item-characteristics"></div>
                                 </div>
-                                <div class="shop-cart-product-price-wrapper">
-                                    <div class="shop-cart-product-prices">
-                                        <div class="shop-cart-product-price">501 руб.</div>
-                                        <div class="shop-cart-product-old-price">1 525 руб.</div>
+                                <div class="shop-cart-item-price-wrapper">
+                                    <div class="shop-cart-item-prices">
+                                        <div class="shop-cart-item-price">501 руб.</div>
+                                        <div class="shop-cart-item-old-price">1 525 руб.</div>
                                     </div>
-                                    <div class="shop-cart-product-count-wrapper">
-                                        <form class="shop-cart-product-count-minus-form" action="/minus">
-                                            <button class="shop-cart-product-count-minus-submit shop-btn" type="submit"
+                                    <div class="shop-cart-item-count-wrapper">
+                                        <form class="shop-cart-item-count-minus-form" action="/minus">
+                                            <button class="shop-cart-item-count-minus-submit shop-btn" type="submit"
                                                     disabled>
                                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                                      height="24" viewBox="0 0 24 24">
@@ -1108,14 +1119,14 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <form class="shop-cart-product-count-count-form" action="/count">
-                                            <label class="shop-cart-product-count-count-label">
-                                                <input class="shop-cart-product-count-count-input" type="number" min="1"
+                                        <form class="shop-cart-item-count-count-form" action="/count">
+                                            <label class="shop-cart-item-count-count-label">
+                                                <input class="shop-cart-item-count-count-input" type="number" min="1"
                                                        max="100" value="1">
                                             </label>
                                         </form>
-                                        <form class="shop-cart-product-count-plus-form" action="/plus">
-                                            <button class="shop-cart-product-count-plus-submit shop-btn" type="submit">
+                                        <form class="shop-cart-item-count-plus-form" action="/plus">
+                                            <button class="shop-cart-item-count-plus-submit shop-btn" type="submit">
                                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                                      height="24" viewBox="0 0 24 24">
                                                     <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
@@ -1124,10 +1135,10 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="shop-cart-product-actions">
-                                    <form class="shop-cart-product-favorite" action="/favorite">
-                                        <button class="shop-cart-product-favorite-btn shop-btn" type="submit">
-                                            <svg class="shop-cart-product-favorite-icon shop-icon-svg"
+                                <div class="shop-cart-item-actions">
+                                    <form class="shop-cart-item-favorite" action="/favorite">
+                                        <button class="shop-cart-item-favorite-btn shop-btn" type="submit">
+                                            <svg class="shop-cart-item-favorite-icon shop-icon-svg"
                                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24">
                                                 <path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
@@ -1136,8 +1147,8 @@
                                             </svg>
                                         </button>
                                     </form>
-                                    <form class="shop-cart-product-delete" action="/delete">
-                                        <button class="shop-cart-product-delete-btn shop-btn" type="submit">
+                                    <form class="shop-cart-item-delete" action="/delete">
+                                        <button class="shop-cart-item-delete-btn shop-btn" type="submit">
                                             <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                                  height="24" viewBox="0 0 24 24">
                                                 <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
@@ -1214,7 +1225,7 @@
                                 <label class="shop-cart-coupons-label" for="shop-cart-coupons-input">
                                     Промокод
                                 </label>
-                                <button type="submit" class="shop-cart-sidebar-coupons-submit shop-btn">
+                                <button type="submit" class="shop-cart-sidebar-coupons-submit shop-btn shop-btn-square">
                                     <svg class="shop-cart-sidebar-coupons-submit-icon shop-icon-svg"
                                          xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                         <path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59a.996.996 0 0 0 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>

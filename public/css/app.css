@@ -499,7 +499,7 @@ button, select {
     border-radius: 0.4rem;
     font-size: 1rem;
     padding: 0.4rem 1rem 0.5rem 1rem;
-    color: inherit;
+    color: rgb(var(--shop-app-color));
     background-color: rgb(var(--shop-app-light-background-color));
     cursor: pointer;
     opacity: 1;
@@ -554,8 +554,24 @@ button, select {
     opacity: 0;
 }
 
-.shop-btn.shop-loading::after {
+.shop-btn.shop-loading:not(.shop-btn-square) > .shop-icon-svg:first-child {
+    display: none;
+}
+
+.shop-btn.shop-loading::before {
     content: "";
+    display: inline-block;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    margin: -0.2rem 0.2rem -0.2rem 0;
+    border: 0.25rem solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: shop-button-loading-spinner 1s ease infinite;
+}
+
+.shop-btn.shop-btn-square.shop-loading::before {
     position: absolute;
     width: 1rem;
     height: 1rem;
@@ -564,10 +580,6 @@ button, select {
     right: 0;
     bottom: 0;
     margin: auto;
-    border: 0.25rem solid transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    animation: shop-button-loading-spinner 1s ease infinite;
 }
 
 @keyframes shop-button-loading-spinner {
