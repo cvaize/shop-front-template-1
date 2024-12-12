@@ -43,7 +43,45 @@
     let cartCouponsError;
     let cartProducts;
     let cartProductHtml;
+    let cartSelectingCheckbox;
 
+    function handleChangeAllSelecting(event) {
+        let inputs = cart.querySelectorAll('.shop-cart-product-checkbox');
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].checked = cartSelectingCheckbox.checked;
+        }
+    }
+
+    function handleChangeSelecting(event) {
+        let inputs = cart.querySelectorAll('.shop-cart-product-checkbox');
+        let checked = true;
+        for (let i = 0; i < inputs.length; i++) {
+            if (!inputs[i].checked) {
+                checked = false;
+            }
+        }
+        cartSelectingCheckbox.checked = inputs.length > 0 && checked;
+    }
+
+    function onSelecting() {
+        cartSelectingCheckbox.addEventListener('change', handleChangeAllSelecting);
+        let inputs = cart.querySelectorAll('.shop-cart-product-checkbox');
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('change', handleChangeSelecting);
+        }
+    }
+
+    function offSelecting() {
+        cartSelectingCheckbox.removeEventListener('change', handleChangeAllSelecting);
+        let inputs = cart.querySelectorAll('.shop-cart-product-checkbox');
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].removeEventListener('change', handleChangeSelecting);
+        }
+    }
+
+    function renderSelecting() {
+        handleChangeSelecting();
+    }
 
     function renderSidebar() {
         if (cartSubmitBtn) cartSubmitBtn.disabled = !shopCartData.allowedSubmit;
@@ -76,15 +114,27 @@
 
     function renderItems() {
         if (cartProductHtml) {
+            let checkboxes = {}
+            let products = cart.querySelectorAll('.shop-cart-product');
+
+            for (let i = 0; i < products.length; i++) {
+                let id = String(products[i].getAttribute('data-cart-product-id') || '').trim();
+                if (id) {
+                    let checkbox = products[i].querySelector('.shop-cart-product-checkbox');
+                    checkboxes[id] = checkbox != null && checkbox.checked === true;
+                }
+            }
 
             let html = '';
             for (let i = 0; i < shopCartData.items.length; i++) {
                 let t = shopCartData.items[i];
+                let id = String(t.id || '').trim();
+                let checked = checkboxes[id] === true;
                 html += `
 <div class="shop-cart-product" data-cart-product-id="${t.id}">
     <div class="shop-cart-product-checkbox-wrapper">
-        <input class="shop-form-checkbox" type="checkbox"
-               id="shop-cart-selecting-checkbox-${t.id}" hidden>
+        <input class="shop-form-checkbox shop-cart-product-checkbox" type="checkbox"
+               id="shop-cart-selecting-checkbox-${t.id}" hidden ${checked ? 'checked' : ''}>
         <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-${t.id}">
             <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                  width="24"
@@ -95,7 +145,9 @@
     </div>
     <a href="${t.productLink}" class="shop-cart-product-image-wrapper">
         <picture class="shop-cart-product-image-picture">
-${(t.picture.sources || []).reduce(function (prev, cur) {return prev + `<source srcset="${cur.srcset}" media="${cur.media}" type="${cur.type}">`}, '')}
+${(t.picture.sources || []).reduce(function (prev, cur) {
+                    return prev + `<source srcset="${cur.srcset}" media="${cur.media}" type="${cur.type}">`
+                }, '')}
             <img class="shop-cart-product-image" src="${t.picture.src}" alt="${t.picture.alt}">
         </picture>
     </a>
@@ -110,7 +162,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {return prev + `<source 
     <div class="shop-cart-product-price-wrapper">
         <div class="shop-cart-product-prices">
             <div class="shop-cart-product-price">${t.price}</div>
-            <div class="shop-cart-product-old-price" style="${t.oldPrice?'':'display: none'}">${t.oldPrice}</div>
+            <div class="shop-cart-product-old-price" style="${t.oldPrice ? '' : 'display: none'}">${t.oldPrice}</div>
         </div>
         <div class="shop-cart-product-count-wrapper">
             <form class="shop-cart-product-count-minus-form" action="${t.minusLink}">
@@ -139,7 +191,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {return prev + `<source 
     </div>
     <div class="shop-cart-product-actions">
         <form class="shop-cart-product-favorite" action="${t.favoriteLink}">
-            <button class="shop-cart-product-favorite-btn shop-btn${t.favorite?' shop-active':''}"
+            <button class="shop-cart-product-favorite-btn shop-btn${t.favorite ? ' shop-active' : ''}"
                     type="submit">
                 <svg class="shop-cart-product-favorite-icon shop-icon-svg"
                      xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -161,17 +213,17 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {return prev + `<source 
     </div>
 </div>`;
             }
-            requestAnimationFrame(function (){
-                console.log(cartProducts.children[3])
-            });
 
             cartProducts.innerHTML = html;
         }
     }
 
     function renderCart() {
+        offSelecting();
         renderSidebar();
         renderItems();
+        renderSelecting();
+        onSelecting();
     }
 
     function uploadCoupon(coupon) {
@@ -251,6 +303,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {return prev + `<source 
         cartCouponsBtn = cart.querySelector('.shop-cart-sidebar-coupons-submit');
         cartCouponsError = cart.querySelector('.shop-cart-sidebar-coupons-wrapper .shop-cart-sidebar-error');
         cartProducts = cart.querySelector('.shop-cart-products');
+        cartSelectingCheckbox = cart.querySelector('.shop-cart-selecting-checkbox');
         let cartProduct = cart.querySelector('.shop-cart-product');
         cartProductHtml = cartProduct ? cartProduct.outerHTML : '';
 
