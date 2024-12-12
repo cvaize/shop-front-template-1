@@ -32,6 +32,7 @@
      */
     let shopCartData = window.ShopCartData;
     let cart;
+    let cartH1;
     let cartHeaderProductsCount;
     let cartForm;
     let cartSubmitBtn;
@@ -45,7 +46,6 @@
     let cartCouponsBtn;
     let cartCouponsError;
     let cartProducts;
-    let cartProductHtml;
     let cartSelectingCheckbox;
 
     /**
@@ -126,41 +126,16 @@
         }
     }
 
-    function renderItems() {
-        if(cartHeaderProductsCount){
-            let totalCount = 0;
-
-            for (let i = 0; i < shopCartData.items.length; i++) {
-                let item = shopCartData.items[i];
-                totalCount += Number(item.count);
-            }
-
-            cartHeaderProductsCount.innerText = pluralize(totalCount, ['товар', 'товара', 'товаров']);
-        }
-        if (cartProductHtml) {
-            let checkboxes = {}
-            let items = cart.querySelectorAll('.shop-cart-item');
-
-            for (let i = 0; i < items.length; i++) {
-                let id = String(items[i].getAttribute('data-cart-item-id') || '').trim();
-                if (id) {
-                    let checkbox = items[i].querySelector('.shop-cart-item-checkbox');
-                    checkboxes[id] = checkbox != null && checkbox.checked === true;
-                }
-            }
-
-            let html = '';
-            for (let i = 0; i < shopCartData.items.length; i++) {
-                let t = shopCartData.items[i];
-                let id = String(t.id || '').trim();
-                let checked = checkboxes[id] === true;
-                html += `
-<div class="shop-cart-item" data-cart-item-id="${t.id}">
-    <input type="hidden" form="shop-cart-form" name="items[${t.id}][id]" value="${t.id}" hidden>
+    function makeCartItem(t){
+        let id = String(t.id || '').trim();
+        let checked = t.checked === true;
+        return `
+<div class="shop-cart-item" data-cart-item-id="${id}">
+    <input type="hidden" form="shop-cart-form" name="items[${id}][id]" value="${id}" hidden>
     <div class="shop-cart-item-checkbox-wrapper">
         <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
-               id="shop-cart-selecting-checkbox-${t.id}" hidden ${checked ? 'checked' : ''} form="shop-cart-form" name="items[${t.id}][selected]" value="${t.id}">
-        <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-${t.id}">
+               id="shop-cart-selecting-checkbox-${id}" hidden ${checked ? 'checked' : ''} form="shop-cart-form" name="items[${id}][selected]" value="${id}">
+        <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-${id}">
             <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24" viewBox="0 0 24 24">
@@ -171,8 +146,8 @@
     <a href="${t.productLink}" class="shop-cart-item-image-wrapper">
         <picture class="shop-cart-item-image-picture">
 ${(t.picture.sources || []).reduce(function (prev, cur) {
-                    return prev + `<source srcset="${cur.srcset}" media="${cur.media}" type="${cur.type}">`
-                }, '')}
+            return prev + `<source srcset="${cur.srcset}" media="${cur.media}" type="${cur.type}">`
+        }, '')}
             <img class="shop-cart-item-image" src="${t.picture.src}" alt="${t.picture.alt}">
         </picture>
     </a>
@@ -237,10 +212,41 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         </form>
     </div>
 </div>`;
+    }
+
+    function renderItems() {
+        if(cartHeaderProductsCount){
+            let totalCount = 0;
+
+            for (let i = 0; i < shopCartData.items.length; i++) {
+                let item = shopCartData.items[i];
+                totalCount += Number(item.count);
             }
 
-            cartProducts.innerHTML = html;
+            cartHeaderProductsCount.innerText = pluralize(totalCount, ['товар', 'товара', 'товаров']);
         }
+        let checkboxes = {}
+        let items = cart.querySelectorAll('.shop-cart-item');
+
+        for (let i = 0; i < items.length; i++) {
+            let id = String(items[i].getAttribute('data-cart-item-id') || '').trim();
+            if (id) {
+                let checkbox = items[i].querySelector('.shop-cart-item-checkbox');
+                checkboxes[id] = checkbox != null && checkbox.checked === true;
+            }
+        }
+
+        let html = '';
+        for (let i = 0; i < shopCartData.items.length; i++) {
+            let t = shopCartData.items[i];
+
+            let id = String(t.id || '').trim();
+            t.checked = checkboxes[id] === true;
+
+            html += makeCartItem(t);
+        }
+
+        cartProducts.innerHTML = html;
     }
 
     function renderCart() {
@@ -440,6 +446,70 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         }
     }
 
+    function addTestingCartItem () {
+        let id = String(Math.round(Math.random() * 10e6));
+        let price = Math.round(Math.random() * 10e4);
+        let oldPrice = price + Math.round(Math.random() * 10e3);
+        let weight = String(Math.round(Math.random() * 10e2));
+        if (Math.random() > 0.5) {
+            shopCartData.items.push({
+                id: id,
+                productId: `${id}1`,
+                productLink: './product.html',
+                favoriteLink: './favorite.html',
+                deleteLink: './cart.html',
+                name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid cupiditate dolor doloribus eius ex fugiat',
+                characteristics: 'цвет белый, прозрачный; размер 44-46;',
+                picture: {
+                    src: './svg/300x300.svg',
+                    alt: 'Product 1',
+                    sources: [
+                        {srcset: './svg/300x300.svg', media: '', type: 'image/svg+xml'}
+                    ]
+                },
+                price: `${price.toLocaleString()} руб.`,
+                oldPrice: '',
+                weight,
+                count: '1',
+                minCount: '1',
+                maxCount: '10',
+                minusLink: '#',
+                setCountLink: '#',
+                plusLink: '#',
+                favorite: true
+            });
+        }else{
+            shopCartData.items.push({
+                id: id,
+                productId: `${id}2`,
+                productLink: './product.html',
+                favoriteLink: './favorite.html',
+                deleteLink: './cart.html',
+                name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
+                characteristics: 'цвет белый, прозрачный; размер 44-46;',
+                picture: {
+                    src: './svg/300x300_2.svg',
+                    alt: 'Product 2',
+                    sources: [
+                        {srcset: './svg/300x300_2.svg', media: '', type: 'image/svg+xml'}
+                    ]
+                },
+                price: `${price.toLocaleString()} руб.`,
+                oldPrice: `${oldPrice.toLocaleString()} руб.`,
+                weight,
+                count: '1',
+                minCount: '1',
+                maxCount: '10',
+                minusLink: '#',
+                setCountLink: '#',
+                plusLink: '#',
+                favorite: false
+            });
+        }
+        calculateTotal();
+        renderCart();
+    }
+
     function destroy() {
         if (cartCouponsForm) {
             cartCouponsForm.removeEventListener('submit', couponSubmit);
@@ -447,6 +517,10 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
 
         if (cartForm) {
             cartForm.removeEventListener('submit', submitForm);
+        }
+
+        if (cartH1) {
+            cartH1.removeEventListener('click', addTestingCartItem);
         }
     }
 
@@ -459,6 +533,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         }
 
         cartForm = cart.querySelector('.shop-cart-form');
+        cartH1 = cart.querySelector('.shop-cart-header .shop-h1');
         cartHeaderProductsCount = cart.querySelector('.shop-cart-header-products-count');
         cartSubmitBtn = cart.querySelector('.shop-cart-sidebar-submit');
         cartRemoveSelectingBtn = cart.querySelector('.shop-cart-remove-selecting-submit');
@@ -472,8 +547,6 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         cartCouponsError = cart.querySelector('.shop-cart-sidebar-coupons-wrapper .shop-cart-sidebar-error');
         cartProducts = cart.querySelector('.shop-cart-items');
         cartSelectingCheckbox = cart.querySelector('.shop-cart-selecting-checkbox');
-        let cartProduct = cart.querySelector('.shop-cart-item');
-        cartProductHtml = cartProduct ? cartProduct.outerHTML : '';
 
         if (cartCouponsForm && cartCouponsInput && cartCouponsError) {
             cartCouponsForm.addEventListener('submit', couponSubmit);
@@ -481,6 +554,10 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
 
         if (cartForm) {
             cartForm.addEventListener('submit', submitForm);
+        }
+
+        if (cartH1) {
+            cartH1.addEventListener('click', addTestingCartItem);
         }
 
         calculateTotal();
