@@ -449,8 +449,10 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
     }
 
 
-    function couponSubmit(values) {
-        let value = String(values.coupon || '').trim();
+    function couponSubmit(event) {
+        event && event.preventDefault();
+
+        let value = String(cartCouponsInput.value || '').trim();
         if (value) {
             submittingCoupon();
             couponUpload(value).then(function (data) {
@@ -783,8 +785,6 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             oneMinus(values);
         } else if (values.action && values.action.startsWith('plus-')) {
             onePlus(values);
-        } else if (values.action === 'set-coupon') {
-            couponSubmit(values);
         } else {
             setCount(values);
         }
@@ -861,9 +861,9 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
     }
 
     function destroy() {
-        // if (cartCouponsForm) {
-        //     cartCouponsForm.removeEventListener('submit', couponSubmit);
-        // }
+        if (cartCouponsForm) {
+            cartCouponsForm.removeEventListener('submit', couponSubmit);
+        }
 
         if (cartForm) {
             cartForm.removeEventListener('submit', submitForm);
@@ -892,7 +892,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         cartSidebarTotalWeight = cart.querySelector('.shop-cart-sidebar-total-weight');
         cartSidebarBody = cart.querySelector('.shop-cart-sidebar-wrapper .shop-cart-sidebar-body');
         cartSidebarTotalPriceValue = cart.querySelector('.shop-cart-sidebar-total-price-value');
-        cartCouponsForm = cart.querySelector('.shop-cart-coupons');
+        cartCouponsForm = cart.querySelector('.shop-cart-coupons-form');
         cartCouponsInput = cart.querySelector('.shop-cart-coupons-input');
         cartCouponsBtn = cart.querySelector('.shop-cart-sidebar-coupons-submit');
         cartCouponsError = cart.querySelector('.shop-cart-sidebar-coupons-wrapper .shop-cart-sidebar-error');
@@ -902,9 +902,9 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         cartShowIsEmptyElements = cart.querySelectorAll('.shop-cart-show-is-empty');
         cartHideIsEmptyElements = cart.querySelectorAll('.shop-cart-hide-is-empty');
 
-        // if (cartCouponsForm && cartCouponsInput && cartCouponsError) {
-        //     cartCouponsForm.addEventListener('submit', couponSubmit);
-        // }
+        if (cartCouponsForm && cartCouponsInput && cartCouponsError) {
+            cartCouponsForm.addEventListener('submit', couponSubmit);
+        }
 
         if (cartForm) {
             cartForm.addEventListener('submit', submitForm);
