@@ -168,28 +168,30 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             <div class="shop-cart-item-old-price" style="${t.oldPrice ? '' : 'display: none'}">${t.oldPrice}</div>
         </div>
         <div class="shop-cart-item-count-wrapper">
-            <form class="shop-cart-item-count-minus-form" action="${t.minusLink}">
-                <button class="shop-cart-item-count-minus-submit shop-btn" type="submit" ${t.count <= t.minCount ? 'disabled' : ''}>
+            <div class="shop-cart-item-count-minus">
+                <button class="shop-cart-item-count-minus-submit shop-btn" type="submit" ${Number(t.count) <= Number(t.minCount) ? 'disabled' : ''} 
+                form="shop-cart-form" name="action" value="minus-${id}">
                     <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                     </svg>
                 </button>
-            </form>
+            </div>
             <form class="shop-cart-item-count-count-form" action="${t.setCountLink}">
                 <label class="shop-cart-item-count-count-label">
                     <input class="shop-cart-item-count-count-input" type="number" min="${t.minCount}"
                            max="${t.maxCount}" value="${t.count}">
                 </label>
             </form>
-            <form class="shop-cart-item-count-plus-form" action="${t.plusLink}">
-                <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" ${t.count >= t.maxCount ? 'disabled' : ''}>
+            <div class="shop-cart-item-count-plus">
+                <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" ${Number(t.count) >= Number(t.maxCount) ? 'disabled' : ''}
+                form="shop-cart-form" name="action" value="plus-${id}">
                     <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                     </svg>
                 </button>
-            </form>
+            </div>
         </div>
     </div>
     <div class="shop-cart-item-actions">
@@ -339,8 +341,9 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             totalWeight += (count * Number(item.weight));
             let oldPrice = Number.parseFloat(String(item.oldPrice || item.price).replace(/[^\d.-]/g, ''));
             let price = Number.parseFloat(String(item.price).replace(/[^\d.-]/g, ''));
-            let fullPrice = oldPrice || price;
-            totalFullSale += oldPrice - price;
+            let fullPrice = (oldPrice || price) * count;
+            let sale = (oldPrice - price) * count;
+            totalFullSale += sale;
             totalFullPrice += fullPrice;
         }
         totalWeight = (totalWeight / 1000).toFixed(2);
@@ -396,7 +399,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                     shopCartData.couponErrorText = `Тестовая ошибка купона "${coupon}".`;
                     reject(shopCartData);
                 }
-            }, 3000);
+            }, 1000);
         });
     }
 
@@ -583,6 +586,96 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
+    function oneMinusUpload(values) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                let id = values.action.split('-')[1];
+
+                for (let i = 0; i < shopCartData.items.length; i++) {
+                    if (String(shopCartData.items[i].id) === id) {
+                        let count = Number(shopCartData.items[i].count) - 1;
+                        if(count >= Number(shopCartData.items[i].minCount)){
+                            shopCartData.items[i].count = String(count);
+                        }
+                    }
+                }
+
+                calculateTotal();
+                resolve(shopCartData);
+            }, 1000);
+        });
+    }
+
+    function submittingOneMinus(values) {
+        let buttons = cart.querySelectorAll(`.shop-cart-item-count-minus-submit[value="${values.action}"]`);
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.add('shop-loading');
+        }
+    }
+
+    function submittedOneMinus(data, values) {
+        shopCartData = data;
+        let buttons = cart.querySelectorAll(`.shop-cart-item-count-minus-submit[value="${values.action}"]`);
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('shop-loading');
+        }
+        renderCart();
+    }
+
+    function oneMinus(values) {
+        submittingOneMinus(values);
+        oneMinusUpload(values).then(function (data) {
+            submittedOneMinus(data, values);
+        }).catch(function (data) {
+            submittedOneMinus(data, values);
+        });
+    }
+
+    function onePlusUpload(values) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                let id = values.action.split('-')[1];
+
+                for (let i = 0; i < shopCartData.items.length; i++) {
+                    if (String(shopCartData.items[i].id) === id) {
+                        let count = Number(shopCartData.items[i].count) + 1;
+                        if(count <= Number(shopCartData.items[i].maxCount)) {
+                            shopCartData.items[i].count = String(count);
+                        }
+                    }
+                }
+
+                calculateTotal();
+                resolve(shopCartData);
+            }, 1000);
+        });
+    }
+
+    function submittingOnePlus(values) {
+        let buttons = cart.querySelectorAll(`.shop-cart-item-count-plus-submit[value="${values.action}"]`);
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.add('shop-loading');
+        }
+    }
+
+    function submittedOnePlus(data, values) {
+        shopCartData = data;
+        let buttons = cart.querySelectorAll(`.shop-cart-item-count-plus-submit[value="${values.action}"]`);
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('shop-loading');
+        }
+        renderCart();
+    }
+
+    function onePlus(values) {
+        submittingOnePlus(values);
+        onePlusUpload(values).then(function (data) {
+            submittedOnePlus(data, values);
+        }).catch(function (data) {
+            submittedOnePlus(data, values);
+        });
+    }
+
     function submitForm(event) {
         event && event.preventDefault();
 
@@ -627,6 +720,14 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
 
         if (values.action && values.action.startsWith('favorite-')) {
             oneFavorite(values);
+        }
+
+        if (values.action && values.action.startsWith('minus-')) {
+            oneMinus(values);
+        }
+
+        if (values.action && values.action.startsWith('plus-')) {
+            onePlus(values);
         }
     }
 

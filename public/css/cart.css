@@ -152,7 +152,7 @@ a.shop-cart-item-name:hover {
     margin-top: 2rem;
 }
 
-.shop-cart-item-count-minus-form {
+.shop-cart-item-count-minus {
     display: block;
 }
 
@@ -214,7 +214,7 @@ a.shop-cart-item-name:hover {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-.shop-cart-item-count-plus-form {
+.shop-cart-item-count-plus {
     display: block;
 }
 
