@@ -179,15 +179,56 @@ a.shop-cart-item-name:hover {
     color: rgba(var(--shop-app-color), 0.5);
 }
 
-.shop-cart-item-count-count-form {
+.shop-cart-item-count {
     display: block;
 }
 
-.shop-cart-item-count-count-label {
+.shop-cart-item-count-label {
     display: block;
+    position: relative;
 }
 
-.shop-cart-item-count-count-input {
+.shop-cart-item-count-label.shop-loading {
+    pointer-events: none;
+    user-select: none;
+}
+
+.shop-cart-item-count-label.shop-loading .shop-cart-item-count-input {
+    pointer-events: none;
+    user-select: none;
+    color: transparent;
+}
+
+.shop-cart-item-count-label.shop-loading::before {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: inline-block;
+    border: 0.25rem solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: shop-cart-item-count-label-loading-spinner 1s ease infinite;
+}
+
+@keyframes shop-cart-item-count-label-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+
+
+.shop-cart-item-count-input {
     -moz-appearance: textfield;
     font-size: 1rem;
     font-weight: 700;
@@ -201,14 +242,14 @@ a.shop-cart-item-name:hover {
     outline: none;
 }
 
-.shop-cart-item-count-count-input:hover,
-.shop-cart-item-count-count-input:focus {
+.shop-cart-item-count-input:hover,
+.shop-cart-item-count-input:focus {
     /*noinspection CssInvalidPropertyValue*/
     -moz-appearance: number-input;
 }
 
-.shop-cart-item-count-count-input::-webkit-outer-spin-button,
-.shop-cart-item-count-count-input::-webkit-inner-spin-button {
+.shop-cart-item-count-input::-webkit-outer-spin-button,
+.shop-cart-item-count-input::-webkit-inner-spin-button {
     display: none;
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
@@ -291,7 +332,7 @@ a.shop-cart-item-name:hover {
 }
 
 .shop-cart-form {
-    display: block;
+    display: none;
 }
 
 .shop-cart-sidebar-header {

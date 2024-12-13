@@ -177,12 +177,12 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                     </svg>
                 </button>
             </div>
-            <form class="shop-cart-item-count-count-form" action="${t.setCountLink}">
-                <label class="shop-cart-item-count-count-label">
-                    <input class="shop-cart-item-count-count-input" type="number" min="${t.minCount}"
-                           max="${t.maxCount}" value="${t.count}">
+            <div class="shop-cart-item-count">
+                <label class="shop-cart-item-count-label">
+                    <input class="shop-cart-item-count-input" type="number" min="${t.minCount}"
+                           max="${t.maxCount}" value="${t.count}" form="shop-cart-form" name="items[${id}][count]">
                 </label>
-            </form>
+            </div>
             <div class="shop-cart-item-count-plus">
                 <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" ${Number(t.count) >= Number(t.maxCount) ? 'disabled' : ''}
                 form="shop-cart-form" name="action" value="plus-${id}">
@@ -594,12 +594,13 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                 for (let i = 0; i < shopCartData.items.length; i++) {
                     if (String(shopCartData.items[i].id) === id) {
                         let count = Number(shopCartData.items[i].count) - 1;
-                        if(count >= Number(shopCartData.items[i].minCount)){
+                        if (count >= Number(shopCartData.items[i].minCount)) {
                             shopCartData.items[i].count = String(count);
                         }
                     }
                 }
 
+                shopCartData.errorText = "";
                 calculateTotal();
                 resolve(shopCartData);
             }, 1000);
@@ -639,12 +640,13 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                 for (let i = 0; i < shopCartData.items.length; i++) {
                     if (String(shopCartData.items[i].id) === id) {
                         let count = Number(shopCartData.items[i].count) + 1;
-                        if(count <= Number(shopCartData.items[i].maxCount)) {
+                        if (count <= Number(shopCartData.items[i].maxCount)) {
                             shopCartData.items[i].count = String(count);
                         }
                     }
                 }
 
+                shopCartData.errorText = "";
                 calculateTotal();
                 resolve(shopCartData);
             }, 1000);
@@ -673,6 +675,74 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             submittedOnePlus(data, values);
         }).catch(function (data) {
             submittedOnePlus(data, values);
+        });
+    }
+
+    function setCountUpload(values) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                for (let i = 0; i < shopCartData.items.length; i++) {
+                    let count = values[`items[${shopCartData.items[i].id}][count]`];
+                    if (count != null) {
+                        count = Number(count);
+                        if (count <= Number(shopCartData.items[i].maxCount)) {
+                            shopCartData.items[i].count = String(count);
+                        }
+                        if (count >= Number(shopCartData.items[i].minCount)) {
+                            shopCartData.items[i].count = String(count);
+                        }
+                    }
+                }
+
+                shopCartData.errorText = "";
+                calculateTotal();
+                resolve(shopCartData);
+            }, 1000);
+        });
+    }
+
+    function submittingSetCount(values, submitter) {
+        let items = cart.querySelectorAll('.shop-cart-item');
+        for (let i = 0; i < items.length; i++) {
+            let itemElement = items[i];
+            let id = String(itemElement.getAttribute('data-cart-item-id'));
+            let item = null;
+
+            for (let j = 0; j < shopCartData.items.length; j++) {
+                if (String(shopCartData.items[j].id) === id) {
+                    item = shopCartData.items[j];
+                    break;
+                }
+            }
+
+            if (item) {
+                let inputs = cart.querySelectorAll(`.shop-cart-item-count-input`);
+
+                for (let i = 0; i < inputs.length; i++) {
+                    let input = inputs[i];
+                    if (String(input.value) !== String(item.count)) {
+                        input.parentNode.classList.add('shop-loading');
+                    }
+                }
+            }
+        }
+    }
+
+    function submittedSetCount(data, values, submitter) {
+        shopCartData = data;
+        let inputs = cart.querySelectorAll(`.shop-cart-item-count-label.shop-loading`);
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].classList.remove('shop-loading');
+        }
+        renderCart();
+    }
+
+    function setCount(values, submitter) {
+        submittingSetCount(values, submitter);
+        setCountUpload(values).then(function (data) {
+            submittedSetCount(data, values, submitter);
+        }).catch(function (data) {
+            submittedSetCount(data, values, submitter);
         });
     }
 
@@ -710,24 +780,19 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             return;
         }
 
+        console.log(values)
         if (values.action === 'remove-selected' && existsRemoveSelected) {
             selectedRemove(values);
-        }
-
-        if (values.action && values.action.startsWith('remove-')) {
+        } else if (values.action && values.action.startsWith('remove-')) {
             oneRemove(values);
-        }
-
-        if (values.action && values.action.startsWith('favorite-')) {
+        } else if (values.action && values.action.startsWith('favorite-')) {
             oneFavorite(values);
-        }
-
-        if (values.action && values.action.startsWith('minus-')) {
+        } else if (values.action && values.action.startsWith('minus-')) {
             oneMinus(values);
-        }
-
-        if (values.action && values.action.startsWith('plus-')) {
+        } else if (values.action && values.action.startsWith('plus-')) {
             onePlus(values);
+        } else {
+            setCount(values, submitter);
         }
     }
 

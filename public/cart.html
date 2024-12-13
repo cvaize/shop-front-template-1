@@ -964,7 +964,9 @@
         <div class="shop-container">
             <br>
             <div class="shop-cart">
-                <form id="shop-cart-form" class="shop-cart-form" action="/public/cart.html" method="post"></form>
+                <form id="shop-cart-form" class="shop-cart-form" action="/public/cart.html" method="post">
+                    <button type="submit" name="action" value="set-count"></button>
+                </form>
                 <div class="shop-cart-header">
                     <h1 class="shop-h1 shop-cart-switch-content-is-empty" data-cart-empty-content="Корзина пуста" data-cart-noempty-content="Корзина">Корзина</h1>
                     <div class="shop-cart-header-products-count shop-cart-hide-is-empty">
@@ -1043,12 +1045,12 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                        <form class="shop-cart-item-count-count-form" action="/count">
-                                            <label class="shop-cart-item-count-count-label">
-                                                <input class="shop-cart-item-count-count-input" type="number" min="1"
-                                                       max="100" value="1">
+                                        <div class="shop-cart-item-count">
+                                            <label class="shop-cart-item-count-label">
+                                                <input class="shop-cart-item-count-input" type="number" min="1"
+                                                       max="100" value="1" form="shop-cart-form" name="items[11][count]">
                                             </label>
-                                        </form>
+                                        </div>
                                         <div class="shop-cart-item-count-plus">
                                             <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" form="shop-cart-form" name="action" value="plus-11">
                                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -1122,12 +1124,12 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                        <form class="shop-cart-item-count-count-form" action="/count">
-                                            <label class="shop-cart-item-count-count-label">
-                                                <input class="shop-cart-item-count-count-input" type="number" min="1"
-                                                       max="100" value="1">
+                                        <div class="shop-cart-item-count">
+                                            <label class="shop-cart-item-count-label">
+                                                <input class="shop-cart-item-count-input" type="number" min="1"
+                                                       max="100" value="1" form="shop-cart-form" name="items[22][count]">
                                             </label>
-                                        </form>
+                                        </div>
                                         <div class="shop-cart-item-count-plus">
                                             <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" form="shop-cart-form" name="action" value="plus-22">
                                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -1165,11 +1167,9 @@
                     <div class="shop-cart-sidebar">
                         <div class="shop-cart-sidebar-wrapper">
                             <div class="shop-cart-sidebar-header">
-                                <form class="shop-cart-form" action="/">
-                                    <button type="submit" class="shop-cart-sidebar-submit shop-btn">Перейти к
-                                        оформлению
-                                    </button>
-                                </form>
+                                <button class="shop-cart-sidebar-submit shop-btn" type="submit" form="shop-cart-form" name="action" value="checkout">
+                                    Перейти к оформлению
+                                </button>
                                 <div class="shop-cart-sidebar-description">
                                     Доступные способы и время доставки можно выбрать при оформлении заказа
                                 </div>
