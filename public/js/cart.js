@@ -47,6 +47,9 @@
     let cartCouponsError;
     let cartProducts;
     let cartSelectingCheckbox;
+    let cartSwitchContentIsEmptyElements;
+    let cartShowIsEmptyElements;
+    let cartHideIsEmptyElements;
 
     /**
      * Plural forms for russian words
@@ -126,7 +129,7 @@
         }
     }
 
-    function makeCartItem(t){
+    function makeCartItem(t) {
         let id = String(t.id || '').trim();
         let checked = t.checked === true;
         return `
@@ -215,7 +218,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
     }
 
     function renderItems() {
-        if(cartHeaderProductsCount){
+        if (cartHeaderProductsCount) {
             let totalCount = 0;
 
             for (let i = 0; i < shopCartData.items.length; i++) {
@@ -254,7 +257,73 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         renderSidebar();
         renderItems();
         renderSelecting();
+        renderTexts();
+        switchEmptyElements();
         onSelecting();
+    }
+
+    function renderTexts() {
+        if (cartSwitchContentIsEmptyElements) {
+            for (let i = 0; i < cartSwitchContentIsEmptyElements.length; i++) {
+                let cartSwitchContentIsEmptyElement = cartSwitchContentIsEmptyElements[i];
+
+                let text = shopCartData.items.length ?
+                    cartSwitchContentIsEmptyElement.getAttribute('data-cart-noempty-content')
+                    : cartSwitchContentIsEmptyElement.getAttribute('data-cart-empty-content');
+
+                if (!text) text = '';
+
+                text = text.replace(new RegExp('\n', 'igm'), '');
+
+                cartSwitchContentIsEmptyElement.innerText = text;
+
+                if (!text) {
+                    if (cartSwitchContentIsEmptyElement.style.display !== 'none') {
+                        cartSwitchContentIsEmptyElement.style.display = 'none';
+                    }
+                } else {
+                    let display = cartSwitchContentIsEmptyElement.getAttribute('data-cart-empty-display') || 'block'
+                    if (cartSwitchContentIsEmptyElement.style.display !== display) {
+                        cartSwitchContentIsEmptyElement.style.display = display;
+                    }
+                }
+            }
+        }
+    }
+
+    function switchEmptyElements() {
+        if (cartShowIsEmptyElements) {
+            for (let i = 0; i < cartShowIsEmptyElements.length; i++) {
+                let cartShowIsEmptyElement = cartShowIsEmptyElements[i];
+
+                if (shopCartData.items.length) {
+                    if (cartShowIsEmptyElement.style.display !== 'none') {
+                        cartShowIsEmptyElement.style.display = 'none';
+                    }
+                } else {
+                    let display = cartShowIsEmptyElement.getAttribute('data-cart-empty-display') || 'block'
+                    if (cartShowIsEmptyElement.style.display !== display) {
+                        cartShowIsEmptyElement.style.display = display;
+                    }
+                }
+            }
+        }
+        if (cartHideIsEmptyElements) {
+            for (let i = 0; i < cartHideIsEmptyElements.length; i++) {
+                let cartHideIsEmptyElement = cartHideIsEmptyElements[i];
+
+                if (shopCartData.items.length) {
+                    let display = cartHideIsEmptyElement.getAttribute('data-cart-empty-display') || 'block'
+                    if (cartHideIsEmptyElement.style.display !== display) {
+                        cartHideIsEmptyElement.style.display = display;
+                    }
+                } else {
+                    if (cartHideIsEmptyElement.style.display !== 'none') {
+                        cartHideIsEmptyElement.style.display = 'none';
+                    }
+                }
+            }
+        }
     }
 
     function calculateTotal() {
@@ -446,7 +515,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         }
     }
 
-    function addTestingCartItem () {
+    function addTestingCartItem() {
         let id = String(Math.round(Math.random() * 10e6));
         let price = Math.round(Math.random() * 10e4);
         let oldPrice = price + Math.round(Math.random() * 10e3);
@@ -478,7 +547,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                 plusLink: '#',
                 favorite: true
             });
-        }else{
+        } else {
             shopCartData.items.push({
                 id: id,
                 productId: `${id}2`,
@@ -547,6 +616,9 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         cartCouponsError = cart.querySelector('.shop-cart-sidebar-coupons-wrapper .shop-cart-sidebar-error');
         cartProducts = cart.querySelector('.shop-cart-items');
         cartSelectingCheckbox = cart.querySelector('.shop-cart-selecting-checkbox');
+        cartSwitchContentIsEmptyElements = cart.querySelectorAll('.shop-cart-switch-content-is-empty');
+        cartShowIsEmptyElements = cart.querySelectorAll('.shop-cart-show-is-empty');
+        cartHideIsEmptyElements = cart.querySelectorAll('.shop-cart-hide-is-empty');
 
         if (cartCouponsForm && cartCouponsInput && cartCouponsError) {
             cartCouponsForm.addEventListener('submit', couponSubmit);

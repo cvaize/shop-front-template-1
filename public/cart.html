@@ -966,18 +966,21 @@
             <div class="shop-cart">
                 <form id="shop-cart-form" class="shop-cart-form" action="/public/cart.html" method="post"></form>
                 <div class="shop-cart-header">
-                    <h1 class="shop-h1 shop-cart-set-content-is-empty" data-empty-content="Корзина пуста">Корзина</h1>
+                    <h1 class="shop-h1 shop-cart-switch-content-is-empty" data-cart-empty-content="Корзина пуста" data-cart-noempty-content="Корзина">Корзина</h1>
                     <div class="shop-cart-header-products-count shop-cart-hide-is-empty">
                         2 товара
                     </div>
                 </div>
-                <div class="shop-cart-description shop-cart-show-is-empty shop-cart-set-content-is-empty"
-                     data-empty-content="Воспользуйтесь поиском, чтобы найти всё, что нужно"
-                     style="display: none"></div>
-                <a href="/" class="shop-btn shop-cart-show-is-empty" style="display: none">
+                <div class="shop-cart-description shop-cart-switch-content-is-empty"
+                     data-cart-noempty-content='Все элементы итерактивные и работают в демонстрационном режиме.
+                    Для добавления тестового товара в корзину, кликнете на заголовок "Корзина". Тестовых товаров 2 вида.
+                    Вы можете добавить тестовый промокод, который применится с вероятностью 50%, иначе покажется текст ошибки.
+                    Вы можете удалить товар из корзины, удаление сработает с вероятностью 50%, иначе покажется текст ошибки.'
+                     data-cart-empty-content="Воспользуйтесь поиском, чтобы найти всё, что нужно"></div>
+                <a href="/" class="shop-btn shop-cart-show-is-empty" data-cart-empty-display="inline-block" style="display: none">
                     Начать покупки
                 </a>
-                <div class="shop-cart-container">
+                <div class="shop-cart-container shop-cart-hide-is-empty" data-cart-empty-display="flex">
                     <div class="shop-cart-cards">
                         <div class="shop-cart-selecting-card shop-cart-card">
                             <input class="shop-form-checkbox shop-cart-selecting-checkbox" type="checkbox" id="shop-cart-selecting-checkbox" hidden>
