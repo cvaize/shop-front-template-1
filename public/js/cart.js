@@ -685,12 +685,14 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                     let count = values[`items[${shopCartData.items[i].id}][count]`];
                     if (count != null) {
                         count = Number(count);
-                        if (count <= Number(shopCartData.items[i].maxCount)) {
-                            shopCartData.items[i].count = String(count);
+                        let maxCount = Number(shopCartData.items[i].maxCount || '1');
+                        let minCount = Number(shopCartData.items[i].minCount || '1');
+                        if (count > maxCount) {
+                            count = maxCount;
+                        } else if (count < minCount) {
+                            count = minCount;
                         }
-                        if (count >= Number(shopCartData.items[i].minCount)) {
-                            shopCartData.items[i].count = String(count);
-                        }
+                        shopCartData.items[i].count = String(count);
                     }
                 }
 
@@ -701,7 +703,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingSetCount(values, submitter) {
+    function submittingSetCount() {
         let items = cart.querySelectorAll('.shop-cart-item');
         for (let i = 0; i < items.length; i++) {
             let itemElement = items[i];
@@ -716,19 +718,19 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             }
 
             if (item) {
-                let inputs = cart.querySelectorAll(`.shop-cart-item-count-input`);
+                let inputs = itemElement.querySelectorAll(`.shop-cart-item-count-input`);
 
                 for (let i = 0; i < inputs.length; i++) {
                     let input = inputs[i];
                     if (String(input.value) !== String(item.count)) {
-                        input.parentNode.classList.add('shop-loading');
+                        input.parentElement.classList.add('shop-loading');
                     }
                 }
             }
         }
     }
 
-    function submittedSetCount(data, values, submitter) {
+    function submittedSetCount(data) {
         shopCartData = data;
         let inputs = cart.querySelectorAll(`.shop-cart-item-count-label.shop-loading`);
         for (let i = 0; i < inputs.length; i++) {
@@ -737,13 +739,9 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         renderCart();
     }
 
-    function setCount(values, submitter) {
-        submittingSetCount(values, submitter);
-        setCountUpload(values).then(function (data) {
-            submittedSetCount(data, values, submitter);
-        }).catch(function (data) {
-            submittedSetCount(data, values, submitter);
-        });
+    function setCount(values) {
+        submittingSetCount();
+        setCountUpload(values).then(submittedSetCount).catch(submittedSetCount);
     }
 
     function submitForm(event) {
@@ -772,15 +770,11 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             }
         }
 
-        let submitter = event.submitter
+        let submitter = event ? event.submitter : null;
         if (submitter && submitter.name) {
             values[submitter.name] = submitter.value;
         }
-        if (!values.action) {
-            return;
-        }
 
-        console.log(values)
         if (values.action === 'remove-selected' && existsRemoveSelected) {
             selectedRemove(values);
         } else if (values.action && values.action.startsWith('remove-')) {
@@ -792,7 +786,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         } else if (values.action && values.action.startsWith('plus-')) {
             onePlus(values);
         } else {
-            setCount(values, submitter);
+            setCount(values);
         }
     }
 
@@ -860,6 +854,12 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         renderCart();
     }
 
+    function onGlobalChangeCount(event) {
+        if (event.target && event.target.classList.contains('shop-cart-item-count-input')) {
+            submitForm();
+        }
+    }
+
     function destroy() {
         if (cartCouponsForm) {
             cartCouponsForm.removeEventListener('submit', couponSubmit);
@@ -872,6 +872,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         if (cartH1) {
             cartH1.removeEventListener('click', addTestingCartItem);
         }
+        document.removeEventListener('change', onGlobalChangeCount);
     }
 
     function init() {
@@ -912,6 +913,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         if (cartH1) {
             cartH1.addEventListener('click', addTestingCartItem);
         }
+        document.addEventListener('change', onGlobalChangeCount);
 
         calculateTotal();
         renderCart();
