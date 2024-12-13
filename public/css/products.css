@@ -30,6 +30,8 @@
 .shop-products-fw-list-item-favorite-icon-svg path:nth-child(1) {
     fill: rgb(var(--shop-app-background-color));
     opacity: 1;
+    transform: scale(1.1);
+    transform-origin: center;
 }
 
 .shop-products-fw-list-item-favorite-icon-svg path:nth-child(2) {

@@ -227,7 +227,6 @@ a.shop-cart-item-name:hover {
 .shop-cart-item-actions {
     margin-bottom: auto;
     padding-left: 2rem;
-    margin-right: -1rem;
 }
 
 .shop-cart-item-favorite {
@@ -244,6 +243,8 @@ a.shop-cart-item-name:hover {
 
 .shop-cart-item-favorite-icon path:nth-child(1) {
     fill: transparent;
+    transform: scale(1.1);
+    transform-origin: center;
 }
 
 .shop-cart-item-favorite-btn.shop-active .shop-cart-item-favorite-icon path {
