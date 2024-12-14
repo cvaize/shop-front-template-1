@@ -297,7 +297,7 @@ a.shop-cart-item-name:hover {
     color: rgb(var(--shop-app-danger-color));
 }
 
-.shop-cart-item-delete {
+.shop-cart-item-remove {
 }
 
 .shop-cart-selecting-checkbox-label {
@@ -305,13 +305,13 @@ a.shop-cart-item-name:hover {
     top: -0.1rem;
 }
 
-.shop-cart-item-delete-btn {
+.shop-cart-item-remove-btn {
     border: none;
     background: transparent;
     font-size: 1.4rem;
 }
 
-.shop-cart-item-delete-btn:active {
+.shop-cart-item-remove-btn:active {
     color: rgb(var(--shop-app-danger-color));
 }
 
@@ -417,7 +417,7 @@ a.shop-cart-item-name:hover {
 .shop-cart-sidebar-coupons-wrapper {
 }
 
-.shop-cart-coupons-form {
+.shop-cart-coupons {
     display: block;
     position: relative;
 }

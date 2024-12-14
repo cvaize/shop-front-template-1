@@ -62,6 +62,18 @@
         return count + ' ' + words[(count % 100 > 4 && count % 100 < 20) ? 2 : cases[Math.min(count % 10, 5)]];
     }
 
+    function removeEventListener(eventName, elements, handler) {
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].removeEventListener(eventName, handler);
+        }
+    }
+
+    function addEventListener(eventName, elements, handler) {
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].addEventListener(eventName, handler);
+        }
+    }
+
     function handleChangeAllSelecting(event) {
         let inputs = cart.querySelectorAll('.shop-cart-item-checkbox');
         for (let i = 0; i < inputs.length; i++) {
@@ -195,9 +207,10 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         </div>
     </div>
     <div class="shop-cart-item-actions">
-        <div class="shop-cart-item-favorite">
+        <form action="/cart/my/items/${id}/favorite" method="post" class="shop-cart-item-favorite">
+            <input type="hidden" name="id" value="${id}">
             <button class="shop-cart-item-favorite-btn shop-btn-square shop-btn${t.favorite ? ' shop-active' : ''}"
-                    type="submit" form="shop-cart-form" name="action" value="favorite-${id}">
+                    type="submit">
                 <svg class="shop-cart-item-favorite-icon shop-icon-svg"
                      xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                      viewBox="0 0 24 24">
@@ -206,15 +219,16 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                     <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
                 </svg>
             </button>
-        </div>
-        <div class="shop-cart-item-delete">
-            <button class="shop-cart-item-delete-btn shop-btn shop-btn-square" type="submit" form="shop-cart-form" name="action" value="remove-${id}">
+        </form>
+        <form action="/cart/my/items/${id}/remove" method="post" class="shop-cart-item-remove">
+            <input type="hidden" name="id" value="${id}">
+            <button class="shop-cart-item-remove-btn shop-btn shop-btn-square" type="submit">
                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                      height="24" viewBox="0 0 24 24">
                     <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
                 </svg>
             </button>
-        </div>
+        </form>
     </div>
 </div>`;
     }
@@ -256,12 +270,18 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
 
     function renderCart() {
         offSelecting();
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-remove'), oneRemove);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
+
         renderSidebar();
         renderItems();
         renderSelecting();
         renderTexts();
         switchEmptyElements();
+
         onSelecting();
+        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-remove'), oneRemove);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
     }
 
     function renderTexts() {
@@ -479,10 +499,10 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         }).catch(submittedSelectedRemove);
     }
 
-    function oneRemoveUpload(values) {
+    function oneRemoveUpload(form) {
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                let id = values.action.split('-')[1];
+                let id = String(form.querySelector('input[name="id"]').value);
 
                 let items = [];
                 for (let i = 0; i < shopCartData.items.length; i++) {
@@ -504,35 +524,32 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingOneRemove(values) {
-        let buttons = cart.querySelectorAll(`.shop-cart-item-delete-btn[value="${values.action}"]`);
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.add('shop-loading');
-        }
+    function submittingOneRemove(form){
+        let btn = form.querySelector('.shop-cart-item-remove-btn');
+        btn.classList.add('shop-loading');
     }
 
-    function submittedOneRemove(data, values) {
+    function submittedOneRemove(data, form) {
         shopCartData = data;
-        let buttons = cart.querySelectorAll(`.shop-cart-item-delete-btn[value="${values.action}"]`);
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('shop-loading');
-        }
+        let btn = form.querySelector('.shop-cart-item-remove-btn');
+        btn.classList.remove('shop-loading');
         renderCart();
     }
 
-    function oneRemove(values) {
-        submittingOneRemove(values);
-        oneRemoveUpload(values).then(function (data) {
-            submittedOneRemove(data, values);
+    function oneRemove(event) {
+        event.preventDefault();
+        submittingOneRemove(event.target);
+        oneRemoveUpload(event.target).then(function (data) {
+            submittedOneRemove(data, event.target);
         }).catch(function (data) {
-            submittedOneRemove(data, values);
+            submittedOneRemove(data, event.target);
         });
     }
 
-    function oneFavoriteUpload(values) {
+    function oneFavoriteUpload(form) {
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                let id = values.action.split('-')[1];
+                let id = String(form.querySelector('input[name="id"]').value);
 
                 for (let i = 0; i < shopCartData.items.length; i++) {
                     if (String(shopCartData.items[i].id) === id) {
@@ -545,44 +562,34 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingOneFavorite(values) {
-        let buttons = cart.querySelectorAll(`.shop-cart-item-favorite-btn[value="${values.action}"]`);
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.add('shop-loading');
-        }
+    function submittingOneFavorite(form){
+        let btn = form.querySelector('.shop-cart-item-favorite-btn');
+        btn.classList.add('shop-loading');
     }
 
-    function submittedOneFavorite(data, values) {
+    function submittedOneFavorite(data, form) {
         shopCartData = data;
-        let id = values.action.split('-')[1];
-        let buttons = cart.querySelectorAll(`.shop-cart-item-favorite-btn[value="${values.action}"]`);
-        let item = null;
+        let btn = form.querySelector('.shop-cart-item-favorite-btn');
+        btn.classList.remove('shop-loading');
 
-        for (let i = 0; i < shopCartData.items.length; i++) {
-            if (String(shopCartData.items[i].id) === id) {
-                item = shopCartData.items[i];
-                break;
-            }
-        }
-
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('shop-loading');
-            if (item) {
-                if (item.favorite) {
-                    buttons[i].classList.add('shop-active');
-                } else {
-                    buttons[i].classList.remove('shop-active');
-                }
+        let id = String(form.querySelector('input[name="id"]').value);
+        let item = shopCartData.items.find(item => String(item.id) === id);
+        if (item) {
+            if (item.favorite) {
+                btn.classList.add('shop-active');
+            } else {
+                btn.classList.remove('shop-active');
             }
         }
     }
 
-    function oneFavorite(values) {
-        submittingOneFavorite(values);
-        oneFavoriteUpload(values).then(function (data) {
-            submittedOneFavorite(data, values);
+    function oneFavorite(event) {
+        event.preventDefault();
+        submittingOneFavorite(event.target);
+        oneFavoriteUpload(event.target).then(function (data) {
+            submittedOneFavorite(data, event.target);
         }).catch(function (data) {
-            submittedOneFavorite(data, values);
+            submittedOneFavorite(data, event.target);
         });
     }
 
@@ -777,10 +784,6 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
 
         if (values.action === 'remove-selected' && existsRemoveSelected) {
             selectedRemove(values);
-        } else if (values.action && values.action.startsWith('remove-')) {
-            oneRemove(values);
-        } else if (values.action && values.action.startsWith('favorite-')) {
-            oneFavorite(values);
         } else if (values.action && values.action.startsWith('minus-')) {
             oneMinus(values);
         } else if (values.action && values.action.startsWith('plus-')) {
@@ -892,7 +895,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         cartSidebarTotalWeight = cart.querySelector('.shop-cart-sidebar-total-weight');
         cartSidebarBody = cart.querySelector('.shop-cart-sidebar-wrapper .shop-cart-sidebar-body');
         cartSidebarTotalPriceValue = cart.querySelector('.shop-cart-sidebar-total-price-value');
-        cartCouponsForm = cart.querySelector('.shop-cart-coupons-form');
+        cartCouponsForm = cart.querySelector('.shop-cart-coupons');
         cartCouponsInput = cart.querySelector('.shop-cart-coupons-input');
         cartCouponsBtn = cart.querySelector('.shop-cart-sidebar-coupons-submit');
         cartCouponsError = cart.querySelector('.shop-cart-sidebar-coupons-wrapper .shop-cart-sidebar-error');
@@ -920,13 +923,6 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
     }
 
     init();
-
-    // let html = document.querySelector('div.shop-cart-card').innerHTML;
-    // let html_ = ''
-    // for (let i = 0; i < 12; i++) {
-    //     html_ += html;
-    // }
-    // document.querySelector('div.shop-cart-card').innerHTML = html_;
 
     let html = document.querySelector('.shop-products-fw-list').innerHTML;
     let html_ = ''
