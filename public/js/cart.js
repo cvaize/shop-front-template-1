@@ -34,7 +34,7 @@
     let cart;
     let cartH1;
     let cartHeaderProductsCount;
-    let cartForm;
+    let cartSelectingForm;
     let cartSubmitBtn;
     let cartRemoveSelectingBtn;
     let cartSidebarError;
@@ -146,10 +146,9 @@
         let checked = t.checked === true;
         return `
 <div class="shop-cart-item" data-cart-item-id="${id}">
-    <input type="hidden" form="shop-cart-form" name="items[${id}][id]" value="${id}" hidden>
     <div class="shop-cart-item-checkbox-wrapper">
         <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
-               id="shop-cart-selecting-checkbox-${id}" hidden ${checked ? 'checked' : ''} form="shop-cart-form" name="items[${id}][selected]" value="${id}">
+               id="shop-cart-selecting-checkbox-${id}" hidden ${checked ? 'checked' : ''} form="shop-cart-selecting-form" name="items[${id}][selected]" value="${id}">
         <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-${id}">
             <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                  width="24"
@@ -189,12 +188,13 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
                     </svg>
                 </button>
             </form>
-            <div class="shop-cart-item-count">
+            <form action="/cart/my/items/${id}/count" method="post" class="shop-cart-item-count">
+                <input type="hidden" name="id" value="${id}">
                 <label class="shop-cart-item-count-label">
                     <input class="shop-cart-item-count-input" type="number" min="${t.minCount}"
-                           max="${t.maxCount}" value="${t.count}" form="shop-cart-form" name="items[${id}][count]">
+                           max="${t.maxCount}" value="${t.count}" name="count">
                 </label>
-            </div>
+            </form>
             <form action="/cart/my/items/${id}/plus" method="post" class="shop-cart-item-count-plus">
                 <input type="hidden" name="id" value="${id}">
                 <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" ${Number(t.count) >= Number(t.maxCount) ? 'disabled' : ''}>
@@ -268,12 +268,26 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         cartProducts.innerHTML = html;
     }
 
+    function handleChangeCount(event) {
+        let form = event.target.closest('.shop-cart-item-count');
+        if (form) {
+            submittingSetCount(form);
+            setCountUpload(form).then(function (data) {
+                submittedSetCount(data, form);
+            }).catch(function (data) {
+                submittedSetCount(data, form);
+            });
+        }
+    }
+
     function renderCart() {
         offSelecting();
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-remove'), oneRemove);
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count'), setCount);
+        removeEventListener('change', cart.querySelectorAll('.shop-cart-item-count .shop-cart-item-count-input'), handleChangeCount);
 
         renderSidebar();
         renderItems();
@@ -286,6 +300,8 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count'), setCount);
+        addEventListener('change', cart.querySelectorAll('.shop-cart-item-count .shop-cart-item-count-input'), handleChangeCount);
     }
 
     function renderTexts() {
@@ -528,7 +544,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingOneRemove(form){
+    function submittingOneRemove(form) {
         let btn = form.querySelector('.shop-cart-item-remove-btn');
         btn.classList.add('shop-loading');
     }
@@ -566,7 +582,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingOneFavorite(form){
+    function submittingOneFavorite(form) {
         let btn = form.querySelector('.shop-cart-item-favorite-btn');
         btn.classList.add('shop-loading');
     }
@@ -679,22 +695,24 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function setCountUpload(values) {
+    function setCountUpload(form) {
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                for (let i = 0; i < shopCartData.items.length; i++) {
-                    let count = values[`items[${shopCartData.items[i].id}][count]`];
-                    if (count != null) {
-                        count = Number(count);
-                        let maxCount = Number(shopCartData.items[i].maxCount || '1');
-                        let minCount = Number(shopCartData.items[i].minCount || '1');
-                        if (count > maxCount) {
-                            count = maxCount;
-                        } else if (count < minCount) {
-                            count = minCount;
-                        }
-                        shopCartData.items[i].count = String(count);
+                let input = form.querySelector('.shop-cart-item-count-input');
+                let id = String(form.querySelector('input[name="id"]').value);
+                let item = shopCartData.items.find(item => String(item.id) === id);
+                let count = input.value;
+
+                if (item && count != null) {
+                    count = Number(count);
+                    let maxCount = Number(item.maxCount || '1');
+                    let minCount = Number(item.minCount || '1');
+                    if (count > maxCount) {
+                        count = maxCount;
+                    } else if (count < minCount) {
+                        count = minCount;
                     }
+                    item.count = String(count);
                 }
 
                 shopCartData.errorText = "";
@@ -704,53 +722,36 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingSetCount() {
-        let items = cart.querySelectorAll('.shop-cart-item');
-        for (let i = 0; i < items.length; i++) {
-            let itemElement = items[i];
-            let id = String(itemElement.getAttribute('data-cart-item-id'));
-            let item = null;
-
-            for (let j = 0; j < shopCartData.items.length; j++) {
-                if (String(shopCartData.items[j].id) === id) {
-                    item = shopCartData.items[j];
-                    break;
-                }
-            }
-
-            if (item) {
-                let inputs = itemElement.querySelectorAll(`.shop-cart-item-count-input`);
-
-                for (let i = 0; i < inputs.length; i++) {
-                    let input = inputs[i];
-                    if (String(input.value) !== String(item.count)) {
-                        input.parentElement.classList.add('shop-loading');
-                    }
-                }
-            }
+    function submittingSetCount(form) {
+        let label = form.querySelector('.shop-cart-item-count-label');
+        let input = form.querySelector('.shop-cart-item-count-input');
+        let id = String(form.querySelector('input[name="id"]').value);
+        let item = shopCartData.items.find(item => String(item.id) === id);
+        if (item && String(input.value) !== String(item.count)) {
+            label.classList.add('shop-loading');
         }
     }
 
-    function submittedSetCount(data) {
+    function submittedSetCount(data, form) {
         shopCartData = data;
-        let inputs = cart.querySelectorAll(`.shop-cart-item-count-label.shop-loading`);
-        for (let i = 0; i < inputs.length; i++) {
-            inputs[i].classList.remove('shop-loading');
-        }
+        let label = form.querySelector('.shop-cart-item-count-label');
+        label.classList.remove('shop-loading');
         renderCart();
     }
 
-    function setCount(values) {
-        submittingSetCount();
-        setCountUpload(values).then(submittedSetCount).catch(submittedSetCount);
+    function setCount(event) {
+        event.preventDefault();
+        submittingSetCount(event.target);
+        setCountUpload(event.target).then(function (data) {
+            submittedSetCount(data, event.target);
+        }).catch(function (data) {
+            submittedSetCount(data, event.target);
+        });
     }
 
-    function submitForm(event) {
-        event && event.preventDefault();
+    function getValuesFromForm(form, event) {
+        let formData = new FormData(form);
 
-        let formData = new FormData(cartForm);
-
-        let existsRemoveSelected = false;
         let values = Object.fromEntries(formData);
 
         for (let pair of formData.entries()) {
@@ -765,10 +766,6 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             } else {
                 values[name] = value;
             }
-
-            if (name.includes('][selected]')) {
-                existsRemoveSelected = true;
-            }
         }
 
         let submitter = event ? event.submitter : null;
@@ -776,10 +773,21 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             values[submitter.name] = submitter.value;
         }
 
-        if (values.action === 'remove-selected' && existsRemoveSelected) {
+        return values;
+    }
+
+    function submitSelectingForm(event) {
+        event.preventDefault();
+
+        let values = getValuesFromForm(event.target, event);
+
+        let existsRemoveSelected = false;
+        for (const name in values) {
+            if (name.includes('][selected]')) existsRemoveSelected = true;
+        }
+
+        if (values.action === 'remove' && existsRemoveSelected) {
             selectedRemove(values);
-        } else {
-            setCount(values);
         }
     }
 
@@ -847,25 +855,18 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         renderCart();
     }
 
-    function onGlobalChangeCount(event) {
-        if (event.target && event.target.classList.contains('shop-cart-item-count-input')) {
-            submitForm();
-        }
-    }
-
     function destroy() {
         if (cartCouponsForm) {
             cartCouponsForm.removeEventListener('submit', couponSubmit);
         }
 
-        if (cartForm) {
-            cartForm.removeEventListener('submit', submitForm);
+        if (cartSelectingForm) {
+            cartSelectingForm.removeEventListener('submit', submitSelectingForm);
         }
 
         if (cartH1) {
             cartH1.removeEventListener('click', addTestingCartItem);
         }
-        document.removeEventListener('change', onGlobalChangeCount);
     }
 
     function init() {
@@ -876,7 +877,7 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             return;
         }
 
-        cartForm = cart.querySelector('.shop-cart-form');
+        cartSelectingForm = cart.querySelector('.shop-cart-selecting-card');
         cartH1 = cart.querySelector('.shop-cart-header .shop-h1');
         cartHeaderProductsCount = cart.querySelector('.shop-cart-header-products-count');
         cartSubmitBtn = cart.querySelector('.shop-cart-sidebar-submit');
@@ -899,14 +900,13 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             cartCouponsForm.addEventListener('submit', couponSubmit);
         }
 
-        if (cartForm) {
-            cartForm.addEventListener('submit', submitForm);
+        if (cartSelectingForm) {
+            cartSelectingForm.addEventListener('submit', submitSelectingForm);
         }
 
         if (cartH1) {
             cartH1.addEventListener('click', addTestingCartItem);
         }
-        document.addEventListener('change', onGlobalChangeCount);
 
         calculateTotal();
         renderCart();

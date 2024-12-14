@@ -964,9 +964,6 @@
         <div class="shop-container">
             <br>
             <div class="shop-cart">
-                <form id="shop-cart-form" class="shop-cart-form" action="/public/cart.html" method="post">
-                    <button type="submit" name="action" value="set-count"></button>
-                </form>
                 <div class="shop-cart-header">
                     <h1 class="shop-h1 shop-cart-switch-content-is-empty" data-cart-empty-content="Корзина пуста" data-cart-noempty-content="Корзина">Корзина</h1>
                     <div class="shop-cart-header-products-count shop-cart-hide-is-empty">
@@ -984,7 +981,7 @@
                 </a>
                 <div class="shop-cart-container shop-cart-hide-is-empty" data-cart-empty-display="flex">
                     <div class="shop-cart-cards">
-                        <div class="shop-cart-selecting-card shop-cart-card">
+                        <form id="shop-cart-selecting-form" action="/cart/my/selecting" method="post" class="shop-cart-selecting-card shop-cart-card">
                             <input class="shop-form-checkbox shop-cart-selecting-checkbox" type="checkbox" id="shop-cart-selecting-checkbox" hidden>
                             <label class="shop-cart-selecting-checkbox-label shop-form-checkbox-label"
                                    for="shop-cart-selecting-checkbox">
@@ -994,20 +991,19 @@
                                 </svg>
                                 Выбрать все
                             </label>
-                            <button class="shop-cart-remove-selecting-submit shop-btn" type="submit" form="shop-cart-form" name="action" value="remove-selected">
+                            <button class="shop-cart-remove-selecting-submit shop-btn" type="submit" name="action" value="remove">
                                 <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                      viewBox="0 0 24 24">
                                     <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
                                 </svg>
                                 Удалить выбранные
                             </button>
-                        </div>
+                        </form>
                         <div class="shop-cart-card shop-cart-items">
                             <div class="shop-cart-item" data-cart-item-id="11">
-                                <input type="hidden" form="shop-cart-form" name="items[11][id]" value="11" hidden>
                                 <div class="shop-cart-item-checkbox-wrapper">
                                     <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
-                                           id="shop-cart-selecting-checkbox-11" form="shop-cart-form" name="items[11][selected]" value="11" hidden>
+                                           id="shop-cart-selecting-checkbox-11" form="shop-cart-selecting-form" name="items[11][selected]" value="11" hidden>
                                     <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-11">
                                         <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                                              width="24"
@@ -1046,12 +1042,13 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <div class="shop-cart-item-count">
+                                        <form action="/cart/my/items/11/count" method="post" class="shop-cart-item-count">
+                                            <input type="hidden" name="id" value="11">
                                             <label class="shop-cart-item-count-label">
                                                 <input class="shop-cart-item-count-input" type="number" min="1"
-                                                       max="100" value="1" form="shop-cart-form" name="items[11][count]">
+                                                       max="100" value="1" name="count">
                                             </label>
-                                        </div>
+                                        </form>
                                         <form action="/cart/my/items/11/plus" method="post" class="shop-cart-item-count-plus">
                                             <input type="hidden" name="id" value="11">
                                             <button class="shop-cart-item-count-plus-submit shop-btn" type="submit">
@@ -1089,10 +1086,9 @@
                                 </div>
                             </div>
                             <div class="shop-cart-item" data-cart-item-id="22">
-                                <input type="hidden" form="shop-cart-form" name="items[22][id]" value="22" hidden>
                                 <div class="shop-cart-item-checkbox-wrapper">
                                     <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
-                                           id="shop-cart-selecting-checkbox-22" form="shop-cart-form" name="items[22][selected]" value="22" hidden>
+                                           id="shop-cart-selecting-checkbox-22" form="shop-cart-selecting-form" name="items[22][selected]" value="22" hidden>
                                     <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-22">
                                         <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                                              width="24"
@@ -1129,12 +1125,13 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <div class="shop-cart-item-count">
+                                        <form action="/cart/my/items/22/count" method="post" class="shop-cart-item-count">
+                                            <input type="hidden" name="id" value="22">
                                             <label class="shop-cart-item-count-label">
                                                 <input class="shop-cart-item-count-input" type="number" min="1"
-                                                       max="100" value="1" form="shop-cart-form" name="items[22][count]">
+                                                       max="100" value="1" name="count">
                                             </label>
-                                        </div>
+                                        </form>
                                         <form action="/cart/my/items/22/plus" method="post" class="shop-cart-item-count-plus">
                                             <input type="hidden" name="id" value="22">
                                             <button class="shop-cart-item-count-plus-submit shop-btn" type="submit">
@@ -1175,7 +1172,7 @@
                     <div class="shop-cart-sidebar">
                         <div class="shop-cart-sidebar-wrapper">
                             <div class="shop-cart-sidebar-header">
-                                <button class="shop-cart-sidebar-submit shop-btn" type="submit" form="shop-cart-form" name="action" value="checkout">
+                                <button class="shop-cart-sidebar-submit shop-btn" type="submit" form="shop-cart-selecting-form" name="action" value="checkout">
                                     Перейти к оформлению
                                 </button>
                                 <div class="shop-cart-sidebar-description">
