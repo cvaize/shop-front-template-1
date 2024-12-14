@@ -149,7 +149,7 @@
     <div class="shop-cart-item-checkbox-wrapper">
         <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
                id="shop-cart-selecting-checkbox-${id}" hidden ${checked ? 'checked' : ''} form="shop-cart-selecting-form" name="items[${id}][selected]" value="${id}">
-        <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-${id}">
+        <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-${id}" tabindex="0">
             <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24" viewBox="0 0 24 24">
@@ -157,14 +157,16 @@
             </svg>
         </label>
     </div>
-    <a href="${t.productLink}" class="shop-cart-item-image-wrapper">
-        <picture class="shop-cart-item-image-picture">
-${(t.picture.sources || []).reduce(function (prev, cur) {
-            return prev + `<source srcset="${cur.srcset}" media="${cur.media}" type="${cur.type}">`
-        }, '')}
-            <img class="shop-cart-item-image" src="${t.picture.src}" alt="${t.picture.alt}">
-        </picture>
-    </a>
+    <div class="shop-cart-item-image-wrapper">
+        <a class="shop-cart-item-image-link" href="${t.productLink}">
+            <picture class="shop-cart-item-image-picture">
+    ${(t.picture.sources || []).reduce(function (prev, cur) {
+                return prev + `<source srcset="${cur.srcset}" media="${cur.media}" type="${cur.type}">`
+            }, '')}
+                <img class="shop-cart-item-image" src="${t.picture.src}" alt="${t.picture.alt}">
+            </picture>
+        </a>
+    </div>
     <div class="shop-cart-item-content-wrapper">
         <a href="${t.productLink}" class="shop-cart-item-name">
             ${t.name}

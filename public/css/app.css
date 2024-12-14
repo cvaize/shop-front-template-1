@@ -357,6 +357,7 @@ template {
     --shop-app-light-background-color: 225, 225, 225;
     --shop-app-success-color: 30, 180, 20;
     --shop-app-danger-color: 220, 53, 69;
+    --shop-app-focus-box-shadow: 0 0 0 2px rgba(var(--shop-app-color), 0.5);
 }
 
 .shop-dark-mode-checkbox:checked ~ * {
@@ -366,6 +367,7 @@ template {
     --shop-app-light-background-color: 29, 29, 29;
     --shop-app-success-color: 0, 255, 136;
     --shop-app-danger-color: 255, 0, 24;
+    --shop-app-focus-box-shadow: 0 0 0 2px rgba(var(--shop-app-color), 0.5);
 }
 
 ::selection {
@@ -939,8 +941,9 @@ button, select {
 .shop-sidebar-catalog-btn:focus,
 .shop-sidebar-menu-block:focus,
 .shop-sidebar-menu-account-dropdown-link:focus,
-.shop-footer-nav-link:focus {
-    box-shadow: 0 0 0 2px rgba(var(--shop-app-color), 0.5);
+.shop-footer-nav-link:focus,
+.shop-form-checkbox-label:focus {
+    box-shadow: var(--shop-app-focus-box-shadow);
     outline: none;
 }
 

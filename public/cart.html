@@ -984,7 +984,7 @@
                         <form id="shop-cart-selecting-form" action="/cart/my/selecting" method="post" class="shop-cart-selecting-card shop-cart-card">
                             <input class="shop-form-checkbox shop-cart-selecting-checkbox" type="checkbox" id="shop-cart-selecting-checkbox" hidden>
                             <label class="shop-cart-selecting-checkbox-label shop-form-checkbox-label"
-                                   for="shop-cart-selecting-checkbox">
+                                   for="shop-cart-selecting-checkbox" tabindex="0">
                                 <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
                                      height="24" viewBox="0 0 24 24">
                                     <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
@@ -1004,7 +1004,7 @@
                                 <div class="shop-cart-item-checkbox-wrapper">
                                     <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
                                            id="shop-cart-selecting-checkbox-11" form="shop-cart-selecting-form" name="items[11][selected]" value="11" hidden>
-                                    <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-11">
+                                    <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-11" tabindex="0">
                                         <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                                              width="24"
                                              height="24" viewBox="0 0 24 24">
@@ -1012,11 +1012,13 @@
                                         </svg>
                                     </label>
                                 </div>
-                                <a href="#" class="shop-cart-item-image-wrapper">
-                                    <picture class="shop-cart-item-image-picture">
-                                        <img class="shop-cart-item-image" src="./svg/300x300.svg" alt="Product 1">
-                                    </picture>
-                                </a>
+                                <div class="shop-cart-item-image-wrapper">
+                                    <a class="shop-cart-item-image-link" href="#">
+                                        <picture class="shop-cart-item-image-picture">
+                                            <img class="shop-cart-item-image" src="./svg/300x300.svg" alt="Product 1">
+                                        </picture>
+                                    </a>
+                                </div>
                                 <div class="shop-cart-item-content-wrapper">
                                     <a href="#" class="shop-cart-item-name">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid
@@ -1089,7 +1091,7 @@
                                 <div class="shop-cart-item-checkbox-wrapper">
                                     <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
                                            id="shop-cart-selecting-checkbox-22" form="shop-cart-selecting-form" name="items[22][selected]" value="22" hidden>
-                                    <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-22">
+                                    <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-22" tabindex="0">
                                         <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
                                              width="24"
                                              height="24" viewBox="0 0 24 24">
@@ -1097,11 +1099,13 @@
                                         </svg>
                                     </label>
                                 </div>
-                                <a href="#" class="shop-cart-item-image-wrapper">
-                                    <picture class="shop-cart-item-image-picture">
-                                        <img class="shop-cart-item-image" src="./svg/300x300_2.svg" alt="Product 2">
-                                    </picture>
-                                </a>
+                                <div class="shop-cart-item-image-wrapper">
+                                    <a class="shop-cart-item-image-link" href="#">
+                                        <picture class="shop-cart-item-image-picture">
+                                            <img class="shop-cart-item-image" src="./svg/300x300_2.svg" alt="Product 2">
+                                        </picture>
+                                    </a>
+                                </div>
                                 <div class="shop-cart-item-content-wrapper">
                                     <a href="#" class="shop-cart-item-name">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid

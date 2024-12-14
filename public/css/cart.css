@@ -64,7 +64,17 @@
     border-top: 1px solid rgb(var(--shop-app-light-background-color));
 }
 
-.shop-cart-item-checkbox-wrapper {
+.shop-cart-item-checkbox-wrapper .shop-form-checkbox-label {
+    display: block;
+    line-height: 0;
+    border-radius: 0.25rem;
+}
+
+.shop-cart-item-checkbox-wrapper .shop-form-checkbox-svg-icon {
+    margin: 0;
+    top: 0;
+    line-height: 0;
+    transform: none;
 }
 
 .shop-cart-item-image-picture {
@@ -83,6 +93,21 @@
 
 a.shop-cart-item-image-wrapper:hover {
     opacity: 0.8;
+}
+
+a.shop-cart-item-image-wrapper:focus {
+    box-shadow: var(--shop-app-focus-box-shadow);
+    outline: none;
+}
+
+.shop-cart-item-image-link {
+    border-radius: 0.25rem;
+    display: block;
+}
+
+a.shop-cart-item-image-link:focus {
+    box-shadow: var(--shop-app-focus-box-shadow);
+    outline: none;
 }
 
 .shop-cart-item-image {
@@ -109,10 +134,16 @@ a.shop-cart-item-image-wrapper:hover {
     display: block;
     text-decoration: none;
     color: inherit;
+    border-radius: 0.25rem;
 }
 
 a.shop-cart-item-name:hover {
     opacity: 0.8;
+}
+
+a.shop-cart-item-name:focus {
+    box-shadow: var(--shop-app-focus-box-shadow);
+    outline: none;
 }
 
 .shop-cart-item-characteristics {
@@ -227,7 +258,6 @@ a.shop-cart-item-name:hover {
 }
 
 
-
 .shop-cart-item-count-input {
     -moz-appearance: textfield;
     font-size: 1rem;
@@ -303,6 +333,14 @@ a.shop-cart-item-name:hover {
 .shop-cart-selecting-checkbox-label {
     position: relative;
     top: -0.1rem;
+}
+
+.shop-cart-selecting-checkbox-label:focus {
+    border-radius: 0.25rem;
+}
+
+.shop-cart-selecting-checkbox-label .shop-form-checkbox-svg-icon {
+
 }
 
 .shop-cart-item-remove-btn {
