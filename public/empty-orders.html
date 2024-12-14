@@ -2,7 +2,7 @@
 <html lang="en" class="shop-html">
 <head>
     <meta charset="UTF-8">
-    <title>Favorite | Shop front v1 template</title>
+    <title>Orders | Shop front v1 template</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -679,14 +679,21 @@
         <hr class="shop-content-hr">
         <div class="shop-container">
             <br>
-            <h1 class="shop-h1">Избранное</h1>
-            <hr class="shop-content-hr">
+            <h1 class="shop-h1">Заказов пока нет</h1>
+            <div class="shop-cart-description" style="margin-bottom: 1rem;">
+                Воспользуйтесь поиском, чтобы найти всё, что нужно
+            </div>
+            <a href="/" class="shop-btn">
+                Начать покупки
+            </a>
+            <hr class="shop-content-hr" style="margin: 1rem 0;">
+            <h2 class="shop-h2" style="margin-bottom: 0.5rem;">Может пригодиться</h2>
             <div class="shop-products-fw-list">
                 <div class="shop-products-fw-list-item">
                     <div class="shop-products-fw-list-item-wrapper">
                         <form class="shop-products-fw-list-item-favorite" action="/products/123/favorite" method="post">
                             <input type="hidden" name="id" value="123">
-                            <button class="shop-products-fw-list-item-favorite-btn shop-btn shop-btn-square shop-active" type="submit">
+                            <button class="shop-products-fw-list-item-favorite-btn shop-btn shop-btn-square" type="submit">
                                 <svg class="shop-products-fw-list-item-favorite-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z" opacity=".3"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
                             </button>
                         </form>
@@ -764,21 +771,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <br>
-            <br>
-            <div style="display: flex">
-                <nav aria-label="Page navigation example" style="margin: 0 auto;">
-                    <ul class="shop-pagination">
-                        <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">1</a></li>
-                        <li class="shop-pagination-item"><span class="shop-pagination-link">...</span></li>
-                        <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">7</a></li>
-                        <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">8</a></li>
-                        <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">9</a></li>
-                        <li class="shop-pagination-item"><span class="shop-pagination-link">...</span></li>
-                        <li class="shop-pagination-item"><a class="shop-pagination-link" href="#">10</a></li>
-                    </ul>
-                </nav>
             </div>
             <br>
             <br>
