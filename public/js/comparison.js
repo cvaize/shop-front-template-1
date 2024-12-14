@@ -280,6 +280,7 @@
         let startLength = 0;
         let rowsElems = comparison.querySelectorAll('.shop-comparison-rows');
         for (let i = 0; i < rowsElems.length; i++) {
+            rowsElems[i].style.overflow = 'hidden';
             let cardElems = rowsElems[i].querySelectorAll('.shop-comparison-card');
             let cardElemsLength = cardElems.length;
             let rowElems = rowsElems[i].querySelectorAll('.shop-comparison-row');
