@@ -180,30 +180,30 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
             <div class="shop-cart-item-old-price" style="${t.oldPrice ? '' : 'display: none'}">${t.oldPrice}</div>
         </div>
         <div class="shop-cart-item-count-wrapper">
-            <div class="shop-cart-item-count-minus">
-                <button class="shop-cart-item-count-minus-submit shop-btn" type="submit" ${Number(t.count) <= Number(t.minCount) ? 'disabled' : ''} 
-                form="shop-cart-form" name="action" value="minus-${id}">
+            <form action="/cart/my/items/${id}/minus" method="post" class="shop-cart-item-count-minus">
+                <input type="hidden" name="id" value="${id}">
+                <button class="shop-cart-item-count-minus-submit shop-btn" type="submit" ${Number(t.count) <= Number(t.minCount) ? 'disabled' : ''}>
                     <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                     </svg>
                 </button>
-            </div>
+            </form>
             <div class="shop-cart-item-count">
                 <label class="shop-cart-item-count-label">
                     <input class="shop-cart-item-count-input" type="number" min="${t.minCount}"
                            max="${t.maxCount}" value="${t.count}" form="shop-cart-form" name="items[${id}][count]">
                 </label>
             </div>
-            <div class="shop-cart-item-count-plus">
-                <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" ${Number(t.count) >= Number(t.maxCount) ? 'disabled' : ''}
-                form="shop-cart-form" name="action" value="plus-${id}">
+            <form action="/cart/my/items/${id}/plus" method="post" class="shop-cart-item-count-plus">
+                <input type="hidden" name="id" value="${id}">
+                <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" ${Number(t.count) >= Number(t.maxCount) ? 'disabled' : ''}>
                     <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                     </svg>
                 </button>
-            </div>
+            </form>
         </div>
     </div>
     <div class="shop-cart-item-actions">
@@ -272,6 +272,8 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         offSelecting();
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-remove'), oneRemove);
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
 
         renderSidebar();
         renderItems();
@@ -282,6 +284,8 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         onSelecting();
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-remove'), oneRemove);
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
     }
 
     function renderTexts() {
@@ -593,17 +597,15 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function oneMinusUpload(values) {
+    function oneMinusUpload(form) {
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                let id = values.action.split('-')[1];
-
-                for (let i = 0; i < shopCartData.items.length; i++) {
-                    if (String(shopCartData.items[i].id) === id) {
-                        let count = Number(shopCartData.items[i].count) - 1;
-                        if (count >= Number(shopCartData.items[i].minCount)) {
-                            shopCartData.items[i].count = String(count);
-                        }
+                let id = String(form.querySelector('input[name="id"]').value);
+                let item = shopCartData.items.find(item => String(item.id) === id);
+                if (item) {
+                    let count = Number(item.count) - 1;
+                    if (count >= Number(item.minCount)) {
+                        item.count = String(count);
                     }
                 }
 
@@ -614,42 +616,37 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingOneMinus(values) {
-        let buttons = cart.querySelectorAll(`.shop-cart-item-count-minus-submit[value="${values.action}"]`);
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.add('shop-loading');
-        }
+    function submittingOneMinus(form) {
+        let btn = form.querySelector('.shop-cart-item-count-minus-submit');
+        btn.classList.add('shop-loading');
     }
 
-    function submittedOneMinus(data, values) {
+    function submittedOneMinus(data, form) {
         shopCartData = data;
-        let buttons = cart.querySelectorAll(`.shop-cart-item-count-minus-submit[value="${values.action}"]`);
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('shop-loading');
-        }
+        let btn = form.querySelector('.shop-cart-item-count-minus-submit');
+        btn.classList.remove('shop-loading');
         renderCart();
     }
 
-    function oneMinus(values) {
-        submittingOneMinus(values);
-        oneMinusUpload(values).then(function (data) {
-            submittedOneMinus(data, values);
+    function oneMinus(event) {
+        event.preventDefault();
+        submittingOneMinus(event.target);
+        oneMinusUpload(event.target).then(function (data) {
+            submittedOneMinus(data, event.target);
         }).catch(function (data) {
-            submittedOneMinus(data, values);
+            submittedOneMinus(data, event.target);
         });
     }
 
-    function onePlusUpload(values) {
+    function onePlusUpload(form) {
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                let id = values.action.split('-')[1];
-
-                for (let i = 0; i < shopCartData.items.length; i++) {
-                    if (String(shopCartData.items[i].id) === id) {
-                        let count = Number(shopCartData.items[i].count) + 1;
-                        if (count <= Number(shopCartData.items[i].maxCount)) {
-                            shopCartData.items[i].count = String(count);
-                        }
+                let id = String(form.querySelector('input[name="id"]').value);
+                let item = shopCartData.items.find(item => String(item.id) === id);
+                if (item) {
+                    let count = Number(item.count) + 1;
+                    if (count <= Number(item.maxCount)) {
+                        item.count = String(count);
                     }
                 }
 
@@ -660,28 +657,25 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
         });
     }
 
-    function submittingOnePlus(values) {
-        let buttons = cart.querySelectorAll(`.shop-cart-item-count-plus-submit[value="${values.action}"]`);
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.add('shop-loading');
-        }
+    function submittingOnePlus(form) {
+        let btn = form.querySelector('.shop-cart-item-count-plus-submit');
+        btn.classList.add('shop-loading');
     }
 
-    function submittedOnePlus(data, values) {
+    function submittedOnePlus(data, form) {
         shopCartData = data;
-        let buttons = cart.querySelectorAll(`.shop-cart-item-count-plus-submit[value="${values.action}"]`);
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('shop-loading');
-        }
+        let btn = form.querySelector('.shop-cart-item-count-plus-submit');
+        btn.classList.remove('shop-loading');
         renderCart();
     }
 
-    function onePlus(values) {
-        submittingOnePlus(values);
-        onePlusUpload(values).then(function (data) {
-            submittedOnePlus(data, values);
+    function onePlus(event) {
+        event.preventDefault();
+        submittingOnePlus(event.target);
+        onePlusUpload(event.target).then(function (data) {
+            submittedOnePlus(data, event.target);
         }).catch(function (data) {
-            submittedOnePlus(data, values);
+            submittedOnePlus(data, event.target);
         });
     }
 
@@ -784,10 +778,6 @@ ${(t.picture.sources || []).reduce(function (prev, cur) {
 
         if (values.action === 'remove-selected' && existsRemoveSelected) {
             selectedRemove(values);
-        } else if (values.action && values.action.startsWith('minus-')) {
-            oneMinus(values);
-        } else if (values.action && values.action.startsWith('plus-')) {
-            onePlus(values);
         } else {
             setCount(values);
         }
