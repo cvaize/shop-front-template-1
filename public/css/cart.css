@@ -79,13 +79,13 @@
 
 .shop-cart-item-image-picture {
     display: block;
-    padding-top: 100%;
+    padding-top: 120%;
     position: relative;
 }
 
 .shop-cart-item-image-wrapper {
     position: relative;
-    width: 10rem;
+    width: 8.66rem;
     height: 8rem;
     display: block;
     padding: 0 1rem;
@@ -177,7 +177,7 @@ a.shop-cart-item-name:focus {
     font-weight: 500;
 }
 
-.shop-cart-item-count-wrapper {
+.shop-cart-item-count {
     display: flex;
     flex-wrap: wrap;
     margin-top: 2rem;
@@ -210,7 +210,7 @@ a.shop-cart-item-name:focus {
     color: rgba(var(--shop-app-color), 0.5);
 }
 
-.shop-cart-item-count {
+.shop-cart-item-count-setter {
     display: block;
 }
 
@@ -544,7 +544,7 @@ a.shop-cart-item-name:focus {
         flex-basis: 12rem;
     }
 
-    .shop-cart-item-count-wrapper {
+    .shop-cart-item-count {
         margin-top: 0;
         padding-top: 1rem;
     }
@@ -633,17 +633,16 @@ a.shop-cart-item-name:focus {
 
     .shop-cart-item-name {
         padding-top: 0;
-        min-height: 6rem;
     }
 
-    .shop-cart-item-count-wrapper {
+    .shop-cart-item-count {
         padding-top: 0;
         margin-left: auto;
     }
 
     .shop-cart-item-characteristics {
-        width: calc(100% + 6.5rem);
-        margin-left: -6.5rem;
+        width: 100%;
+        margin-left: 0;
     }
 
     .shop-cart-selecting-card {

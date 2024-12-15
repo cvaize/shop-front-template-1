@@ -34,10 +34,10 @@
                     name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid cupiditate dolor doloribus eius ex fugiat',
                     characteristics: 'цвет белый, прозрачный; размер 44-46;',
                     picture: {
-                        src: './svg/300x300.svg',
+                        src: './svg/300x360.svg',
                         alt: 'Product 1',
                         sources: [
-                            {srcset: './svg/300x300.svg', media: '', type: 'image/svg+xml'}
+                            {srcset: './svg/300x360.svg', media: '', type: 'image/svg+xml'}
                         ]
                     },
                     price: '1 000 руб.',
@@ -60,10 +60,10 @@
                     name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
                     characteristics: 'цвет белый, прозрачный; размер 44-46;',
                     picture: {
-                        src: './svg/300x300_2.svg',
+                        src: './svg/300x360_2.svg',
                         alt: 'Product 2',
                         sources: [
-                            {srcset: './svg/300x300_2.svg', media: '', type: 'image/svg+xml'}
+                            {srcset: './svg/300x360_2.svg', media: '', type: 'image/svg+xml'}
                         ]
                     },
                     price: '1 000 руб.',
@@ -86,10 +86,10 @@
                     name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid cupiditate dolor doloribus eius ex fugiat',
                     characteristics: 'цвет белый, прозрачный; размер 44-46;',
                     picture: {
-                        src: './svg/300x300.svg',
+                        src: './svg/300x360.svg',
                         alt: 'Product 1',
                         sources: [
-                            {srcset: './svg/300x300.svg', media: '', type: 'image/svg+xml'}
+                            {srcset: './svg/300x360.svg', media: '', type: 'image/svg+xml'}
                         ]
                     },
                     price: '1 000 руб.',
@@ -112,10 +112,10 @@
                     name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
                     characteristics: 'цвет белый, прозрачный; размер 44-46;',
                     picture: {
-                        src: './svg/300x300_2.svg',
+                        src: './svg/300x360_2.svg',
                         alt: 'Product 2',
                         sources: [
-                            {srcset: './svg/300x300_2.svg', media: '', type: 'image/svg+xml'}
+                            {srcset: './svg/300x360_2.svg', media: '', type: 'image/svg+xml'}
                         ]
                     },
                     price: '1 000 руб.',
@@ -149,7 +149,7 @@
             <div class="shop-sidebar-container shop-container">
                 <a href="/public/index.html" class="shop-sidebar-brand">
                     Shop Front
-                    <img style="display: none" class="shop-sidebar-brand-logo" src="./svg/300x300.svg"
+                    <img style="display: none" class="shop-sidebar-brand-logo" src="./svg/300x360.svg"
                          alt="Shop Front">
                 </a>
                 <label for="shop-sidebar-search-checkbox" class="shop-sidebar-search-menu-block shop-sidebar-menu-block"
@@ -1016,7 +1016,7 @@
                                 <div class="shop-cart-item-image-wrapper">
                                     <a class="shop-cart-item-image-link" href="#">
                                         <picture class="shop-cart-item-image-picture">
-                                            <img class="shop-cart-item-image" src="./svg/300x300.svg" alt="Product 1">
+                                            <img class="shop-cart-item-image" src="./svg/300x360.svg" alt="Product 1">
                                         </picture>
                                     </a>
                                 </div>
@@ -1034,7 +1034,7 @@
                                         <div class="shop-cart-item-price">501 руб.</div>
                                         <div class="shop-cart-item-old-price" style="display: none">1 525 руб.</div>
                                     </div>
-                                    <div class="shop-cart-item-count-wrapper">
+                                    <div class="shop-cart-item-count">
                                         <form action="/cart/my/items/11/minus" method="post" class="shop-cart-item-count-minus">
                                             <input type="hidden" name="id" value="11">
                                             <button class="shop-cart-item-count-minus-submit shop-btn" type="submit"
@@ -1045,7 +1045,7 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <form action="/cart/my/items/11/count" method="post" class="shop-cart-item-count">
+                                        <form action="/cart/my/items/11/count" method="post" class="shop-cart-item-count-setter">
                                             <input type="hidden" name="id" value="11">
                                             <label class="shop-cart-item-count-label">
                                                 <input class="shop-cart-item-count-input" type="number" min="1"
@@ -1103,7 +1103,7 @@
                                 <div class="shop-cart-item-image-wrapper">
                                     <a class="shop-cart-item-image-link" href="#">
                                         <picture class="shop-cart-item-image-picture">
-                                            <img class="shop-cart-item-image" src="./svg/300x300_2.svg" alt="Product 2">
+                                            <img class="shop-cart-item-image" src="./svg/300x360_2.svg" alt="Product 2">
                                         </picture>
                                     </a>
                                 </div>
@@ -1119,7 +1119,7 @@
                                         <div class="shop-cart-item-price">501 руб.</div>
                                         <div class="shop-cart-item-old-price">1 525 руб.</div>
                                     </div>
-                                    <div class="shop-cart-item-count-wrapper">
+                                    <div class="shop-cart-item-count">
                                         <form action="/cart/my/items/22/minus" method="post" class="shop-cart-item-count-minus">
                                             <input type="hidden" name="id" value="22">
                                             <button class="shop-cart-item-count-minus-submit shop-btn" type="submit"
@@ -1130,7 +1130,7 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <form action="/cart/my/items/22/count" method="post" class="shop-cart-item-count">
+                                        <form action="/cart/my/items/22/count" method="post" class="shop-cart-item-count-setter">
                                             <input type="hidden" name="id" value="22">
                                             <label class="shop-cart-item-count-label">
                                                 <input class="shop-cart-item-count-input" type="number" min="1"
@@ -1292,43 +1292,43 @@
 
                                 <div class="shop-products-fw-list-item-images-pictures">
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                 </div>
@@ -1411,43 +1411,43 @@
 
                                 <div class="shop-products-fw-list-item-images-pictures">
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360.svg"
                                              alt="">
                                     </picture>
                                     <picture class="shop-products-fw-list-item-images-picture">
-                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x300_2.svg"
+                                        <img class="shop-products-fw-list-item-images-image" src="./svg/300x360_2.svg"
                                              alt="">
                                     </picture>
                                 </div>

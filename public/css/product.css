@@ -1,0 +1,303 @@
+.shop-product {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-product-breadcrumb-nav {
+    min-width: calc(100% - 19rem);
+    max-width: calc(100% - 19rem);
+    margin-bottom: 1rem;
+}
+
+.shop-product-head-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    min-width: 19rem;
+    max-width: 19rem;
+}
+
+.shop-product-images {
+    position: relative;
+    min-width: 36rem;
+    max-width: 36rem;
+    height: 35rem;
+}
+
+.shop-product-main {
+    display: none;
+    min-width: calc(100% - 20rem);
+    max-width: calc(100% - 20rem);
+}
+
+.shop-product-cards {
+    display: none;
+    min-width: 10rem;
+    max-width: 10rem;
+}
+
+.shop-product-description {
+    display: none;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.shop-product-breadcrumb {
+
+}
+
+.shop-product-breadcrumb-item.shop-breadcrumb-item--active {
+    display: none;
+}
+
+
+.shop-product-comparison {
+    display: block;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-product-comparison-btn {
+
+}
+
+.shop-product-comparison-icon-svg {
+
+}
+
+.shop-product-favorite {
+    display: block;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-product-favorite-btn {
+
+}
+
+.shop-product-favorite-icon-svg {
+
+}
+
+.shop-product-images-thumb {
+    --shop-product-img-width: 100;
+    --shop-product-img-height: 120;
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: calc(var(--shop-product-img-height) / var(--shop-product-img-width) * 100%);
+}
+
+.shop-product-images-thumb + .shop-product-images-thumb {
+    margin-top: 0.5rem;
+}
+
+.shop-product-images-viewer {
+    height: 35rem;
+    width: 29.16rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.shop-product-images-scroll {
+    width: 6rem;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.shop-product-images-full {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.shop-product-images-full-img {
+    width: 100%;
+}
+
+.shop-product-images-thumb-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.shop-product-images-top, .shop-product-images-bottom {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgb(var(--shop-app-background-color));
+    padding: 0 0 0.1rem 0;
+    z-index: 1;
+    width: 6rem;
+}
+
+.shop-product-images-top-btn, .shop-product-images-bottom-btn {
+    width: 100%;
+    background-color: rgb(var(--shop-app-background-color));
+    border-color: rgb(var(--shop-app-background-color));
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.shop-product-images-top-btn:hover, .shop-product-images-bottom-btn:hover {
+    background-color: rgb(var(--shop-app-light-background-color));
+}
+
+.shop-product-images-top-btn-icon-svg {
+    transform-origin: center;
+    transform: rotate(90deg);
+}
+
+.shop-product-images-bottom {
+    padding: 0.1rem 0 0 0;
+    top: auto;
+    bottom: 0;
+}
+
+.shop-product-images-bottom-btn {
+
+}
+
+.shop-product-images-bottom-btn-icon-svg {
+    transform-origin: center;
+    transform: rotate(-90deg);
+}
+
+.shop-product-title {
+
+}
+
+.shop-product-attribute {
+
+}
+
+.shop-product-attribute-label {
+
+}
+
+.shop-product-attribute-values {
+
+}
+
+.shop-product-attribute-value {
+
+}
+
+.shop-product-attribute-picture {
+
+}
+
+.shop-product-attribute-img {
+
+}
+
+.shop-product-characteristics {
+
+}
+
+.shop-product-characteristics-row {
+
+}
+
+.shop-product-characteristics-label {
+
+}
+
+.shop-product-characteristics-value {
+
+}
+
+.shop-product-prices-card {
+
+}
+
+.shop-product-card {
+
+}
+
+.shop-product-prices-block {
+
+}
+
+.shop-product-price {
+
+}
+
+.shop-product-old-price {
+
+}
+
+.shop-product-count {
+
+}
+
+.shop-product-count-minus {
+
+}
+
+.shop-product-count-minus-submit {
+
+}
+
+.shop-product-count-setter {
+
+}
+
+.shop-product-count-label {
+
+}
+
+.shop-product-count-input {
+
+}
+
+.shop-product-count-plus {
+
+}
+
+.shop-product-count-plus-submit {
+
+}
+
+.shop-product-prices-buttons {
+
+}
+
+.shop-product-submit {
+
+}
+
+.shop-product-card-delivery {
+
+}
+
+.shop-product-delivery-title {
+
+}
+
+.shop-product-delivery-list {
+
+}
+
+.shop-product-delivery-item {
+
+}
+
+.shop-product-description-title {
+
+}
+
+.shop-product-description-content {
+
+}

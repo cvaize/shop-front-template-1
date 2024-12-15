@@ -180,7 +180,7 @@
             <div class="shop-cart-item-price">${t.price}</div>
             <div class="shop-cart-item-old-price" style="${t.oldPrice ? '' : 'display: none'}">${t.oldPrice}</div>
         </div>
-        <div class="shop-cart-item-count-wrapper">
+        <div class="shop-cart-item-count">
             <form action="/cart/my/items/${id}/minus" method="post" class="shop-cart-item-count-minus">
                 <input type="hidden" name="id" value="${id}">
                 <button class="shop-cart-item-count-minus-submit shop-btn" type="submit" ${Number(t.count) <= Number(t.minCount) ? 'disabled' : ''}>
@@ -190,7 +190,7 @@
                     </svg>
                 </button>
             </form>
-            <form action="/cart/my/items/${id}/count" method="post" class="shop-cart-item-count">
+            <form action="/cart/my/items/${id}/count" method="post" class="shop-cart-item-count-setter">
                 <input type="hidden" name="id" value="${id}">
                 <label class="shop-cart-item-count-label">
                     <input class="shop-cart-item-count-input" type="number" min="${t.minCount}"
@@ -271,7 +271,7 @@
     }
 
     function handleChangeCount(event) {
-        let form = event.target.closest('.shop-cart-item-count');
+        let form = event.target.closest('.shop-cart-item-count-setter');
         if (form) {
             submittingSetCount(form);
             setCountUpload(form).then(function (data) {
@@ -288,8 +288,8 @@
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
         removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
-        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count'), setCount);
-        removeEventListener('change', cart.querySelectorAll('.shop-cart-item-count .shop-cart-item-count-input'), handleChangeCount);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-setter'), setCount);
+        removeEventListener('change', cart.querySelectorAll('.shop-cart-item-count-setter .shop-cart-item-count-input'), handleChangeCount);
 
         renderSidebar();
         renderItems();
@@ -302,8 +302,8 @@
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
         addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
-        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count'), setCount);
-        addEventListener('change', cart.querySelectorAll('.shop-cart-item-count .shop-cart-item-count-input'), handleChangeCount);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-setter'), setCount);
+        addEventListener('change', cart.querySelectorAll('.shop-cart-item-count-setter .shop-cart-item-count-input'), handleChangeCount);
     }
 
     function renderTexts() {
@@ -808,10 +808,10 @@
                 name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid cupiditate dolor doloribus eius ex fugiat',
                 characteristics: 'цвет белый, прозрачный; размер 44-46;',
                 picture: {
-                    src: './svg/300x300.svg',
+                    src: './svg/300x360.svg',
                     alt: 'Product 1',
                     sources: [
-                        {srcset: './svg/300x300.svg', media: '', type: 'image/svg+xml'}
+                        {srcset: './svg/300x360.svg', media: '', type: 'image/svg+xml'}
                     ]
                 },
                 price: `${price.toLocaleString()} руб.`,
@@ -835,10 +835,10 @@
                 name: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
                 characteristics: 'цвет белый, прозрачный; размер 44-46;',
                 picture: {
-                    src: './svg/300x300_2.svg',
+                    src: './svg/300x360_2.svg',
                     alt: 'Product 2',
                     sources: [
-                        {srcset: './svg/300x300_2.svg', media: '', type: 'image/svg+xml'}
+                        {srcset: './svg/300x360_2.svg', media: '', type: 'image/svg+xml'}
                     ]
                 },
                 price: `${price.toLocaleString()} руб.`,

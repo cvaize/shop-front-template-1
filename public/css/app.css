@@ -1613,6 +1613,37 @@ a.shop-pagination-link:active, button.shop-pagination-link:active {
     background-color: rgba(var(--shop-app-color), 0.2);
 }
 
+.shop-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 0 0.8rem 0;
+    list-style: none;
+}
+
+.shop-breadcrumb-item a {
+    color: inherit;
+}
+
+.shop-breadcrumb-item a:hover {
+    opacity: 0.8;
+}
+
+.shop-breadcrumb-item + .shop-breadcrumb-item {
+    padding-left: .5rem;
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.shop-breadcrumb-item + .shop-breadcrumb-item::before {
+    content: var(--bs-breadcrumb-divider, "/");
+    float: left;
+    padding-right: .5rem;
+}
+
+.shop-breadcrumb-item--active {
+    opacity: 0.8;
+}
+
 @media (min-width: 1400px) and (max-width: 1460px) {
     .shop-container {
         max-width: 1320px;
