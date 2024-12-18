@@ -48,44 +48,86 @@
 
     function handleClickTopBtn(event) {
         event.preventDefault();
-        scrollElement.scrollTo({
-            top: scrollElement.scrollTop - 300,
-            behavior: "smooth",
-        });
+        const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if (width >= 1400) {
+            scrollElement.scrollTo({
+                top: scrollElement.scrollTop - 300,
+                behavior: "smooth",
+            });
+        } else {
+            scrollElement.scrollTo({
+                left: scrollElement.scrollLeft - 150,
+                behavior: "smooth",
+            });
+        }
     }
 
     function handleClickBottomBtn(event) {
         event.preventDefault();
-        scrollElement.scrollTo({
-            top: scrollElement.scrollTop + 300,
-            behavior: "smooth",
-        });
+        const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if (width >= 1400) {
+            scrollElement.scrollTo({
+                top: scrollElement.scrollTop + 300,
+                behavior: "smooth",
+            });
+        } else {
+            scrollElement.scrollTo({
+                left: scrollElement.scrollLeft + 150,
+                behavior: "smooth",
+            });
+        }
     }
 
     function handleScrollThumbs(event) {
         event && event.preventDefault();
         requestAnimationFrame(function () {
-            let scrollViewerHeight = scrollViewer.getBoundingClientRect().height;
-            let scrollElementHeight = scrollElement.getBoundingClientRect().height;
-            let topBtnBlock = topBtn.parentNode;
-            let bottomBtnBlock = bottomBtn.parentNode;
+            const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if (width >= 1400) {
+                let scrollViewerHeight = scrollViewer.getBoundingClientRect().height;
+                let scrollElementHeight = scrollElement.getBoundingClientRect().height;
+                let topBtnBlock = topBtn.parentNode;
+                let bottomBtnBlock = bottomBtn.parentNode;
 
-            if (scrollViewerHeight <= scrollElementHeight) {
-                topBtnBlock.style.display = 'none';
-                bottomBtnBlock.style.display = 'none';
-                return;
-            }
+                if (scrollViewerHeight <= scrollElementHeight) {
+                    topBtnBlock.style.display = 'none';
+                    bottomBtnBlock.style.display = 'none';
+                    return;
+                }
 
-            if (scrollElement.scrollTop > 30) {
-                if (topBtnBlock.style.display !== 'block') topBtnBlock.style.display = 'block';
+                if (scrollElement.scrollTop > 30) {
+                    if (topBtnBlock.style.display !== 'block') topBtnBlock.style.display = 'block';
+                } else {
+                    if (topBtnBlock.style.display !== 'none') topBtnBlock.style.display = 'none';
+                }
+
+                if (scrollElement.scrollTop > (scrollViewerHeight - scrollElementHeight)) {
+                    if (bottomBtnBlock.style.display !== 'none') bottomBtnBlock.style.display = 'none';
+                } else {
+                    if (bottomBtnBlock.style.display !== 'block') bottomBtnBlock.style.display = 'block';
+                }
             } else {
-                if (topBtnBlock.style.display !== 'none') topBtnBlock.style.display = 'none';
-            }
+                let scrollViewerWidth = scrollViewer.getBoundingClientRect().width;
+                let scrollElementWidth = scrollElement.getBoundingClientRect().width;
+                let topBtnBlock = topBtn.parentNode;
+                let bottomBtnBlock = bottomBtn.parentNode;
 
-            if (scrollElement.scrollTop > (scrollViewerHeight - scrollElementHeight)) {
-                if (bottomBtnBlock.style.display !== 'none') bottomBtnBlock.style.display = 'none';
-            } else {
-                if (bottomBtnBlock.style.display !== 'block') bottomBtnBlock.style.display = 'block';
+                if (scrollViewerWidth <= scrollElementWidth) {
+                    topBtnBlock.style.display = 'none';
+                    bottomBtnBlock.style.display = 'none';
+                    return;
+                }
+
+                if (scrollElement.scrollLeft > 30) {
+                    if (topBtnBlock.style.display !== 'block') topBtnBlock.style.display = 'block';
+                } else {
+                    if (topBtnBlock.style.display !== 'none') topBtnBlock.style.display = 'none';
+                }
+
+                if (scrollElement.scrollLeft > (scrollViewerWidth - scrollElementWidth)) {
+                    if (bottomBtnBlock.style.display !== 'none') bottomBtnBlock.style.display = 'none';
+                } else {
+                    if (bottomBtnBlock.style.display !== 'block') bottomBtnBlock.style.display = 'block';
+                }
             }
         });
     }
@@ -221,7 +263,6 @@
         scrollViewer = pageElement.querySelector('.shop-product-images-thumbs-scroll-viewer');
         attributeValuesElements = pageElement.querySelectorAll('.shop-product-attribute-value');
         submitBtn = pageElement.querySelector('.shop-product-submit');
-        
 
 
         addEventListener('submit', pageElement.querySelectorAll('.shop-product-count-minus'), oneMinus);
