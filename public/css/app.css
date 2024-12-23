@@ -1621,11 +1621,11 @@ a.shop-pagination-link:active, button.shop-pagination-link:active {
     list-style: none;
 }
 
-.shop-breadcrumb-item a {
+.shop-breadcrumb-item .shop-breadcrumb-link {
     color: inherit;
 }
 
-.shop-breadcrumb-item a:hover {
+.shop-breadcrumb-item .shop-breadcrumb-link:hover {
     opacity: 0.8;
 }
 

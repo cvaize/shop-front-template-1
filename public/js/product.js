@@ -50,13 +50,17 @@
         event.preventDefault();
         const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         if (width >= 1400) {
+            let value = scrollElement.scrollTop - 300;
+            if(value < 50) value = 0;
             scrollElement.scrollTo({
-                top: scrollElement.scrollTop - 300,
+                top: value,
                 behavior: "smooth",
             });
         } else {
+            let value = scrollElement.scrollLeft - 150;
+            if(value < 50) value = 0;
             scrollElement.scrollTo({
-                left: scrollElement.scrollLeft - 150,
+                left: value,
                 behavior: "smooth",
             });
         }
