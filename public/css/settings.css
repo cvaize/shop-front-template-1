@@ -1,7 +1,7 @@
 .shop-settings {
 }
 
-.shop-settings-body-description {
+.shop-settings__body__description {
     width: 100%;
     padding: 0 calc(100% - 40rem) 0 0.5rem;
     font-weight: 500;
@@ -11,32 +11,32 @@
     flex-wrap: wrap;
 }
 
-.shop-settings-card, .shop-points-card {
+.shop-settings__card, .shop-points__card {
     box-shadow: 0 0.2rem 0.6rem 0.2rem rgba(var(--shop-app-light-background-color), 1);
     border-radius: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.shop-settings-edit-checkbox {
+.shop-settings__edit__checkbox {
 }
 
-.shop-settings-card-header {
+.shop-settings__card__header {
     font-weight: 700;
     font-size: 1.2rem;
     padding: 1rem 1.5rem 0.25rem 1.5rem;
 }
 
-.shop-settings-card-header-icon {
+.shop-settings__card__header__icon {
     margin-right: 0.5rem;
 }
 
-.shop-settings-body {
+.shop-settings__body {
     padding: 0.25rem 1.5rem 0 3.1rem;
     display: flex;
     flex-wrap: wrap;
 }
 
-.shop-settings-footer {
+.shop-settings__footer {
     padding: 0.25rem 1.5rem 1rem 3.6rem;
 }
 
@@ -48,71 +48,71 @@
     padding: 0 0.5rem;
 }
 
-.shop-setting-label {
+.shop-setting__label {
     font-weight: 500;
     opacity: 0.7;
 }
 
-.shop-setting-value {
+.shop-setting__value {
     font-size: 0.9rem;
     font-weight: 600;
 }
 
-.shop-setting-input-label {
+.shop-setting__input__label {
     display: none;
     margin-bottom: 0.5rem;
 }
 
-.shop-setting-input {
+.shop-setting__input {
     width: 100%;
     min-width: auto;
 }
 
-.shop-settings-footer {
+.shop-settings__footer {
 }
 
-.shop-settings-edit-btn {
+.shop-settings__edit__btn {
 }
 
-.shop-settings-save-btn {
+.shop-settings__save__btn {
     display: none;
 
 }
 
-.shop-setting-fio {
+.shop-setting__fio {
     flex-basis: auto;
     width: auto;
     max-width: 20rem;
     flex-grow: 1;
 }
 
-.shop-setting-birthday {
+.shop-setting__birthday {
     flex-basis: 10rem;
     min-width: 10rem;
 }
 
-.shop-setting-tel {
+.shop-setting__tel {
     flex-basis: 10rem;
     min-width: 10rem;
 }
 
-.shop-setting-email {
+.shop-setting__email {
     flex-basis: 12rem;
     min-width: 12rem;
 }
 
-.shop-setting-gender {
+.shop-setting__gender {
     flex-basis: 10rem;
     min-width: 10rem;
 }
 
-.shop-settings-edit-checkbox:checked ~ .shop-settings-body .shop-setting-input-label,
-.shop-settings-edit-checkbox:checked ~ .shop-settings-footer .shop-settings-save-btn {
+.shop-settings__edit__checkbox:checked ~ .shop-settings__body .shop-setting__input__label,
+.shop-settings__edit__checkbox:checked ~ .shop-settings__footer .shop-settings__save__btn {
     display: block;
 }
 
-.shop-settings-edit-checkbox:checked ~ .shop-settings-body .shop-setting-value,
-.shop-settings-edit-checkbox:checked ~ .shop-settings-footer .shop-settings-edit-btn {
+.shop-settings__edit__checkbox:checked ~ .shop-settings__body .shop-setting__value,
+.shop-settings__edit__checkbox:checked ~ .shop-settings__footer .shop-settings__edit__btn {
     display: none;
 }
 
@@ -142,11 +142,11 @@
         padding-right: 0;
     }
 
-    .shop-settings-body {
+    .shop-settings__body {
         padding-left: 1.5rem;
     }
 
-    .shop-settings-footer {
+    .shop-settings__footer {
         padding-left: 1.5rem;
     }
 }

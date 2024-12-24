@@ -75,14 +75,14 @@
     }
 
     function handleChangeAllSelecting(event) {
-        let inputs = cart.querySelectorAll('.shop-cart-item-checkbox');
+        let inputs = cart.querySelectorAll('.shop-cart__item__checkbox');
         for (let i = 0; i < inputs.length; i++) {
             inputs[i].checked = cartSelectingCheckbox.checked;
         }
     }
 
     function handleChangeSelecting(event) {
-        let inputs = cart.querySelectorAll('.shop-cart-item-checkbox');
+        let inputs = cart.querySelectorAll('.shop-cart__item__checkbox');
         let checked = true;
         for (let i = 0; i < inputs.length; i++) {
             if (!inputs[i].checked) {
@@ -94,7 +94,7 @@
 
     function onSelecting() {
         cartSelectingCheckbox.addEventListener('change', handleChangeAllSelecting);
-        let inputs = cart.querySelectorAll('.shop-cart-item-checkbox');
+        let inputs = cart.querySelectorAll('.shop-cart__item__checkbox');
         for (let i = 0; i < inputs.length; i++) {
             inputs[i].addEventListener('change', handleChangeSelecting);
         }
@@ -102,7 +102,7 @@
 
     function offSelecting() {
         cartSelectingCheckbox.removeEventListener('change', handleChangeAllSelecting);
-        let inputs = cart.querySelectorAll('.shop-cart-item-checkbox');
+        let inputs = cart.querySelectorAll('.shop-cart__item__checkbox');
         for (let i = 0; i < inputs.length; i++) {
             inputs[i].removeEventListener('change', handleChangeSelecting);
         }
@@ -124,15 +124,15 @@
         }
         if (cartSidebarTotalWeight) cartSidebarTotalWeight.innerText = shopCartData.totalWeight || '';
         if (cartSidebarBody) {
-            let rows = cart.querySelectorAll('.shop-cart-sidebar-row:not(.shop-cart-sidebar-row-header)');
+            let rows = cart.querySelectorAll('.shop-cart__sidebar__row:not(.shop-cart__sidebar__row--header)');
             for (let i = 0; i < rows.length; i++) {
                 rows[i].remove();
             }
             for (let i = 0; i < shopCartData.totalItems.length; i++) {
                 cartSidebarBody.insertAdjacentHTML('beforeend', `
-<div class="shop-cart-sidebar-row">
-    <div class="shop-cart-sidebar-total-name">${shopCartData.totalItems[i].label}</div>
-    <div class="shop-cart-sidebar-total-value${shopCartData.totalItems[i].accent ? ' text-danger' : ''}">${shopCartData.totalItems[i].value}</div>
+<div class="shop-cart__sidebar__row">
+    <div class="shop-cart__sidebar__total__name">${shopCartData.totalItems[i].label}</div>
+    <div class="shop-cart__sidebar__total__value${shopCartData.totalItems[i].accent ? ' text--danger' : ''}">${shopCartData.totalItems[i].value}</div>
 </div>`)
             }
         }
@@ -145,62 +145,62 @@
         let id = String(t.id || '').trim();
         let checked = t.checked === true;
         return `
-<div class="shop-cart-item" data-cart-item-id="${id}">
-    <div class="shop-cart-item-checkbox-wrapper">
-        <input class="shop-form-checkbox shop-cart-item-checkbox" type="checkbox"
-               id="shop-cart-selecting-checkbox-${id}" hidden ${checked ? 'checked' : ''} form="shop-cart-selecting-form" name="items[${id}][selected]" value="${id}">
-        <label class="shop-form-checkbox-label" for="shop-cart-selecting-checkbox-${id}" tabindex="0">
-            <svg class="shop-form-checkbox-svg-icon" xmlns="http://www.w3.org/2000/svg"
+<div class="shop-cart__item" data-cart-item-id="${id}">
+    <div class="shop-cart__item__checkbox__wrapper">
+        <input class="shop-form__checkbox shop-cart__item__checkbox" type="checkbox"
+               id="shop-cart__selecting__checkbox__${id}" hidden ${checked ? 'checked' : ''} form="shop-cart__selecting__form" name="items[${id}][selected]" value="${id}">
+        <label class="shop-form__checkbox__label" for="shop-cart__selecting__checkbox__${id}" tabindex="0">
+            <svg class="shop-form__checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24" viewBox="0 0 24 24">
                 <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
             </svg>
         </label>
     </div>
-    <div class="shop-cart-item-image-wrapper">
-        <a class="shop-cart-item-image-link" href="${t.productLink}">
-            <picture class="shop-cart-item-image-picture">
+    <div class="shop-cart__item__image__wrapper">
+        <a class="shop-cart__item__image__link" href="${t.productLink}">
+            <picture class="shop-cart__item__image__picture">
     ${(t.picture.sources || []).reduce(function (prev, cur) {
                 return prev + `<source srcset="${cur.srcset}" media="${cur.media}" type="${cur.type}">`
             }, '')}
-                <img class="shop-cart-item-image" src="${t.picture.src}" alt="${t.picture.alt}">
+                <img class="shop-cart__item__image" src="${t.picture.src}" alt="${t.picture.alt}">
             </picture>
         </a>
     </div>
-    <div class="shop-cart-item-content-wrapper">
-        <a href="${t.productLink}" class="shop-cart-item-name">
+    <div class="shop-cart__item__content-wrapper">
+        <a href="${t.productLink}" class="shop-cart__item__name">
             ${t.name}
         </a>
-        <div class="shop-cart-item-characteristics">
+        <div class="shop-cart__item__characteristics">
             ${t.characteristics}
         </div>
     </div>
-    <div class="shop-cart-item-price-wrapper">
-        <div class="shop-cart-item-prices">
-            <div class="shop-cart-item-price">${t.price}</div>
-            <div class="shop-cart-item-old-price" style="${t.oldPrice ? '' : 'display: none'}">${t.oldPrice}</div>
+    <div class="shop-cart__item__price-wrapper">
+        <div class="shop-cart__item__prices">
+            <div class="shop-cart__item__price">${t.price}</div>
+            <div class="shop-cart__item__old-price" style="${t.oldPrice ? '' : 'display: none'}">${t.oldPrice}</div>
         </div>
-        <div class="shop-cart-item-count">
-            <form action="/cart/my/items/${id}/minus" method="post" class="shop-cart-item-count-minus">
+        <div class="shop-cart__item__count">
+            <form action="/cart/my/items/${id}/minus" method="post" class="shop-cart__item__count__minus">
                 <input type="hidden" name="id" value="${id}">
-                <button class="shop-cart-item-count-minus-submit shop-btn" type="submit" ${Number(t.count) <= Number(t.minCount) ? 'disabled' : ''}>
-                    <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                <button class="shop-cart__item__count__minus__submit shop-btn" type="submit" ${Number(t.count) <= Number(t.minCount) ? 'disabled' : ''}>
+                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                     </svg>
                 </button>
             </form>
-            <form action="/cart/my/items/${id}/count" method="post" class="shop-cart-item-count-setter">
+            <form action="/cart/my/items/${id}/count" method="post" class="shop-cart__item__count__setter">
                 <input type="hidden" name="id" value="${id}">
-                <label class="shop-cart-item-count-label">
-                    <input class="shop-cart-item-count-input" type="number" min="${t.minCount}"
+                <label class="shop-cart__item__count__label">
+                    <input class="shop-cart__item__count__input" type="number" min="${t.minCount}"
                            max="${t.maxCount}" value="${t.count}" name="count">
                 </label>
             </form>
-            <form action="/cart/my/items/${id}/plus" method="post" class="shop-cart-item-count-plus">
+            <form action="/cart/my/items/${id}/plus" method="post" class="shop-cart__item__count__plus">
                 <input type="hidden" name="id" value="${id}">
-                <button class="shop-cart-item-count-plus-submit shop-btn" type="submit" ${Number(t.count) >= Number(t.maxCount) ? 'disabled' : ''}>
-                    <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                <button class="shop-cart__item__count__plus__submit shop-btn" type="submit" ${Number(t.count) >= Number(t.maxCount) ? 'disabled' : ''}>
+                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                     </svg>
@@ -208,12 +208,12 @@
             </form>
         </div>
     </div>
-    <div class="shop-cart-item-actions">
-        <form action="/cart/my/items/${id}/favorite" method="post" class="shop-cart-item-favorite">
+    <div class="shop-cart__item__actions">
+        <form action="/cart/my/items/${id}/favorite" method="post" class="shop-cart__item__favorite">
             <input type="hidden" name="id" value="${id}">
-            <button class="shop-cart-item-favorite-btn shop-btn-square shop-btn${t.favorite ? ' shop-active' : ''}"
+            <button class="shop-cart__item__favorite__btn shop-btn--square shop-btn${t.favorite ? ' shop-active' : ''}"
                     type="submit">
-                <svg class="shop-cart-item-favorite-icon shop-icon-svg"
+                <svg class="shop-cart__item__favorite__icon shop-icon--svg"
                      xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                      viewBox="0 0 24 24">
                     <path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
@@ -222,10 +222,10 @@
                 </svg>
             </button>
         </form>
-        <form action="/cart/my/items/${id}/remove" method="post" class="shop-cart-item-remove">
+        <form action="/cart/my/items/${id}/remove" method="post" class="shop-cart__item__remove">
             <input type="hidden" name="id" value="${id}">
-            <button class="shop-cart-item-remove-btn shop-btn shop-btn-square" type="submit">
-                <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
+            <button class="shop-cart__item__remove-btn shop-btn shop-btn--square" type="submit">
+                <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
                      height="24" viewBox="0 0 24 24">
                     <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
                 </svg>
@@ -247,12 +247,12 @@
             cartHeaderProductsCount.innerText = pluralize(totalCount, ['товар', 'товара', 'товаров']);
         }
         let checkboxes = {}
-        let items = cart.querySelectorAll('.shop-cart-item');
+        let items = cart.querySelectorAll('.shop-cart__item');
 
         for (let i = 0; i < items.length; i++) {
             let id = String(items[i].getAttribute('data-cart-item-id') || '').trim();
             if (id) {
-                let checkbox = items[i].querySelector('.shop-cart-item-checkbox');
+                let checkbox = items[i].querySelector('.shop-cart__item__checkbox');
                 checkboxes[id] = checkbox != null && checkbox.checked === true;
             }
         }
@@ -271,7 +271,7 @@
     }
 
     function handleChangeCount(event) {
-        let form = event.target.closest('.shop-cart-item-count-setter');
+        let form = event.target.closest('.shop-cart__item__count__setter');
         if (form) {
             submittingSetCount(form);
             setCountUpload(form).then(function (data) {
@@ -284,12 +284,12 @@
 
     function renderCart() {
         offSelecting();
-        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-remove'), oneRemove);
-        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
-        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
-        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
-        removeEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-setter'), setCount);
-        removeEventListener('change', cart.querySelectorAll('.shop-cart-item-count-setter .shop-cart-item-count-input'), handleChangeCount);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart__item__remove'), oneRemove);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart__item__favorite'), oneFavorite);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart__item__count__minus'), oneMinus);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart__item__count__plus'), onePlus);
+        removeEventListener('submit', cart.querySelectorAll('.shop-cart__item__count__setter'), setCount);
+        removeEventListener('change', cart.querySelectorAll('.shop-cart__item__count__setter .shop-cart__item__count__input'), handleChangeCount);
 
         renderSidebar();
         renderItems();
@@ -298,12 +298,12 @@
         switchEmptyElements();
 
         onSelecting();
-        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-remove'), oneRemove);
-        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-favorite'), oneFavorite);
-        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-minus'), oneMinus);
-        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-plus'), onePlus);
-        addEventListener('submit', cart.querySelectorAll('.shop-cart-item-count-setter'), setCount);
-        addEventListener('change', cart.querySelectorAll('.shop-cart-item-count-setter .shop-cart-item-count-input'), handleChangeCount);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart__item__remove'), oneRemove);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart__item__favorite'), oneFavorite);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart__item__count__minus'), oneMinus);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart__item__count__plus'), onePlus);
+        addEventListener('submit', cart.querySelectorAll('.shop-cart__item__count__setter'), setCount);
+        addEventListener('change', cart.querySelectorAll('.shop-cart__item__count__setter .shop-cart__item__count__input'), handleChangeCount);
     }
 
     function renderTexts() {
@@ -547,13 +547,13 @@
     }
 
     function submittingOneRemove(form) {
-        let btn = form.querySelector('.shop-cart-item-remove-btn');
+        let btn = form.querySelector('.shop-cart__item__remove-btn');
         btn.classList.add('shop-loading');
     }
 
     function submittedOneRemove(data, form) {
         shopCartData = data;
-        let btn = form.querySelector('.shop-cart-item-remove-btn');
+        let btn = form.querySelector('.shop-cart__item__remove-btn');
         btn.classList.remove('shop-loading');
         renderCart();
     }
@@ -585,13 +585,13 @@
     }
 
     function submittingOneFavorite(form) {
-        let btn = form.querySelector('.shop-cart-item-favorite-btn');
+        let btn = form.querySelector('.shop-cart__item__favorite__btn');
         btn.classList.add('shop-loading');
     }
 
     function submittedOneFavorite(data, form) {
         shopCartData = data;
-        let btn = form.querySelector('.shop-cart-item-favorite-btn');
+        let btn = form.querySelector('.shop-cart__item__favorite__btn');
         btn.classList.remove('shop-loading');
 
         let id = String(form.querySelector('input[name="id"]').value);
@@ -635,13 +635,13 @@
     }
 
     function submittingOneMinus(form) {
-        let btn = form.querySelector('.shop-cart-item-count-minus-submit');
+        let btn = form.querySelector('.shop-cart__item__count__minus__submit');
         btn.classList.add('shop-loading');
     }
 
     function submittedOneMinus(data, form) {
         shopCartData = data;
-        let btn = form.querySelector('.shop-cart-item-count-minus-submit');
+        let btn = form.querySelector('.shop-cart__item__count__minus__submit');
         btn.classList.remove('shop-loading');
         renderCart();
     }
@@ -676,13 +676,13 @@
     }
 
     function submittingOnePlus(form) {
-        let btn = form.querySelector('.shop-cart-item-count-plus-submit');
+        let btn = form.querySelector('.shop-cart__item__count__plus__submit');
         btn.classList.add('shop-loading');
     }
 
     function submittedOnePlus(data, form) {
         shopCartData = data;
-        let btn = form.querySelector('.shop-cart-item-count-plus-submit');
+        let btn = form.querySelector('.shop-cart__item__count__plus__submit');
         btn.classList.remove('shop-loading');
         renderCart();
     }
@@ -700,7 +700,7 @@
     function setCountUpload(form) {
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                let input = form.querySelector('.shop-cart-item-count-input');
+                let input = form.querySelector('.shop-cart__item__count__input');
                 let id = String(form.querySelector('input[name="id"]').value);
                 let item = shopCartData.items.find(item => String(item.id) === id);
                 let count = input.value;
@@ -725,8 +725,8 @@
     }
 
     function submittingSetCount(form) {
-        let label = form.querySelector('.shop-cart-item-count-label');
-        let input = form.querySelector('.shop-cart-item-count-input');
+        let label = form.querySelector('.shop-cart__item__count__label');
+        let input = form.querySelector('.shop-cart__item__count__input');
         let id = String(form.querySelector('input[name="id"]').value);
         let item = shopCartData.items.find(item => String(item.id) === id);
         if (item && String(input.value) !== String(item.count)) {
@@ -736,7 +736,7 @@
 
     function submittedSetCount(data, form) {
         shopCartData = data;
-        let label = form.querySelector('.shop-cart-item-count-label');
+        let label = form.querySelector('.shop-cart__item__count__label');
         label.classList.remove('shop-loading');
         renderCart();
     }
@@ -879,24 +879,24 @@
             return;
         }
 
-        cartSelectingForm = cart.querySelector('.shop-cart-selecting-card');
-        cartH1 = cart.querySelector('.shop-cart-header .shop-h1');
-        cartHeaderProductsCount = cart.querySelector('.shop-cart-header-products-count');
-        cartSubmitBtn = cart.querySelector('.shop-cart-sidebar-submit');
-        cartRemoveSelectingBtn = cart.querySelector('.shop-cart-remove-selecting-submit');
-        cartSidebarError = cart.querySelector('.shop-cart-sidebar-wrapper .shop-cart-sidebar-error');
-        cartSidebarTotalWeight = cart.querySelector('.shop-cart-sidebar-total-weight');
-        cartSidebarBody = cart.querySelector('.shop-cart-sidebar-wrapper .shop-cart-sidebar-body');
-        cartSidebarTotalPriceValue = cart.querySelector('.shop-cart-sidebar-total-price-value');
-        cartCouponsForm = cart.querySelector('.shop-cart-coupons');
-        cartCouponsInput = cart.querySelector('.shop-cart-coupons-input');
-        cartCouponsBtn = cart.querySelector('.shop-cart-sidebar-coupons-submit');
-        cartCouponsError = cart.querySelector('.shop-cart-sidebar-coupons-wrapper .shop-cart-sidebar-error');
-        cartProducts = cart.querySelector('.shop-cart-items');
-        cartSelectingCheckbox = cart.querySelector('.shop-cart-selecting-checkbox');
-        cartSwitchContentIsEmptyElements = cart.querySelectorAll('.shop-cart-switch-content-is-empty');
-        cartShowIsEmptyElements = cart.querySelectorAll('.shop-cart-show-is-empty');
-        cartHideIsEmptyElements = cart.querySelectorAll('.shop-cart-hide-is-empty');
+        cartSelectingForm = cart.querySelector('.shop-cart__selecting__card');
+        cartH1 = cart.querySelector('.shop-cart__header .shop-h1');
+        cartHeaderProductsCount = cart.querySelector('.shop-cart__header-products-count');
+        cartSubmitBtn = cart.querySelector('.shop-cart__sidebar__submit');
+        cartRemoveSelectingBtn = cart.querySelector('.shop-cart__remove-selecting-submit');
+        cartSidebarError = cart.querySelector('.shop-cart__sidebar__wrapper .shop-cart__sidebar__error');
+        cartSidebarTotalWeight = cart.querySelector('.shop-cart__sidebar__total__weight');
+        cartSidebarBody = cart.querySelector('.shop-cart__sidebar__wrapper .shop-cart__sidebar__body');
+        cartSidebarTotalPriceValue = cart.querySelector('.shop-cart__sidebar__total__price__value');
+        cartCouponsForm = cart.querySelector('.shop-cart__coupons');
+        cartCouponsInput = cart.querySelector('.shop-cart__coupons__input');
+        cartCouponsBtn = cart.querySelector('.shop-cart__sidebar__coupons__submit');
+        cartCouponsError = cart.querySelector('.shop-cart__sidebar__coupons__wrapper .shop-cart__sidebar__error');
+        cartProducts = cart.querySelector('.shop-cart__items');
+        cartSelectingCheckbox = cart.querySelector('.shop-cart__selecting__checkbox');
+        cartSwitchContentIsEmptyElements = cart.querySelectorAll('.shop-cart__switch-content-is-empty');
+        cartShowIsEmptyElements = cart.querySelectorAll('.shop-cart__show-is-empty');
+        cartHideIsEmptyElements = cart.querySelectorAll('.shop-cart__hide-is-empty');
 
         if (cartCouponsForm && cartCouponsInput && cartCouponsError) {
             cartCouponsForm.addEventListener('submit', couponSubmit);

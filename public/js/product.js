@@ -34,7 +34,7 @@
     }
 
     function switchThumbnail(target) {
-        let elements = target.closest('.shop-product-images__thumbs-scroll-viewer').children;
+        let elements = target.closest('.shop-product__images__thumbs__scroll__viewer').children;
 
         for (let i = 0; i < elements.length; i++) {
             if (elements[i] === target && images[i]) {
@@ -51,9 +51,9 @@
         event.preventDefault();
 
         requestAnimationFrame(function () {
-            let target = event.target.classList.contains('shop-product-images__thumb') ?
+            let target = event.target.classList.contains('shop-product__images__thumb') ?
                 event.target :
-                event.target.closest('.shop-product-images__thumb');
+                event.target.closest('.shop-product__images__thumb');
 
             switchThumbnail(target);
         });
@@ -151,9 +151,9 @@
 
     function handleClickAttributeValue(event) {
         event && event.preventDefault();
-        let target = event.target.classList.contains('shop-product-attribute-value') ?
+        let target = event.target.classList.contains('shop-product__attribute__value') ?
             event.target :
-            event.target.closest('.shop-product-attribute-value');
+            event.target.closest('.shop-product__attribute__value');
 
         if (submitBtn) submitBtn.classList.add('shop-loading');
 
@@ -180,12 +180,12 @@
     }
 
     function submittingOneMinus(form) {
-        let btn = form.querySelector('.shop-product-count__minus-submit');
+        let btn = form.querySelector('.shop-product__count__minus__submit');
         btn.classList.add('shop-loading');
     }
 
     function submittedOneMinus(data, form) {
-        let btn = form.querySelector('.shop-product-count__minus-submit');
+        let btn = form.querySelector('.shop-product__count__minus__submit');
         btn.classList.remove('shop-loading');
     }
 
@@ -208,12 +208,12 @@
     }
 
     function submittingOnePlus(form) {
-        let btn = form.querySelector('.shop-product-count__plus-submit');
+        let btn = form.querySelector('.shop-product__count__plus__submit');
         btn.classList.add('shop-loading');
     }
 
     function submittedOnePlus(data, form) {
-        let btn = form.querySelector('.shop-product-count__plus-submit');
+        let btn = form.querySelector('.shop-product__count__plus__submit');
         btn.classList.remove('shop-loading');
     }
 
@@ -236,12 +236,12 @@
     }
 
     function submittingSetCount(form) {
-        let label = form.querySelector('.shop-product-count__label');
+        let label = form.querySelector('.shop-product__count__label');
         label.classList.add('shop-loading');
     }
 
     function submittedSetCount(data, form) {
-        let label = form.querySelector('.shop-product-count__label');
+        let label = form.querySelector('.shop-product__count__label');
         label.classList.remove('shop-loading');
     }
 
@@ -279,7 +279,7 @@
 
     function initFancybox() {
         if (!imagesSlider || !pageElement) return;
-        pageElement.classList.add('shop-product--fancybox-loaded');
+        pageElement.classList.add('shop-product__fancybox--loaded');
         window.Fancybox.bind("[data-fancybox='product']", {
             on: {
                 "Carousel.ready Carousel.change": (fancybox) => {
@@ -323,21 +323,21 @@
             return;
         }
 
-        thumbs = pageElement.querySelectorAll('.shop-product-images__thumb');
-        images = pageElement.querySelectorAll('.shop-product-images__slider__slide');
-        topBtn = pageElement.querySelector('.shop-product-images__top-btn');
-        bottomBtn = pageElement.querySelector('.shop-product-images__bottom-btn');
-        scrollElement = pageElement.querySelector('.shop-product-images__thumbs-scroll');
-        scrollViewer = pageElement.querySelector('.shop-product-images__thumbs-scroll-viewer');
-        attributeValuesElements = pageElement.querySelectorAll('.shop-product-attribute-value');
-        submitBtn = pageElement.querySelector('.shop-product-submit');
-        imagesSlider = pageElement.querySelector('.shop-product-images__slider');
+        thumbs = pageElement.querySelectorAll('.shop-product__images__thumb');
+        images = pageElement.querySelectorAll('.shop-product__images__slider__slide');
+        topBtn = pageElement.querySelector('.shop-product__images__top__btn');
+        bottomBtn = pageElement.querySelector('.shop-product__images__bottom__btn');
+        scrollElement = pageElement.querySelector('.shop-product__images__thumbs__scroll');
+        scrollViewer = pageElement.querySelector('.shop-product__images__thumbs__scroll__viewer');
+        attributeValuesElements = pageElement.querySelectorAll('.shop-product__attribute__value');
+        submitBtn = pageElement.querySelector('.shop-product__submit');
+        imagesSlider = pageElement.querySelector('.shop-product__images__slider');
 
 
-        on('submit', pageElement.querySelectorAll('.shop-product-count__minus'), oneMinus);
-        on('submit', pageElement.querySelectorAll('.shop-product-count__plus'), onePlus);
-        on('submit', pageElement.querySelectorAll('.shop-product-count__setter'), setCount);
-        on('change', pageElement.querySelectorAll('.shop-product-count__setter'), setCount);
+        on('submit', pageElement.querySelectorAll('.shop-product__count__minus'), oneMinus);
+        on('submit', pageElement.querySelectorAll('.shop-product__count__plus'), onePlus);
+        on('submit', pageElement.querySelectorAll('.shop-product__count__setter'), setCount);
+        on('change', pageElement.querySelectorAll('.shop-product__count__setter'), setCount);
 
         on('click', attributeValuesElements, handleClickAttributeValue);
         on('click', thumbs, handleClickThumb);

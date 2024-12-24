@@ -1,37 +1,37 @@
 .shop-points {
 }
 
-.shop-points-card {
+.shop-points__card {
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
 }
 
-.shop-points-panel {
+.shop-points__panel {
     flex-basis: 33.3333%;
     width: 33.3333%;
     padding: 0.5rem;
 }
 
-.shop-points-panel-wrapper {
+.shop-points__panel-wrapper {
     background: rgba(var(--shop-app-light-background-color), 0.5);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
 }
 
-.shop-points-panel-name {
+.shop-points__panel-name {
     font-size: 1rem;
     font-weight: 500;
     opacity: 0.7;
 }
 
-.shop-points-panel-value {
+.shop-points__panel-value {
     font-size: 1.4rem;
     font-weight: 700;
 }
 
-.shop-points-panel-value:before {
+.shop-points__panel-value:before {
     content: 'Б';
     font-size: 1rem;
     font-weight: 900;
@@ -41,7 +41,7 @@
     border-radius: 0.4rem;
 }
 
-.shop-points-card-header {
+.shop-points__card__header {
     width: 100%;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -51,14 +51,14 @@
     margin-bottom: 0.5rem;
 }
 
-.shop-points-add-panel {
+.shop-points__add__panel {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 1rem 0.5rem;
 }
 
-.shop-points-add-input {
+.shop-points__add__input {
     width: 20rem;
     font-size: 1rem;
     height: 3rem;
@@ -66,36 +66,36 @@
     font-weight: 500;
 }
 
-.shop-points-add-btn {
+.shop-points__add__btn {
     font-size: 1rem;
     height: 3rem;
     padding-left: 2rem;
     padding-right: 2rem;
 }
 
-.shop-points-add-input:placeholder-shown ~ .shop-points-add-btn {
+.shop-points__add__input:placeholder-shown ~ .shop-points__add__btn {
     pointer-events: none;
     opacity: 0.6;
 }
 
-.shop-points-list-panel {
+.shop-points__list-panel {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     width: 100%;
 }
 
 @media (max-width: 767px) {
-    .shop-points-panel {
+    .shop-points__panel {
         flex-basis: 100%;
         width: 100%;
     }
 
-    .shop-points-add-input {
+    .shop-points__add__input {
         width: 100%;
         margin: 0 0 1rem 0;
     }
 
-    .shop-points-add-btn {
+    .shop-points__add__btn {
         margin: 0 0 1rem auto;
     }
 }

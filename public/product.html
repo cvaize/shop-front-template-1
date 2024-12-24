@@ -34,65 +34,65 @@
         document.head.append(el);
     }
 </script>
-<input id="shop-sidebar-catalog-checkbox"
-       class="shop-sidebar-catalog-checkbox"
+<input id="shop-sidebar__catalog__checkbox"
+       class="shop-sidebar__catalog__checkbox"
        type="checkbox"
        hidden>
-<input id="shop-sidebar-search-checkbox"
-       class="shop-sidebar-search-checkbox"
+<input id="shop-sidebar__search__checkbox"
+       class="shop-sidebar__search__checkbox"
        type="checkbox"
        hidden>
 
 <div class="shop-app">
     <header class="shop-header">
         <div class="shop-sidebar">
-            <div class="shop-sidebar-container shop-container">
-                <a href="/public/index.html" class="shop-sidebar-brand">
+            <div class="shop-sidebar__container shop-container">
+                <a href="/public/index.html" class="shop-sidebar__brand">
                     Shop Front
-                    <img style="display: none" class="shop-sidebar-brand-logo" src="./svg/300x360.svg"
+                    <img style="display: none" class="shop-sidebar__brand__logo" src="./svg/300x360.svg"
                          alt="Shop Front">
                 </a>
-                <label for="shop-sidebar-search-checkbox" class="shop-sidebar-search-menu-block shop-sidebar-menu-block" tabindex="0">
-                    <svg class="shop-sidebar-menu-block-icon-svg shop-sidebar-search-menu-block-open-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                    <svg class="shop-sidebar-menu-block-icon-svg shop-sidebar-search-menu-block-close-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg>
+                <label for="shop-sidebar__search__checkbox" class="shop-sidebar__search__menu-block shop-sidebar__menu-block" tabindex="0">
+                    <svg class="shop-sidebar__menu-block__icon-svg shop-sidebar__search__menu-block__open-icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <svg class="shop-sidebar__menu-block__icon-svg shop-sidebar__search__menu-block__close-icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg>
                 </label>
-                <label for="shop-sidebar-catalog-checkbox" class="shop-sidebar-catalog-btn shop-btn" tabindex="0">
-                    <span class="shop-sidebar-burger"></span>
+                <label for="shop-sidebar__catalog__checkbox" class="shop-sidebar__catalog__btn shop-btn" tabindex="0">
+                    <span class="shop-sidebar__burger"></span>
                     Каталог
                 </label>
-                <form class="shop-sidebar-search">
-                    <label class="shop-sidebar-search-label">
-                        <input class="shop-sidebar-search-input" type="search" name="search" placeholder="Найти товары">
-                        <button class="shop-sidebar-search-reset" type="reset" aria-label="Сбросить">
-                            <svg class="shop-sidebar-search-reset-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg>
+                <form class="shop-sidebar__search">
+                    <label class="shop-sidebar__search__label">
+                        <input class="shop-sidebar__search__input" type="search" name="search" placeholder="Найти товары">
+                        <button class="shop-sidebar__search__reset" type="reset" aria-label="Сбросить">
+                            <svg class="shop-sidebar__search__reset-icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg>
                         </button>
                     </label>
-                    <button class="shop-sidebar-search-submit" type="submit">Найти</button>
+                    <button class="shop-sidebar__search__submit" type="submit">Найти</button>
                 </form>
-                <a href="./orders.html" class="shop-sidebar-menu-block">
-                    <svg class="shop-sidebar-menu-block-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
-                    <span class="shop-sidebar-menu-block-text">Заказы</span>
+                <a href="./orders.html" class="shop-sidebar__menu-block">
+                    <svg class="shop-sidebar__menu-block__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
+                    <span class="shop-sidebar__menu-block__text">Заказы</span>
                 </a>
-                <a href="./favorite.html" class="shop-sidebar-menu-block">
-                    <svg class="shop-sidebar-menu-block-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
-                    <span class="shop-sidebar-menu-block-text">Избранное</span>
+                <a href="./favorite.html" class="shop-sidebar__menu-block">
+                    <svg class="shop-sidebar__menu-block__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+                    <span class="shop-sidebar__menu-block__text">Избранное</span>
                 </a>
-                <a href="./cart.html" class="shop-sidebar-menu-block">
-                    <svg class="shop-sidebar-menu-block-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                    <span class="shop-sidebar-menu-block-text">Корзина</span>
+                <a href="./cart.html" class="shop-sidebar__menu-block">
+                    <svg class="shop-sidebar__menu-block__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    <span class="shop-sidebar__menu-block__text">Корзина</span>
                 </a>
-                <div class="shop-sidebar-menu-account-wrapper">
-                    <div class="shop-sidebar-menu-account" tabindex="0">
-                        <div class="shop-sidebar-menu-account-label">
-                            <svg class="shop-sidebar-menu-account-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.35 18.5C8.66 17.56 10.26 17 12 17s3.34.56 4.65 1.5c-1.31.94-2.91 1.5-4.65 1.5s-3.34-.56-4.65-1.5zm10.79-1.38a9.947 9.947 0 0 0-12.28 0A7.957 7.957 0 0 1 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.95-.7 3.73-1.86 5.12z"/><path d="M12 6c-1.93 0-3.5 1.57-3.5 3.5S10.07 13 12 13s3.5-1.57 3.5-3.5S13.93 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
+                <div class="shop-sidebar__menu-account__wrapper">
+                    <div class="shop-sidebar__menu-account" tabindex="0">
+                        <div class="shop-sidebar__menu-account__label">
+                            <svg class="shop-sidebar__menu-account__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.35 18.5C8.66 17.56 10.26 17 12 17s3.34.56 4.65 1.5c-1.31.94-2.91 1.5-4.65 1.5s-3.34-.56-4.65-1.5zm10.79-1.38a9.947 9.947 0 0 0-12.28 0A7.957 7.957 0 0 1 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.95-.7 3.73-1.86 5.12z"/><path d="M12 6c-1.93 0-3.5 1.57-3.5 3.5S10.07 13 12 13s3.5-1.57 3.5-3.5S13.93 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
                         </div>
-                        <ul class="shop-sidebar-menu-account-dropdown">
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="/public/settings.html" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg-big shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.35 18.5C8.66 17.56 10.26 17 12 17s3.34.56 4.65 1.5c-1.31.94-2.91 1.5-4.65 1.5s-3.34-.56-4.65-1.5zm10.79-1.38a9.947 9.947 0 0 0-12.28 0A7.957 7.957 0 0 1 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.95-.7 3.73-1.86 5.12z"/><path d="M12 6c-1.93 0-3.5 1.57-3.5 3.5S10.07 13 12 13s3.5-1.57 3.5-3.5S13.93 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
+                        <ul class="shop-sidebar__menu-account__dropdown">
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="/public/settings.html" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg-big shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.35 18.5C8.66 17.56 10.26 17 12 17s3.34.56 4.65 1.5c-1.31.94-2.91 1.5-4.65 1.5s-3.34-.56-4.65-1.5zm10.79-1.38a9.947 9.947 0 0 0-12.28 0A7.957 7.957 0 0 1 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.95-.7 3.73-1.86 5.12z"/><path d="M12 6c-1.93 0-3.5 1.57-3.5 3.5S10.07 13 12 13s3.5-1.57 3.5-3.5S13.93 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         <div style="font-weight: 600;">Дмитрий О.</div>
                                         <div style="opacity: 0.6; font-size: 85%;">
                                             test@gmail.com
@@ -100,591 +100,591 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="./cart.html" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="./cart.html" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         Корзина
                                     </div>
                                 </a>
                             </li>
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="./orders.html" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="./orders.html" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         Заказы
                                     </div>
                                 </a>
                             </li>
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="./favorite.html" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="./favorite.html" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         Избранное
                                     </div>
                                 </a>
                             </li>
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="#" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg shop-icon-svg" style="transform: rotate(90deg)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3.71 12.29a.996.996 0 0 1 1.41 0l.88.88V9c0-3.31 2.69-6 6-6s6 2.69 6 6v11c0 .55-.45 1-1 1s-1-.45-1-1V9c0-2.21-1.79-4-4-4S8 6.79 8 9v4.17l.88-.88a.996.996 0 1 1 1.41 1.41L7.7 16.29a.996.996 0 0 1-1.41 0L3.7 13.7c-.38-.38-.38-1.02.01-1.41z"/></svg>
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="#" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg shop-icon--svg" style="transform: rotate(90deg)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3.71 12.29a.996.996 0 0 1 1.41 0l.88.88V9c0-3.31 2.69-6 6-6s6 2.69 6 6v11c0 .55-.45 1-1 1s-1-.45-1-1V9c0-2.21-1.79-4-4-4S8 6.79 8 9v4.17l.88-.88a.996.996 0 1 1 1.41 1.41L7.7 16.29a.996.996 0 0 1-1.41 0L3.7 13.7c-.38-.38-.38-1.02.01-1.41z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         Возвраты
                                     </div>
                                 </a>
                             </li>
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="./comparison.html" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v1c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1zm0 15H5l5-6v6zm9-15h-5v2h4c.55 0 1 .45 1 1v12l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="./comparison.html" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v1c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1zm0 15H5l5-6v6zm9-15h-5v2h4c.55 0 1 .45 1 1v12l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         Сравнение товаров
                                     </div>
                                 </a>
                             </li>
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="#" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.92 7.54c-.8-.34-1.14-1.33-.66-2.05C8.23 4.05 9.85 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.15.27-.24.49-.3.94-.09.73-.69 1.3-1.43 1.3-.87 0-1.58-.75-1.48-1.62.06-.51.18-1.04.46-1.54.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.17 0-1.93.61-2.4 1.34-.35.57-1.08.75-1.69.5zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="#" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.92 7.54c-.8-.34-1.14-1.33-.66-2.05C8.23 4.05 9.85 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.15.27-.24.49-.3.94-.09.73-.69 1.3-1.43 1.3-.87 0-1.58-.75-1.48-1.62.06-.51.18-1.04.46-1.54.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.17 0-1.93.61-2.4 1.34-.35.57-1.08.75-1.69.5zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         Справка
                                     </div>
                                 </a>
                             </li>
-                            <li class="shop-sidebar-menu-account-dropdown-item">
-                                <a href="#" class="shop-sidebar-menu-account-dropdown-link">
-                                    <div class="shop-sidebar-menu-account-dropdown-icon">
-                                        <svg class="shop-sidebar-menu-account-dropdown-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 5h6c.55 0 1-.45 1-1s-.45-1-1-1H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h6c.55 0 1-.45 1-1s-.45-1-1-1H5V5z"/><path d="m20.65 11.65-2.79-2.79a.501.501 0 0 0-.86.35V11h-7c-.55 0-1 .45-1 1s.45 1 1 1h7v1.79c0 .45.54.67.85.35l2.79-2.79c.2-.19.2-.51.01-.7z"/></svg>
+                            <li class="shop-sidebar__menu-account__dropdown__item">
+                                <a href="#" class="shop-sidebar__menu-account__dropdown__link">
+                                    <div class="shop-sidebar__menu-account__dropdown__icon">
+                                        <svg class="shop-sidebar__menu-account__dropdown__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 5h6c.55 0 1-.45 1-1s-.45-1-1-1H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h6c.55 0 1-.45 1-1s-.45-1-1-1H5V5z"/><path d="m20.65 11.65-2.79-2.79a.501.501 0 0 0-.86.35V11h-7c-.55 0-1 .45-1 1s.45 1 1 1h7v1.79c0 .45.54.67.85.35l2.79-2.79c.2-.19.2-.51.01-.7z"/></svg>
                                     </div>
-                                    <div class="shop-sidebar-menu-account-dropdown-label">
+                                    <div class="shop-sidebar__menu-account__dropdown__label">
                                         Выйти
                                     </div>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="shop-sidebar-menu-account-close" tabindex="0">
-                        <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg>
+                    <div class="shop-sidebar__menu-account__close" tabindex="0">
+                        <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg>
                     </div>
                 </div>
-                <div class="shop-sidebar-menu-account-backdrop"></div>
+                <div class="shop-sidebar__menu-account__backdrop"></div>
             </div>
         </div>
-        <nav class="shop-sidebar-catalog" style="--shop-app-sidebar-catalog-tree-count: 6;">
-            <div class="shop-sidebar-container shop-container">
-                <div class="shop-sidebar-catalog-tree">
-                    <ul class="shop-sidebar-catalog-tree-menu">
-                        <li class="shop-sidebar-catalog-tree-menu-item shop-active">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-1').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+        <nav class="shop-sidebar__catalog" style="--shop-app-sidebar-catalog-tree-count: 6;">
+            <div class="shop-sidebar__container shop-container">
+                <div class="shop-sidebar__catalog__tree">
+                    <ul class="shop-sidebar__catalog__tree__menu">
+                        <li class="shop-sidebar__catalog__tree__menu__item shop-active">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__1').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Одежда и обувь
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
-                        <li class="shop-sidebar-catalog-tree-menu-item">
-                            <a class="shop-sidebar-catalog-tree-link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar-catalog-tree-item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar-catalog-tree-item-2').classList.add('shop-active');">
-                                <svg class="shop-sidebar-catalog-tree-icon shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <li class="shop-sidebar__catalog__tree__menu__item">
+                            <a class="shop-sidebar__catalog__tree__link" href="#" onmouseenter="Array.from(document.querySelectorAll('.shop-sidebar__catalog__tree__item')).map(el => el.classList.remove('shop-active')); document.getElementById('shop-sidebar__catalog__tree__item__2').classList.add('shop-active');">
+                                <svg class="shop-sidebar__catalog__tree__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </a>
                         </li>
                     </ul>
-                    <div class="shop-sidebar-catalog-tree-block">
-                        <div id="shop-sidebar-catalog-tree-item-1" class="shop-sidebar-catalog-tree-item shop-active">
-                            <div class="shop-sidebar-catalog-tree-header">
-                                <a href="#" class="shop-sidebar-catalog-tree-header-link">
-                                    <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                    <div class="shop-sidebar__catalog__tree__block">
+                        <div id="shop-sidebar__catalog__tree__item__1" class="shop-sidebar__catalog__tree__item shop-active">
+                            <div class="shop-sidebar__catalog__tree__header">
+                                <a href="#" class="shop-sidebar__catalog__tree__header__link">
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                     Одежда и обувь
                                 </a>
                             </div>
-                            <div class="shop-sidebar-catalog-tree-submenu">
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-1" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                            <div class="shop-sidebar__catalog__tree__submenu">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__1" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные 1231233 2985239857 25872398 5798327
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-1" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__1" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-2" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__2" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-2" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__2" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-3" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__3" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-3" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__3" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-4" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__4" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-4" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__4" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-5" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__5" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-5" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__5" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-6" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__6" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-6" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__6" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div id="shop-sidebar-catalog-tree-item-2" class="shop-sidebar-catalog-tree-item">
-                            <div class="shop-sidebar-catalog-tree-header">
-                                <a href="#" class="shop-sidebar-catalog-tree-header-link">
-                                    <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                        <div id="shop-sidebar__catalog__tree__item__2" class="shop-sidebar__catalog__tree__item">
+                            <div class="shop-sidebar__catalog__tree__header">
+                                <a href="#" class="shop-sidebar__catalog__tree__header__link">
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                                     Lorem ipsum
                                 </a>
                             </div>
-                            <div class="shop-sidebar-catalog-tree-submenu">
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-7" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                            <div class="shop-sidebar__catalog__tree__submenu">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__7" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-7" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__7" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-8" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__8" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-8" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__8" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-9" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__9" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-9" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__9" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-10" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__10" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-10" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__10" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-11" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__11" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-11" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__11" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
-                                <div class="shop-sidebar-catalog-tree-submenu-item">
-                                    <input id="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-12" class="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox" type="checkbox" hidden="hidden">
-                                    <div class="shop-sidebar-catalog-tree-submenu-item-collapse">
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-header-link">
+                                <div class="shop-sidebar__catalog__tree__submenu__item">
+                                    <input id="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__12" class="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                                    <div class="shop-sidebar__catalog__tree__submenu__item__collapse">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__header-link">
                                             Всё для Нового года
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
-                                        <a href="#" class="shop-sidebar-catalog-tree-submenu-link">
+                                        <a href="#" class="shop-sidebar__catalog__tree__submenu__link">
                                             Ёлки искусственные
                                         </a>
                                     </div>
-                                    <label for="shop-sidebar-catalog-tree-submenu-item-collapse-checkbox-12" class="shop-sidebar-catalog-tree-submenu-item-collapse-label">
+                                    <label for="shop-sidebar__catalog__tree__submenu__item__collapse__checkbox__12" class="shop-sidebar__catalog__tree__submenu__item__collapse__label">
                                         Ещё
                                     </label>
                                 </div>
@@ -694,331 +694,331 @@
                 </div>
             </div>
         </nav>
-        <label for="shop-sidebar-catalog-checkbox" class="shop-sidebar-catalog-backdrop"></label>
-        <label for="shop-sidebar-search-checkbox" class="shop-sidebar-search-backdrop"></label>
+        <label for="shop-sidebar__catalog__checkbox" class="shop-sidebar__catalog__backdrop"></label>
+        <label for="shop-sidebar__search__checkbox" class="shop-sidebar__search__backdrop"></label>
     </header>
 
     <main class="shop-content">
-        <hr class="shop-content-hr">
+        <hr class="shop-content__hr">
         <div class="shop-container">
             <section class="shop-product">
-                <nav class="shop-product-breadcrumb-nav" aria-label="breadcrumb">
-                    <ol class="shop-product-breadcrumb shop-breadcrumb">
-                        <li class="shop-product-breadcrumb-item shop-breadcrumb-item"><a href="#" class="shop-breadcrumb-link">Lorem ipsum dolor sit amet</a></li>
-                        <li class="shop-product-breadcrumb-item shop-breadcrumb-item"><a href="#" class="shop-breadcrumb-link">Lorem ipsum dolor sit amet</a></li>
-                        <li class="shop-product-breadcrumb-item shop-breadcrumb-item"><a href="#" class="shop-breadcrumb-link">Lorem ipsum dolor sit amet</a></li>
-                        <li class="shop-product-breadcrumb-item shop-breadcrumb-item"><a href="#" class="shop-breadcrumb-link">Lorem ipsum dolor sit amet</a></li>
-                        <li class="shop-product-breadcrumb-item shop-breadcrumb-item shop-breadcrumb-item--active" aria-current="page">
+                <nav class="shop-product__breadcrumb__nav" aria-label="breadcrumb">
+                    <ol class="shop-product__breadcrumb shop-breadcrumb">
+                        <li class="shop-product__breadcrumb__item shop-breadcrumb__item"><a href="#" class="shop-breadcrumb__link">Lorem ipsum dolor sit amet</a></li>
+                        <li class="shop-product__breadcrumb__item shop-breadcrumb__item"><a href="#" class="shop-breadcrumb__link">Lorem ipsum dolor sit amet</a></li>
+                        <li class="shop-product__breadcrumb__item shop-breadcrumb__item"><a href="#" class="shop-breadcrumb__link">Lorem ipsum dolor sit amet</a></li>
+                        <li class="shop-product__breadcrumb__item shop-breadcrumb__item"><a href="#" class="shop-breadcrumb__link">Lorem ipsum dolor sit amet</a></li>
+                        <li class="shop-product__breadcrumb__item shop-breadcrumb__item shop-breadcrumb__item--active" aria-current="page">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         </li>
                     </ol>
                 </nav>
-                <div class="shop-product-head-buttons">
-                    <a href="/" class="shop-product-back shop-btn shop-btn-outline">
-                        <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.996.996 0 0 0-1.41 0l-6.59 6.59a.996.996 0 0 0 0 1.41l6.59 6.59a.996.996 0 1 0 1.41-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
-                        <span class="shop-product-back-text">Вернуться</span>
+                <div class="shop-product__head-buttons">
+                    <a href="/" class="shop-product__back shop-btn shop-btn--outline">
+                        <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.996.996 0 0 0-1.41 0l-6.59 6.59a.996.996 0 0 0 0 1.41l6.59 6.59a.996.996 0 1 0 1.41-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
+                        <span class="shop-product__back-text">Вернуться</span>
                     </a>
-                    <form class="shop-product-comparison" action="/products/123/comparison" method="post">
+                    <form class="shop-product__comparison" action="/products/123/comparison" method="post">
                         <input type="hidden" name="id" value="123">
-                        <button class="shop-product-comparison-btn shop-btn shop-btn-outline" type="submit">
-                            <svg class="shop-product-comparison-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v1c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1zm0 15H5l5-6v6zm9-15h-5v2h4c.55 0 1 .45 1 1v12l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
-                            <span class="shop-product-comparison-btn-text">Сравнить</span>
+                        <button class="shop-product__comparison__btn shop-btn shop-btn--outline" type="submit">
+                            <svg class="shop-product__comparison__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v1c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1zm0 15H5l5-6v6zm9-15h-5v2h4c.55 0 1 .45 1 1v12l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                            <span class="shop-product__comparison__btn-text">Сравнить</span>
                         </button>
                     </form>
-                    <form class="shop-product-favorite" action="/products/123/favorite" method="post">
+                    <form class="shop-product__favorite" action="/products/123/favorite" method="post">
                         <input type="hidden" name="id" value="123">
-                        <button class="shop-product-favorite-btn shop-btn shop-btn-outline" type="submit">
-                            <svg class="shop-product-favorite-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z" opacity=".3"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
-                            <span class="shop-product-favorite-btn-text">В избранное</span>
+                        <button class="shop-product__favorite__btn shop-btn shop-btn--outline" type="submit">
+                            <svg class="shop-product__favorite__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z" opacity=".3"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+                            <span class="shop-product__favorite__btn-text">В избранное</span>
                         </button>
                     </form>
                 </div>
-                <div class="shop-product-images">
-                    <div class="shop-product-images__top">
-                        <button class="shop-product-images__top-btn shop-btn">
-                            <svg class="shop-product-images__top-btn__icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
+                <div class="shop-product__images">
+                    <div class="shop-product__images__top">
+                        <button class="shop-product__images__top__btn shop-btn">
+                            <svg class="shop-product__images__top__btn__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
                         </button>
                     </div>
-                    <div class="shop-product-images__bottom">
-                        <button class="shop-product-images__bottom-btn shop-btn">
-                            <svg class="shop-product-images__bottom-btn__icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
+                    <div class="shop-product__images__bottom">
+                        <button class="shop-product__images__bottom__btn shop-btn">
+                            <svg class="shop-product__images__bottom__btn__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
                         </button>
                     </div>
 
-                    <div class="shop-product-images__slider">
-                        <div class="shop-product-images__slider__container">
-                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide shop-active" data-fancybox="product" data-caption="Caption #1">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                    <div class="shop-product__images__slider">
+                        <div class="shop-product__images__slider__container">
+                            <a href="./svg/300x360.svg" class="shop-product__images__slider__slide shop-active" data-fancybox="product" data-caption="Caption #1">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x300_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #2">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x300_2.svg" alt="">
+                            <a href="./svg/300x300_2.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #2">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 300;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x300_2.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #3">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                            <a href="./svg/300x360.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #3">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #4">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                            <a href="./svg/300x360_2.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #4">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #5">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                            <a href="./svg/300x360.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #5">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #6">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                            <a href="./svg/300x360_2.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #6">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x300_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #7">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x300_2.svg" alt="">
+                            <a href="./svg/300x300_2.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #7">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 300;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x300_2.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #8">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                            <a href="./svg/300x360.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #8">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #9">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                            <a href="./svg/300x360_2.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #9">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #10">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                            <a href="./svg/300x360.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #10">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #11">
-                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                            <a href="./svg/300x360_2.svg" class="shop-product__images__slider__slide" data-fancybox="product" data-caption="Caption #11">
+                                <picture class="shop-product__images__slider__slide__picture" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__slider__slide__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                     </div>
 
-                    <div class="shop-product-images__thumbs">
-                        <div class="shop-product-images__thumbs-scroll">
-                            <div class="shop-product-images__thumbs-scroll-viewer">
-                                <picture class="shop-product-images__thumb shop-active" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
+                    <div class="shop-product__images__thumbs">
+                        <div class="shop-product__images__thumbs__scroll">
+                            <div class="shop-product__images__thumbs__scroll__viewer">
+                                <picture class="shop-product__images__thumb shop-active" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x300_2.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 300;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x300_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x300_2.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 300;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x300_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product__images__thumb" style="--shop-product__img-width: 300; --shop-product__img-height: 360;">
+                                    <img class="shop-product__images__thumb__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="shop-product-main">
-                    <h1 class="shop-product-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                <div class="shop-product__main">
+                    <h1 class="shop-product__title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
 
-                    <div class="shop-product-attribute">
-                        <div class="shop-product-attribute-label">
+                    <div class="shop-product__attribute">
+                        <div class="shop-product__attribute__label">
                             <b>Цвет:</b> бежевый
                         </div>
-                        <div class="shop-product-attribute-values">
-                            <a href="#" class="shop-product-attribute-value shop-active">
-                                <picture class="shop-product-attribute-picture">
-                                    <img class="shop-product-attribute-img" src="./svg/300x360.svg" alt="">
+                        <div class="shop-product__attribute__values">
+                            <a href="#" class="shop-product__attribute__value shop-active">
+                                <picture class="shop-product__attribute__picture">
+                                    <img class="shop-product__attribute__img" src="./svg/300x360.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
-                                <picture class="shop-product-attribute-picture">
-                                    <img class="shop-product-attribute-img" src="./svg/300x300_2.svg" alt="">
+                            <a href="#" class="shop-product__attribute__value">
+                                <picture class="shop-product__attribute__picture">
+                                    <img class="shop-product__attribute__img" src="./svg/300x300_2.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="#" class="shop-product-attribute-value shop-disabled">
-                                <picture class="shop-product-attribute-picture">
-                                    <img class="shop-product-attribute-img" src="./svg/300x360.svg" alt="">
+                            <a href="#" class="shop-product__attribute__value shop-disabled">
+                                <picture class="shop-product__attribute__picture">
+                                    <img class="shop-product__attribute__img" src="./svg/300x360.svg" alt="">
                                 </picture>
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
-                                <picture class="shop-product-attribute-picture">
-                                    <img class="shop-product-attribute-img" src="./svg/300x360_2.svg" alt="">
+                            <a href="#" class="shop-product__attribute__value">
+                                <picture class="shop-product__attribute__picture">
+                                    <img class="shop-product__attribute__img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                     </div>
 
-                    <div class="shop-product-attribute">
-                        <div class="shop-product-attribute-label">
+                    <div class="shop-product__attribute">
+                        <div class="shop-product__attribute__label">
                             <b>Форма:</b> прямоугольная
                         </div>
-                        <div class="shop-product-attribute-values">
-                            <a href="#" class="shop-product-attribute-value shop-active">
+                        <div class="shop-product__attribute__values">
+                            <a href="#" class="shop-product__attribute__value shop-active">
                                 прямоугольная
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
+                            <a href="#" class="shop-product__attribute__value">
                                 прямоугольник с закруглёнными краями
                             </a>
                         </div>
                     </div>
 
-                    <div class="shop-product-attribute">
-                        <div class="shop-product-attribute-label">
+                    <div class="shop-product__attribute">
+                        <div class="shop-product__attribute__label">
                             <b>Длина, м:</b> 1.3
                         </div>
-                        <div class="shop-product-attribute-values">
-                            <a href="#" class="shop-product-attribute-value">
+                        <div class="shop-product__attribute__values">
+                            <a href="#" class="shop-product__attribute__value">
                                 0.65
                             </a>
-                            <a href="#" class="shop-product-attribute-value shop-disabled">
+                            <a href="#" class="shop-product__attribute__value shop-disabled">
                                 0.6
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
+                            <a href="#" class="shop-product__attribute__value">
                                 0.98
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
+                            <a href="#" class="shop-product__attribute__value">
                                 1.2
                             </a>
-                            <a href="#" class="shop-product-attribute-value shop-active">
+                            <a href="#" class="shop-product__attribute__value shop-active">
                                 1.3
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
+                            <a href="#" class="shop-product__attribute__value">
                                 1.65
                             </a>
                         </div>
                     </div>
 
-                    <div class="shop-product-attribute">
-                        <div class="shop-product-attribute-label">
+                    <div class="shop-product__attribute">
+                        <div class="shop-product__attribute__label">
                             <b>Ширина, м:</b> 2.2
                         </div>
-                        <div class="shop-product-attribute-values">
-                            <a href="#" class="shop-product-attribute-value">
+                        <div class="shop-product__attribute__values">
+                            <a href="#" class="shop-product__attribute__value">
                                 0.65
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
+                            <a href="#" class="shop-product__attribute__value">
                                 0.6
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
+                            <a href="#" class="shop-product__attribute__value">
                                 0.98
                             </a>
-                            <a href="#" class="shop-product-attribute-value">
+                            <a href="#" class="shop-product__attribute__value">
                                 1.2
                             </a>
-                            <a href="#" class="shop-product-attribute-value shop-active">
+                            <a href="#" class="shop-product__attribute__value shop-active">
                                 2.2
                             </a>
                         </div>
                     </div>
 
-                    <div class="shop-product-characteristics">
-                        <div class="shop-product-characteristics-row">
-                            <div class="shop-product-characteristics-label">Артикул</div>
-                            <div class="shop-product-characteristics-value">782164871246</div>
+                    <div class="shop-product__characteristics">
+                        <div class="shop-product__characteristics__row">
+                            <div class="shop-product__characteristics__label">Артикул</div>
+                            <div class="shop-product__characteristics__value">782164871246</div>
                         </div>
-                        <div class="shop-product-characteristics-row">
-                            <div class="shop-product-characteristics-label">Цвет товара</div>
-                            <div class="shop-product-characteristics-value">бежевый</div>
+                        <div class="shop-product__characteristics__row">
+                            <div class="shop-product__characteristics__label">Цвет товара</div>
+                            <div class="shop-product__characteristics__value">бежевый</div>
                         </div>
-                        <div class="shop-product-characteristics-row">
-                            <div class="shop-product-characteristics-label">Размеры (ШxД)</div>
-                            <div class="shop-product-characteristics-value">2.20 x 1.30 м</div>
+                        <div class="shop-product__characteristics__row">
+                            <div class="shop-product__characteristics__label">Размеры (ШxД)</div>
+                            <div class="shop-product__characteristics__value">2.20 x 1.30 м</div>
                         </div>
-                        <div class="shop-product-characteristics-row">
-                            <div class="shop-product-characteristics-label">Количество в наборе</div>
-                            <div class="shop-product-characteristics-value">1 шт.</div>
+                        <div class="shop-product__characteristics__row">
+                            <div class="shop-product__characteristics__label">Количество в наборе</div>
+                            <div class="shop-product__characteristics__value">1 шт.</div>
                         </div>
-                        <div class="shop-product-characteristics-row">
-                            <div class="shop-product-characteristics-label">Материал верха</div>
-                            <div class="shop-product-characteristics-value">EVA / ЕВА / ЭВА</div>
+                        <div class="shop-product__characteristics__row">
+                            <div class="shop-product__characteristics__label">Материал верха</div>
+                            <div class="shop-product__characteristics__value">EVA / ЕВА / ЭВА</div>
                         </div>
                     </div>
                 </div>
-                <div class="shop-product-cards">
-                    <div class="shop-product-prices-card shop-product-card">
-                        <div class="shop-product-prices-block">
-                            <div class="shop-product-price">2 000 руб</div>
-                            <div class="shop-product-old-price">3 000 руб</div>
+                <div class="shop-product__cards">
+                    <div class="shop-product__card shop-product__card--prices">
+                        <div class="shop-product__prices-block">
+                            <div class="shop-product__price">2 000 руб</div>
+                            <div class="shop-product__old-price">3 000 руб</div>
                         </div>
-                        <div class="shop-product-count">
-                            <form action="/products/11/minus" method="post" class="shop-product-count__minus">
+                        <div class="shop-product__count">
+                            <form action="/products/11/minus" method="post" class="shop-product__count__minus">
                                 <input type="hidden" name="id" value="11">
-                                <button class="shop-product-count__minus-submit shop-btn" type="submit"
+                                <button class="shop-product__count__minus__submit shop-btn" type="submit"
                                         disabled>
-                                    <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                          height="24" viewBox="0 0 24 24">
                                         <path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                                     </svg>
                                 </button>
                             </form>
-                            <form action="/products/11/count" method="post" class="shop-product-count__setter">
+                            <form action="/products/11/count" method="post" class="shop-product__count__setter">
                                 <input type="hidden" name="id" value="11">
-                                <label class="shop-product-count__label">
-                                    <input class="shop-product-count__input" type="number" min="1"
+                                <label class="shop-product__count__label">
+                                    <input class="shop-product__count__input" type="number" min="1"
                                            max="100" value="1" name="count">
                                 </label>
                             </form>
-                            <form action="/products/11/plus" method="post" class="shop-product-count__plus">
+                            <form action="/products/11/plus" method="post" class="shop-product__count__plus">
                                 <input type="hidden" name="id" value="11">
-                                <button class="shop-product-count__plus-submit shop-btn" type="submit">
-                                    <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                <button class="shop-product__count__plus__submit shop-btn" type="submit">
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                          height="24" viewBox="0 0 24 24">
                                         <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
                                     </svg>
                                 </button>
                             </form>
                         </div>
-                        <div class="shop-product-prices-buttons">
-                            <button class="shop-product-submit shop-btn" type="submit">В корзину</button>
+                        <div class="shop-product__prices-buttons">
+                            <button class="shop-product__submit shop-btn" type="submit">В корзину</button>
                         </div>
                     </div>
-                    <div class="shop-product-card-delivery shop-product-card">
-                        <div class="shop-product-delivery-title">
+                    <div class="shop-product__card shop-product__card--delivery">
+                        <div class="shop-product__delivery__title">
                             Доставка
                         </div>
-                        <ul class="shop-product-delivery-list">
-                            <li class="shop-product-delivery-item">
+                        <ul class="shop-product__delivery__list">
+                            <li class="shop-product__delivery__item">
                                 <b>23 декабря</b>, пункт выдачи 0 руб <br>
                                 улица Ленина, 999
                             </li>
-                            <li class="shop-product-delivery-item">
+                            <li class="shop-product__delivery__item">
                                 <b>23 декабря</b>, курьер 99 руб <br>
                                 улица Ленина, 999
                             </li>
                         </ul>
                     </div>
                 </div>
-                <section class="shop-product-description">
-                    <h3 class="shop-product-description-title">О товаре</h3>
-                    <div class="shop-product-description-content">
+                <section class="shop-product__description">
+                    <h3 class="shop-product__description__title">О товаре</h3>
+                    <div class="shop-product__description__content">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fuga odio perspiciatis porro praesentium? Animi cumque, debitis enim error ex, illum ipsa magni minus modi perspiciatis quisquam reprehenderit vero voluptatibus.
                         <br>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fuga odio perspiciatis porro praesentium? Animi cumque, debitis enim error ex, illum ipsa magni minus modi perspiciatis quisquam reprehenderit vero voluptatibus.
@@ -1029,85 +1029,85 @@
     </main>
 
     <footer class="shop-footer">
-        <nav class="shop-footer-nav">
+        <nav class="shop-footer__nav">
             <div class="shop-container">
-                <div class="shop-footer-nav-lists">
-                    <ul class="shop-footer-nav-list">
-                        <li class="shop-footer-nav-list-item shop-footer-nav-header">
+                <div class="shop-footer__nav__lists">
+                    <ul class="shop-footer__nav__list">
+                        <li class="shop-footer__nav__list__item shop-footer__nav__header">
                             Lorem ipsum
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
                     </ul>
-                    <ul class="shop-footer-nav-list">
-                        <li class="shop-footer-nav-list-item shop-footer-nav-header">
+                    <ul class="shop-footer__nav__list">
+                        <li class="shop-footer__nav__list__item shop-footer__nav__header">
                             Lorem ipsum
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
                     </ul>
-                    <ul class="shop-footer-nav-list">
-                        <li class="shop-footer-nav-list-item shop-footer-nav-header">
+                    <ul class="shop-footer__nav__list">
+                        <li class="shop-footer__nav__list__item shop-footer__nav__header">
                             Lorem ipsum
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
                     </ul>
-                    <ul class="shop-footer-nav-list">
-                        <li class="shop-footer-nav-list-item shop-footer-nav-header">
+                    <ul class="shop-footer__nav__list">
+                        <li class="shop-footer__nav__list__item shop-footer__nav__header">
                             Lorem ipsum
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
-                        <li class="shop-footer-nav-list-item">
-                            <a href="#" class="shop-footer-nav-link">
+                        <li class="shop-footer__nav__list__item">
+                            <a href="#" class="shop-footer__nav__link">
                                 Lorem ipsum dolor
                             </a>
                         </li>
@@ -1115,20 +1115,20 @@
                 </div>
             </div>
         </nav>
-        <div class="shop-footer-copyright-nav">
+        <div class="shop-footer__copyright-nav">
             <div class="shop-container">
-                <ul class="shop-footer-copyright-nav-list">
-                    <li class="shop-footer-copyright-nav-list-item">
-                        <a href="#" class="shop-footer-copyright-nav-link">
+                <ul class="shop-footer__copyright-nav__list">
+                    <li class="shop-footer__copyright-nav__list__item">
+                        <a href="#" class="shop-footer__copyright-nav__link">
                             Lorem ipsum
                         </a>
                     </li>
-                    <li class="shop-footer-copyright-nav-list-item">
-                        <a href="#" class="shop-footer-copyright-nav-link">
+                    <li class="shop-footer__copyright-nav__list__item">
+                        <a href="#" class="shop-footer__copyright-nav__link">
                             Lorem ipsum
                         </a>
                     </li>
-                    <li class="shop-footer-copyright-nav-list-item shop-footer-copyright-nav-list-item-right-offset">
+                    <li class="shop-footer__copyright-nav__list__item shop-footer__copyright-nav__list__item--right-offset">
                         &copy; 2024 ООО "Lorem ipsum"
                     </li>
                 </ul>

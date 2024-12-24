@@ -1,7 +1,7 @@
 .shop-orders-list {
 }
 
-.shop-orders-list-item {
+.shop-orders-list__item {
     display: flex;
     flex-wrap: wrap;
     border-radius: 0.4rem;
@@ -9,7 +9,7 @@
     margin-bottom: 1rem;
 }
 
-.shop-orders-list-item-header {
+.shop-orders-list__item__header {
     display: flex;
     flex-wrap: wrap;
     background-color: rgba(var(--shop-app-light-background-color), 0.4);
@@ -20,52 +20,52 @@
     width: 100%;
 }
 
-.shop-orders-list-item-header:hover {
+.shop-orders-list__item__header:hover {
     background-color: rgba(var(--shop-app-light-background-color), 0.6);
 }
 
-.shop-orders-list-item-header-left {
+.shop-orders-list__item__header__left {
 }
 
-.shop-orders-list-item-label {
+.shop-orders-list__item__label {
     font-size: 1.2rem;
     font-weight: 700;
 }
 
-.shop-orders-list-item-number {
+.shop-orders-list__item__number {
     font-weight: 600;
 }
 
-.shop-orders-list-item-header-right {
+.shop-orders-list__item__header__right {
     margin-left: auto;
     display: flex;
     align-items: center;
 }
 
-.shop-orders-list-item-payment-status {
+.shop-orders-list__item__payment-status {
     position: relative;
     top: 0.2rem;
     font-weight: 600;
 }
 
-.shop-orders-list-item-price {
+.shop-orders-list__item__price {
     font-size: 1.2rem;
     font-weight: 700;
     margin-left: 0.2rem;
 }
 
-.shop-orders-list-item-main {
+.shop-orders-list__item__main {
     padding: 1.5rem 0.5rem 1rem 1.5rem;
     width: 20rem;
 }
 
-.shop-orders-list-item-delivery-status {
+.shop-orders-list__item__delivery-status {
     font-weight: 700;
     margin-bottom: 0.4rem;
     font-size: 0.9rem;
 }
 
-.shop-orders-list-item-receiving-status {
+.shop-orders-list__item__receiving-status {
     padding: 0.1rem 0.6rem;
     border-radius: 0.4rem;
     color: rgb(var(--shop-app-background-color));
@@ -73,13 +73,13 @@
     display: inline-block;
 }
 
-.shop-orders-list-item-content {
+.shop-orders-list__item__content {
     font-weight: 600;
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
 }
 
-.shop-orders-list-item-images {
+.shop-orders-list__item__images {
     width: calc(100% - 20rem);
     padding: 0.5rem 1.5rem 0.5rem 0.5rem;
     text-decoration: none;
@@ -88,7 +88,7 @@
     flex-wrap: wrap;
 }
 
-.shop-orders-list-item-images-item {
+.shop-orders-list__item__images__item {
     width: 6rem;
     margin: 0 0.5rem 0.5rem 0;
     display: inline-block;
@@ -96,13 +96,13 @@
     border-radius: 0.4rem;
 }
 
-.shop-orders-list-item-images-item-picture {
+.shop-orders-list__item__images__item__picture {
     padding-top: 120%;
     display: block;
     width: 100%;
 }
 
-.shop-orders-list-item-images-item-img {
+.shop-orders-list__item__images__item__img {
     position: absolute;
     left: 0;
     top: 0;
@@ -114,37 +114,37 @@
 }
 
 @media (max-width: 767px) {
-    .shop-orders-list-item-header {
+    .shop-orders-list__item__header {
         padding: 0.5rem 1rem;
     }
 
-    .shop-orders-list-item-main {
+    .shop-orders-list__item__main {
         width: 100%;
         padding: 1rem 1rem 0.5rem 1rem;
     }
 
-    .shop-orders-list-item-images {
+    .shop-orders-list__item__images {
         width: 100%;
         padding: 0.5rem 1rem 0.5rem 1rem;
     }
 }
 
 @media (max-width: 470px) {
-    .shop-orders-list-item-header {
+    .shop-orders-list__item__header {
         padding: 0.5rem;
     }
 
-    .shop-orders-list-item-main {
+    .shop-orders-list__item__main {
         width: 100%;
         padding: 0.5rem;
     }
 
-    .shop-orders-list-item-images {
+    .shop-orders-list__item__images {
         width: 100%;
         padding: 0.5rem;
     }
 
-    .shop-orders-list-item-images-item {
+    .shop-orders-list__item__images__item {
         width: 5rem;
     }
 }

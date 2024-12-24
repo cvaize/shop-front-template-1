@@ -19,7 +19,7 @@
     let dragAndDropStartMouseXPosition = 0;
 
     function preAction() {
-        radioInputs = document.querySelectorAll('.shop-comparison-categories-btn-radio-input');
+        radioInputs = document.querySelectorAll('.shop-comparison__categories__btn__radio-input');
         firstNotCheckedRadioInput = null;
         selectedRadioInput = null;
         selectedLabel = null;
@@ -52,7 +52,7 @@
         event && event.preventDefault();
         preAction();
 
-        let item = event.target.closest('.shop-comparison-card');
+        let item = event.target.closest('.shop-comparison__card');
         let itemIndex = -1;
         let length = -1;
 
@@ -71,14 +71,14 @@
         }
 
         if (itemIndex !== -1 && length !== -1 && selectedRows) {
-            let rowsElements = selectedRows.querySelectorAll('.shop-comparison-row');
+            let rowsElements = selectedRows.querySelectorAll('.shop-comparison__row');
 
             for (let i = 0; i < rowsElements.length; i++) {
                 rowsElements[i].children[itemIndex].remove();
             }
 
             if (selectedLabel) {
-                let number = selectedLabel.querySelector('.shop-comparison-categories-btn-number');
+                let number = selectedLabel.querySelector('.shop-comparison__categories__btn__number');
                 if (number) {
                     number.innerHTML = length - 1;
                 }
@@ -121,7 +121,7 @@
                 dragAndDropCards[i].style.pointerEvents = 'auto';
                 dragAndDropCards[i].removeEventListener('mouseenter', replaceCardsOnHover);
 
-                let drop = dragAndDropCards[i].querySelector('.shop-comparison-card-drop');
+                let drop = dragAndDropCards[i].querySelector('.shop-comparison__card__drop');
                 if (drop) {
                     drop.style.cursor = 'grab';
                 }
@@ -132,16 +132,16 @@
 
     function startCardMove(event) {
         stopCardMove();
-        dragAndDropCard = event.target ? event.target.closest('.shop-comparison-card') : null;
+        dragAndDropCard = event.target ? event.target.closest('.shop-comparison__card') : null;
         dragAndDropCard = dragAndDropCard ? dragAndDropCard : null;
         dragAndDropStartMouseXPosition = getMouseXPositionFromEvent(event);
 
         if (dragAndDropCard && Number.isInteger(dragAndDropStartMouseXPosition)) {
-            dragAndDropCards = dragAndDropCard.parentNode.querySelectorAll('.shop-comparison-card');
+            dragAndDropCards = dragAndDropCard.parentNode.querySelectorAll('.shop-comparison__card');
 
             for (let i = 0; i < dragAndDropCards.length; i++) {
                 dragAndDropCards[i].style.opacity = '0.5';
-                let drop = dragAndDropCards[i].querySelector('.shop-comparison-card-drop');
+                let drop = dragAndDropCards[i].querySelector('.shop-comparison__card__drop');
                 if (drop) {
                     drop.style.cursor = 'grabbing';
                 }
@@ -182,7 +182,7 @@
 
     function clickLeft(event) {
         if (selectedRows) {
-            let card = selectedRows.querySelector('.shop-comparison-card');
+            let card = selectedRows.querySelector('.shop-comparison__card');
 
             if(card){
                 selectedRows.scrollTo({
@@ -195,7 +195,7 @@
 
     function clickRight(event) {
         if (selectedRows) {
-            let card = selectedRows.querySelector('.shop-comparison-card');
+            let card = selectedRows.querySelector('.shop-comparison__card');
 
             if(card){
                 selectedRows.scrollTo({
@@ -242,10 +242,10 @@
             return;
         }
 
-        leftBtn = comparison.querySelector('.shop-comparison-left-btn');
-        rightBtn = comparison.querySelector('.shop-comparison-right-btn');
+        leftBtn = comparison.querySelector('.shop-comparison__left-btn');
+        rightBtn = comparison.querySelector('.shop-comparison__right-btn');
 
-        cardDrops = comparison.querySelectorAll('.shop-comparison-card-drop');
+        cardDrops = comparison.querySelectorAll('.shop-comparison__card__drop');
         clearComparisonListForm = comparison.querySelector('.js-clear-comparison-list-form');
         clearComparisonItemForms = comparison.querySelectorAll('.js-remove-comparison-item-form');
 
@@ -278,18 +278,18 @@
         }
 
         let startLength = 0;
-        let rowsElems = comparison.querySelectorAll('.shop-comparison-rows');
+        let rowsElems = comparison.querySelectorAll('.shop-comparison__rows');
         for (let i = 0; i < rowsElems.length; i++) {
             rowsElems[i].style.overflow = 'hidden';
-            let cardElems = rowsElems[i].querySelectorAll('.shop-comparison-card');
+            let cardElems = rowsElems[i].querySelectorAll('.shop-comparison__card');
             let cardElemsLength = cardElems.length;
-            let rowElems = rowsElems[i].querySelectorAll('.shop-comparison-row');
+            let rowElems = rowsElems[i].querySelectorAll('.shop-comparison__row');
             for (let j = 0; j < rowElems.length; j++) {
                 let childrenElems = rowElems[j].children;
                 for (let k = 0; k < childrenElems.length; k++) {
                     let index = startLength + k + 1;
 
-                    let name = `--shop-comparison-card${index}-order`;
+                    let name = `--shop-comparison__card${index}-order`;
                     if (!comparison.style.getPropertyValue(name)) {
                         comparison.style.setProperty(name, String(index));
                     }
