@@ -6,13 +6,34 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/app.css">
-    <link rel="stylesheet" href="./css/product.css">
-    <link rel="stylesheet" href="./css/products.css">
-    <script src="./js/product.js" defer></script>
-    <script src="./js/products-fw-list.js" defer></script>
+<!--    <link rel="stylesheet" href="./css/app.css">-->
+<!--    <link rel="stylesheet" href="./css/product.css">-->
+<!--    <link rel="stylesheet" href="./css/products.css">-->
+<!--    <link rel="stylesheet" href="./libraries/fancybox/fancybox.css">-->
+<!--    <script src="./js/product.js" defer></script>-->
+<!--    <script src="./js/products-fw-list.js" defer></script>-->
+<!--    <script src="./libraries/embla-carousel/embla-carousel.umd.js" defer></script>-->
+<!--    <script src="./libraries/fancybox/fancybox.umd.js" defer></script>-->
 </head>
 <body class="shop-body">
+<script>
+    // Only For Developing
+    let r = Math.round(Math.random() * 10e10);
+    let styles = [`./css/app.css?r=${r}`, `./css/product.css?r=${r}`, `./css/products.css?r=${r}`, `./libraries/fancybox/fancybox.css?r=${r}`];
+    for (const href of styles) {
+        let el = document.createElement('link');
+        el.href = href;
+        el.rel = 'stylesheet';
+        document.head.append(el);
+    }
+    let scripts = [`./js/product.js?r=${r}`, `./js/products-fw-list.js?r=${r}`, `./libraries/embla-carousel/embla-carousel.umd.js?r=${r}`, `./libraries/fancybox/fancybox.umd.js?r=${r}`];
+    for (const src of scripts) {
+        let el = document.createElement('script');
+        el.src = src;
+        el.defer = true;
+        document.head.append(el);
+    }
+</script>
 <input id="shop-sidebar-catalog-checkbox"
        class="shop-sidebar-catalog-checkbox"
        type="checkbox"
@@ -713,88 +734,112 @@
                     </form>
                 </div>
                 <div class="shop-product-images">
-                    <div class="shop-product-images-top">
-                        <button class="shop-product-images-top-btn shop-btn">
-                            <svg class="shop-product-images-top-btn-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
+                    <div class="shop-product-images__top">
+                        <button class="shop-product-images__top-btn shop-btn">
+                            <svg class="shop-product-images__top-btn__icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
                         </button>
                     </div>
-                    <div class="shop-product-images-bottom">
-                        <button class="shop-product-images-bottom-btn shop-btn">
-                            <svg class="shop-product-images-bottom-btn-icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
+                    <div class="shop-product-images__bottom">
+                        <button class="shop-product-images__bottom-btn shop-btn">
+                            <svg class="shop-product-images__bottom-btn__icon-svg shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"/></svg>
                         </button>
                     </div>
 
-                    <div class="shop-product-images-viewer">
-                        <picture class="shop-product-images-full shop-active" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                            <img class="shop-product-images-full-img" src="./svg/300x300_2.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360_2.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360_2.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                            <img class="shop-product-images-full-img" src="./svg/300x300_2.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360_2.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360.svg" alt="">
-                        </picture>
-                        <picture class="shop-product-images-full" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                            <img class="shop-product-images-full-img" src="./svg/300x360_2.svg" alt="">
-                        </picture>
+                    <div class="shop-product-images__slider">
+                        <div class="shop-product-images__slider__container">
+                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide shop-active" data-fancybox="product" data-caption="Caption #1">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x300_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #2">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x300_2.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #3">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #4">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #5">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #6">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x300_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #7">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x300_2.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #8">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #9">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #10">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./svg/300x360_2.svg" class="shop-product-images__slider__slide" data-fancybox="product" data-caption="Caption #11">
+                                <picture class="shop-product-images__slider__slide-picture" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__slider__slide-img" src="./svg/300x360_2.svg" alt="">
+                                </picture>
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="shop-product-images-thumbs">
-                        <div class="shop-product-images-thumbs-scroll">
-                            <div class="shop-product-images-thumbs-scroll-viewer">
-                                <picture class="shop-product-images-thumb shop-active" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360.svg" alt="">
+                    <div class="shop-product-images__thumbs">
+                        <div class="shop-product-images__thumbs-scroll">
+                            <div class="shop-product-images__thumbs-scroll-viewer">
+                                <picture class="shop-product-images__thumb shop-active" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x300_2.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x300_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x300_2.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 300;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x300_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360.svg" alt="">
                                 </picture>
-                                <picture class="shop-product-images-thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
-                                    <img class="shop-product-images-thumb-img" src="./svg/300x360_2.svg" alt="">
+                                <picture class="shop-product-images__thumb" style="--shop-product-img-width: 300; --shop-product-img-height: 360;">
+                                    <img class="shop-product-images__thumb-img" src="./svg/300x360_2.svg" alt="">
                                 </picture>
                             </div>
                         </div>
@@ -924,9 +969,9 @@
                             <div class="shop-product-old-price">3 000 руб</div>
                         </div>
                         <div class="shop-product-count">
-                            <form action="/products/11/minus" method="post" class="shop-product-count-minus">
+                            <form action="/products/11/minus" method="post" class="shop-product-count__minus">
                                 <input type="hidden" name="id" value="11">
-                                <button class="shop-product-count-minus-submit shop-btn" type="submit"
+                                <button class="shop-product-count__minus-submit shop-btn" type="submit"
                                         disabled>
                                     <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                          height="24" viewBox="0 0 24 24">
@@ -934,16 +979,16 @@
                                     </svg>
                                 </button>
                             </form>
-                            <form action="/products/11/count" method="post" class="shop-product-count-setter">
+                            <form action="/products/11/count" method="post" class="shop-product-count__setter">
                                 <input type="hidden" name="id" value="11">
-                                <label class="shop-product-count-label">
-                                    <input class="shop-product-count-input" type="number" min="1"
+                                <label class="shop-product-count__label">
+                                    <input class="shop-product-count__input" type="number" min="1"
                                            max="100" value="1" name="count">
                                 </label>
                             </form>
-                            <form action="/products/11/plus" method="post" class="shop-product-count-plus">
+                            <form action="/products/11/plus" method="post" class="shop-product-count__plus">
                                 <input type="hidden" name="id" value="11">
-                                <button class="shop-product-count-plus-submit shop-btn" type="submit">
+                                <button class="shop-product-count__plus-submit shop-btn" type="submit">
                                     <svg class="shop-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
                                          height="24" viewBox="0 0 24 24">
                                         <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>

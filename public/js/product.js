@@ -11,16 +11,39 @@
     let scrollViewer;
     let attributeValuesElements;
     let submitBtn;
+    let imagesSlider;
+    let imagesSliderEmblaApi;
 
-    function removeEventListener(eventName, elements, handler) {
+    function isIterable(obj) {
+        if (obj == null) return false;
+        return typeof obj[Symbol.iterator] === 'function';
+    }
+
+    function off(eventName, elements, handler) {
+        if (!isIterable(elements)) elements = [elements];
         for (let i = 0; i < elements.length; i++) {
             elements[i].removeEventListener(eventName, handler);
         }
     }
 
-    function addEventListener(eventName, elements, handler) {
+    function on(eventName, elements, handler) {
+        if (!isIterable(elements)) elements = [elements];
         for (let i = 0; i < elements.length; i++) {
             elements[i].addEventListener(eventName, handler);
+        }
+    }
+
+    function switchThumbnail(target) {
+        let elements = target.closest('.shop-product-images__thumbs-scroll-viewer').children;
+
+        for (let i = 0; i < elements.length; i++) {
+            if (elements[i] === target && images[i]) {
+                elements[i].classList.add('shop-active');
+                images[i].classList.add('shop-active');
+            } else {
+                elements[i].classList.remove('shop-active');
+                images[i].classList.remove('shop-active');
+            }
         }
     }
 
@@ -28,21 +51,11 @@
         event.preventDefault();
 
         requestAnimationFrame(function () {
-            let target = event.target.classList.contains('shop-product-images-thumb') ?
+            let target = event.target.classList.contains('shop-product-images__thumb') ?
                 event.target :
-                event.target.closest('.shop-product-images-thumb');
+                event.target.closest('.shop-product-images__thumb');
 
-            let elements = target.closest('.shop-product-images-thumbs-scroll-viewer').children;
-
-            for (let i = 0; i < elements.length; i++) {
-                if (elements[i] === target && images[i]) {
-                    elements[i].classList.add('shop-active');
-                    images[i].classList.add('shop-active');
-                } else {
-                    elements[i].classList.remove('shop-active');
-                    images[i].classList.remove('shop-active');
-                }
-            }
+            switchThumbnail(target);
         });
     }
 
@@ -51,14 +64,14 @@
         const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         if (width >= 1400) {
             let value = scrollElement.scrollTop - 300;
-            if(value < 50) value = 0;
+            if (value < 50) value = 0;
             scrollElement.scrollTo({
                 top: value,
                 behavior: "smooth",
             });
         } else {
             let value = scrollElement.scrollLeft - 150;
-            if(value < 50) value = 0;
+            if (value < 50) value = 0;
             scrollElement.scrollTo({
                 left: value,
                 behavior: "smooth",
@@ -167,12 +180,12 @@
     }
 
     function submittingOneMinus(form) {
-        let btn = form.querySelector('.shop-product-count-minus-submit');
+        let btn = form.querySelector('.shop-product-count__minus-submit');
         btn.classList.add('shop-loading');
     }
 
     function submittedOneMinus(data, form) {
-        let btn = form.querySelector('.shop-product-count-minus-submit');
+        let btn = form.querySelector('.shop-product-count__minus-submit');
         btn.classList.remove('shop-loading');
     }
 
@@ -195,12 +208,12 @@
     }
 
     function submittingOnePlus(form) {
-        let btn = form.querySelector('.shop-product-count-plus-submit');
+        let btn = form.querySelector('.shop-product-count__plus-submit');
         btn.classList.add('shop-loading');
     }
 
     function submittedOnePlus(data, form) {
-        let btn = form.querySelector('.shop-product-count-plus-submit');
+        let btn = form.querySelector('.shop-product-count__plus-submit');
         btn.classList.remove('shop-loading');
     }
 
@@ -223,12 +236,12 @@
     }
 
     function submittingSetCount(form) {
-        let label = form.querySelector('.shop-product-count-label');
+        let label = form.querySelector('.shop-product-count__label');
         label.classList.add('shop-loading');
     }
 
     function submittedSetCount(data, form) {
-        let label = form.querySelector('.shop-product-count-label');
+        let label = form.querySelector('.shop-product-count__label');
         label.classList.remove('shop-loading');
     }
 
@@ -243,12 +256,63 @@
         });
     }
 
+    function handleReInitImageSlider() {
+        requestAnimationFrame(initImageSlider);
+    }
+
+    function initImageSlider() {
+        if (!imagesSlider) return;
+        if (window.innerWidth > 470) {
+            off('resize', window, handleReInitImageSlider);
+            on('resize', window, handleReInitImageSlider);
+            if (imagesSliderEmblaApi) {
+                imagesSliderEmblaApi.destroy();
+                imagesSliderEmblaApi = null;
+            }
+            return;
+        }
+        off('resize', window, handleReInitImageSlider);
+        if (imagesSliderEmblaApi) return;
+
+        imagesSliderEmblaApi = window.EmblaCarousel(imagesSlider, {loop: false});
+    }
+
+    function initFancybox() {
+        if (!imagesSlider || !pageElement) return;
+        pageElement.classList.add('shop-product--fancybox-loaded');
+        window.Fancybox.bind("[data-fancybox='product']", {
+            on: {
+                "Carousel.ready Carousel.change": (fancybox) => {
+                    const slide = fancybox.getSlide();
+                    if (scrollViewer && scrollViewer.children) {
+                        let target = scrollViewer.children[slide.index];
+                        target && switchThumbnail(target);
+                        if (imagesSliderEmblaApi) {
+                            imagesSliderEmblaApi.scrollTo(slide.index);
+                        }
+                    }
+                },
+            },
+        });
+    }
+
+    function handleReadyImageSlider() {
+        off('EmblaCarousel:Ready', document, initImageSlider);
+        initImageSlider();
+    }
+
+    function handleReadyFancybox() {
+        off('Fancybox:Ready', document, initFancybox);
+        initFancybox();
+    }
+
     function destroy() {
-        if (attributeValuesElements) removeEventListener('click', attributeValuesElements, handleClickAttributeValue);
-        if (thumbs) removeEventListener('click', thumbs, handleClickThumb);
-        if (topBtn) topBtn.removeEventListener('click', handleClickTopBtn);
-        if (bottomBtn) bottomBtn.removeEventListener('click', handleClickBottomBtn);
-        if (scrollElement) scrollElement.addEventListener('scroll', handleScrollThumbs);
+        if (attributeValuesElements) off('click', attributeValuesElements, handleClickAttributeValue);
+        if (thumbs) off('click', thumbs, handleClickThumb);
+        if (topBtn) off('click', topBtn, handleClickTopBtn);
+        if (bottomBtn) off('click', bottomBtn, handleClickBottomBtn);
+        if (scrollElement) off('scroll', scrollElement, handleScrollThumbs);
+        off('EmblaCarousel:Ready', document, handleReadyImageSlider);
     }
 
     function init() {
@@ -259,28 +323,34 @@
             return;
         }
 
-        thumbs = pageElement.querySelectorAll('.shop-product-images-thumb');
-        images = pageElement.querySelectorAll('.shop-product-images-full');
-        topBtn = pageElement.querySelector('.shop-product-images-top-btn');
-        bottomBtn = pageElement.querySelector('.shop-product-images-bottom-btn');
-        scrollElement = pageElement.querySelector('.shop-product-images-thumbs-scroll');
-        scrollViewer = pageElement.querySelector('.shop-product-images-thumbs-scroll-viewer');
+        thumbs = pageElement.querySelectorAll('.shop-product-images__thumb');
+        images = pageElement.querySelectorAll('.shop-product-images__slider__slide');
+        topBtn = pageElement.querySelector('.shop-product-images__top-btn');
+        bottomBtn = pageElement.querySelector('.shop-product-images__bottom-btn');
+        scrollElement = pageElement.querySelector('.shop-product-images__thumbs-scroll');
+        scrollViewer = pageElement.querySelector('.shop-product-images__thumbs-scroll-viewer');
         attributeValuesElements = pageElement.querySelectorAll('.shop-product-attribute-value');
         submitBtn = pageElement.querySelector('.shop-product-submit');
+        imagesSlider = pageElement.querySelector('.shop-product-images__slider');
 
 
-        addEventListener('submit', pageElement.querySelectorAll('.shop-product-count-minus'), oneMinus);
-        addEventListener('submit', pageElement.querySelectorAll('.shop-product-count-plus'), onePlus);
-        addEventListener('submit', pageElement.querySelectorAll('.shop-product-count-setter'), setCount);
-        addEventListener('change', pageElement.querySelectorAll('.shop-product-count-setter'), setCount);
+        on('submit', pageElement.querySelectorAll('.shop-product-count__minus'), oneMinus);
+        on('submit', pageElement.querySelectorAll('.shop-product-count__plus'), onePlus);
+        on('submit', pageElement.querySelectorAll('.shop-product-count__setter'), setCount);
+        on('change', pageElement.querySelectorAll('.shop-product-count__setter'), setCount);
 
-        addEventListener('click', attributeValuesElements, handleClickAttributeValue);
-        addEventListener('click', thumbs, handleClickThumb);
+        on('click', attributeValuesElements, handleClickAttributeValue);
+        on('click', thumbs, handleClickThumb);
 
-        topBtn.addEventListener('click', handleClickTopBtn);
-        bottomBtn.addEventListener('click', handleClickBottomBtn);
-        scrollElement.addEventListener('scroll', handleScrollThumbs);
+        on('click', topBtn, handleClickTopBtn);
+        on('click', bottomBtn, handleClickBottomBtn);
+        on('scroll', scrollElement, handleScrollThumbs);
         handleScrollThumbs();
+
+        if (imagesSlider) {
+            on('EmblaCarousel:Ready', document, handleReadyImageSlider);
+            on('Fancybox:Ready', document, handleReadyFancybox);
+        }
     }
 
     init();
