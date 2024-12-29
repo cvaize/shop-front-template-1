@@ -4,7 +4,7 @@
 
     function handleSubmitFavorite(event) {
         event.preventDefault();
-        let btn = event.target.querySelector('.shop-products-fw-list__item__favorite__btn');
+        let btn = event.target.querySelector('.shop-products__item__favorite__btn');
         btn.classList.add('shop-loading');
         setTimeout(function () {
             let isActive = btn.classList.contains('shop-active');
@@ -18,7 +18,7 @@
     }
 
     function destroy() {
-        let favoriteForms = document.querySelectorAll('.shop-products-fw-list__item__favorite');
+        let favoriteForms = document.querySelectorAll('.shop-products__item__favorite');
         for (let i = 0; i < favoriteForms.length; i++) {
             favoriteForms[i].removeEventListener('submit', handleSubmitFavorite);
         }
@@ -26,7 +26,7 @@
 
     function init() {
         destroy();
-        let favoriteForms = document.querySelectorAll('.shop-products-fw-list__item__favorite');
+        let favoriteForms = document.querySelectorAll('.shop-products__item__favorite');
         for (let i = 0; i < favoriteForms.length; i++) {
             favoriteForms[i].addEventListener('submit', handleSubmitFavorite);
         }

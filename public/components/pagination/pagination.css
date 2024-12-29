@@ -1,0 +1,44 @@
+.shop-pagination {
+    margin: 0;
+    display: flex;
+    padding: 0;
+    list-style: none;
+}
+
+.shop-pagination__item {
+    list-style: none;
+    margin-left: -0.0625rem;
+}
+
+.shop-pagination__item:first-child {
+    margin-left: 0;
+}
+
+.shop-pagination__item:first-child .shop-pagination__link {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.shop-pagination__item:last-child .shop-pagination__link {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.shop-pagination__link {
+    position: relative;
+    display: block;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    color: rgb(var(--shop-app-color));
+    text-decoration: none;
+    background-color: transparent;
+    border: 0.0625rem solid rgba(var(--shop-app-color), 0.1);
+}
+
+a.shop-pagination__link:hover, button.shop-pagination__link:hover {
+    background-color: rgba(var(--shop-app-color), 0.1);
+}
+
+a.shop-pagination__link:active, button.shop-pagination__link:active {
+    background-color: rgba(var(--shop-app-color), 0.2);
+}

@@ -95,19 +95,9 @@ a.shop-cart__item__image__wrapper:hover {
     opacity: 0.8;
 }
 
-a.shop-cart__item__image__wrapper:focus {
-    box-shadow: var(--shop-app-focus-box-shadow);
-    outline: none;
-}
-
 .shop-cart__item__image__link {
     border-radius: 0.25rem;
     display: block;
-}
-
-a.shop-cart__item__image__link:focus {
-    box-shadow: var(--shop-app-focus-box-shadow);
-    outline: none;
 }
 
 .shop-cart__item__image {
@@ -139,11 +129,6 @@ a.shop-cart__item__image__link:focus {
 
 a.shop-cart__item__name:hover {
     opacity: 0.8;
-}
-
-a.shop-cart__item__name:focus {
-    box-shadow: var(--shop-app-focus-box-shadow);
-    outline: none;
 }
 
 .shop-cart__item__characteristics {

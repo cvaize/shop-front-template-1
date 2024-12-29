@@ -1,0 +1,7 @@
+.shop-text--success {
+    color: rgb(var(--shop-app-success-color));
+}
+
+.shop-text--danger {
+    color: rgb(var(--shop-app-danger-color));
+}

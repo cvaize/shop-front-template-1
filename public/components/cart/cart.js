@@ -132,7 +132,7 @@
                 cartSidebarBody.insertAdjacentHTML('beforeend', `
 <div class="shop-cart__sidebar__row">
     <div class="shop-cart__sidebar__total__name">${shopCartData.totalItems[i].label}</div>
-    <div class="shop-cart__sidebar__total__value${shopCartData.totalItems[i].accent ? ' text--danger' : ''}">${shopCartData.totalItems[i].value}</div>
+    <div class="shop-cart__sidebar__total__value${shopCartData.totalItems[i].accent ? ' shop-text--danger' : ''}">${shopCartData.totalItems[i].value}</div>
 </div>`)
             }
         }
@@ -916,10 +916,10 @@
 
     init();
 
-    let html = document.querySelector('.shop-products-fw-list').innerHTML;
+    let html = document.querySelector('.shop-products').innerHTML;
     let html_ = ''
     for (let i = 0; i < 6; i++) {
         html_ += html;
     }
-    document.querySelector('.shop-products-fw-list').innerHTML = html_;
+    document.querySelector('.shop-products').innerHTML = html_;
 })();

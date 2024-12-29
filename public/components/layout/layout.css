@@ -1,0 +1,146 @@
+:root {
+    --shop-app-color: 59, 67, 81;
+    --shop-app-background-color: 255, 255, 255;
+    --shop-app-backdrop-color: 0, 0, 0;
+    --shop-app-light-background-color: 225, 225, 225;
+    --shop-app-success-color: 30, 180, 20;
+    --shop-app-danger-color: 220, 53, 69;
+    --shop-app-focus-box-shadow: 0 0 0 2px rgba(var(--shop-app-color), 0.5);
+}
+
+.shop-dark-mode-checkbox:checked ~ * {
+    --shop-app-color: 196, 187, 173;
+    --shop-app-background-color: 0, 0, 0;
+    --shop-app-backdrop-color: 255, 255, 255;
+    --shop-app-light-background-color: 29, 29, 29;
+    --shop-app-success-color: 0, 255, 136;
+    --shop-app-danger-color: 255, 0, 24;
+    --shop-app-focus-box-shadow: 0 0 0 2px rgba(var(--shop-app-color), 0.5);
+}
+
+::selection {
+    background: rgba(var(--shop-app-color), 0.2);
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+*[class*="shop-"]:focus
+{
+    box-shadow: var(--shop-app-focus-box-shadow);
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0 0 1rem 0;
+}
+
+[type="button"], [type="reset"], [type="submit"], button {
+    -webkit-appearance: button;
+}
+
+button, select {
+    text-transform: none;
+}
+
+.shop-html {
+    line-height: 1.5;
+}
+
+.shop-body {
+    color: rgb(var(--shop-app-color));
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-size: .8rem;
+    text-rendering: optimizeLegibility;
+}
+
+.shop-app {
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    color: rgb(var(--shop-app-color));
+    background: rgb(var(--shop-app-background-color));
+}
+
+.shop-content {
+    width: 100%;
+    padding-top: 3.5rem;
+    min-height: calc(100vh - 16rem);
+}
+
+.shop-hr {
+    opacity: 0.1;
+    margin: 0.5rem 0;
+}
+
+.shop-icon--svg {
+    width: 1.2em;
+    height: 1.2em;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -0.1em;
+}
+
+.shop-backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 180;
+    background: rgba(var(--shop-app-backdrop-color), 0.6);
+    display: none;
+}
+
+.shop-container {
+    width: 100%;
+    max-width: 1460px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 1400px) and (max-width: 1460px) {
+    .shop-container {
+        max-width: 1320px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .shop-container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .shop-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .shop-container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 767px) {
+    .shop-container {
+        max-width: 540px;
+    }
+
+    .shop-content {
+        padding-top: 5.5rem;
+    }
+}
+
+@media (max-width: 470px) {
+    .shop-container {
+        max-width: none;
+    }
+}

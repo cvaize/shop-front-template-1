@@ -6,7 +6,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/points.css">
 </head>
 <body class="shop-body">
@@ -213,7 +214,7 @@
                         </svg>
                     </div>
                 </div>
-                <div class="shop-sidebar__menu-account__backdrop"></div>
+                <div class="shop-sidebar__menu-account__backdrop shop-backdrop"></div>
             </div>
         </div>
         <nav class="shop-sidebar__catalog" style="--shop-app-sidebar-catalog-tree-count: 6;">
@@ -833,15 +834,15 @@
                 </div>
             </div>
         </nav>
-        <label for="shop-sidebar__catalog__checkbox" class="shop-sidebar__catalog__backdrop"></label>
-        <label for="shop-sidebar__search__checkbox" class="shop-sidebar__search__backdrop"></label>
+        <label for="shop-sidebar__catalog__checkbox" class="shop-sidebar__catalog__backdrop shop-backdrop"></label>
+        <label for="shop-sidebar__search__checkbox" class="shop-sidebar__search__backdrop shop-backdrop"></label>
     </header>
 
     <main class="shop-content">
-        <hr class="shop-content__hr">
+        <hr class="shop-hr">
         <div class="shop-container">
             <h1 class="shop-h1">Баллы и купоны</h1>
-            <hr class="shop-content__hr" style="margin: 1rem 0;">
+            <hr class="shop-hr" style="margin: 1rem 0;">
 
             <div class="shop-points">
                 <div class="shop-points__card">
