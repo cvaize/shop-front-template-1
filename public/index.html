@@ -18,18 +18,26 @@
     <script src="./components/products/products.js" defer></script>
 </head>
 <body class="shop-body">
+<input id="shop-sidebar__home__checkbox"
+       type="radio"
+       name="shop-sidebar__menu-radio"
+       hidden checked>
 <input id="shop-sidebar__catalog__checkbox"
-       class="shop-sidebar__catalog__checkbox"
-       type="checkbox"
+       type="radio"
+       name="shop-sidebar__menu-radio"
+       hidden>
+<input id="shop-sidebar__menu-account__checkbox"
+       type="radio"
+       name="shop-sidebar__menu-radio"
        hidden>
 <input id="shop-sidebar__search__checkbox"
-       class="shop-sidebar__search__checkbox"
        type="checkbox"
        hidden>
 
 <div class="shop-app">
     <header class="shop-header">
         <div class="shop-sidebar">
+            <label for="shop-sidebar__home__checkbox" class="shop-sidebar__home__btn"></label>
             <div class="shop-sidebar__container shop-container">
                 <a href="/public/index.html" class="shop-sidebar__brand">
                     Shop Front
@@ -47,6 +55,9 @@
                 <label for="shop-sidebar__catalog__checkbox" class="shop-sidebar__catalog__btn shop-btn" tabindex="0">
                     <span class="shop-sidebar__burger"></span>
                     <span class="shop-sidebar__catalog__btn__text">Каталог</span>
+                </label>
+                <label for="shop-sidebar__catalog__checkbox" class="shop-sidebar__menu-block shop-sidebar__menu-block--catalog">
+                    <svg class="shop-sidebar__menu-block__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 2-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>
                 </label>
                 <form class="shop-sidebar__search">
                     <label class="shop-sidebar__search__label">
