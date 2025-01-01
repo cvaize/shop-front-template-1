@@ -176,6 +176,48 @@
     opacity: 0.8;
 }
 
+.shop-sidebar__search__results {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.25rem);
+    width: 100%;
+    height: auto;
+    padding: 0.25rem 0.25rem;
+    background: rgba(var(--shop-app-background-color));
+    font-size: 1rem;
+    box-shadow: 0 0 0 2px rgba(var(--shop-app-light-background-color), 1);
+    border-radius: 0.5rem;
+    overflow: auto;
+    max-height: calc(100vh - 6rem);
+    display: none;
+}
+
+.shop-sidebar__search__results__link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 0.25rem 0.75rem;
+    font-weight: 500;
+    vertical-align: middle;
+    line-height: 1.2;
+    border-radius: 0.45rem;
+}
+
+.shop-sidebar__search__results__link:hover {
+    background-color: rgba(var(--shop-app-light-background-color), 0.5);
+}
+
+.shop-sidebar__search:focus, .shop-sidebar__search:focus-within {
+    z-index: 100;
+}
+
+.shop-sidebar__search:focus .shop-sidebar__search__results,
+.shop-sidebar__search:focus-within .shop-sidebar__search__results,
+.shop-sidebar__search:focus ~ .shop-sidebar__search__backdrop,
+.shop-sidebar__search:focus-within ~ .shop-sidebar__search__backdrop {
+    display: block;
+}
+
 .shop-sidebar__menu-block {
     margin-right: 0.5rem;
     padding: 0 0.5rem;
