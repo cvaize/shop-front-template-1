@@ -61,6 +61,8 @@
     margin-left: auto;
     margin-right: 1rem;
     height: 2.5rem;
+    position: relative;
+    cursor: pointer;
 }
 
 .shop-sidebar__catalog__btn:hover, .shop-btn:hover {
@@ -252,6 +254,7 @@
     height: 0.875rem;
     margin-right: 0.6rem;
     margin-bottom: -0.1rem;
+    pointer-events: none;
 }
 
 .shop-sidebar__burger::before,
@@ -756,12 +759,13 @@
         transform: none;
     }
 
-    #shop-sidebar__catalog__checkbox:checked ~ .shop-app .shop-sidebar__catalog {
+    #shop-sidebar__catalog__radio:checked ~ .shop-app .shop-sidebar__catalog {
         display: block;
         transform: none;
     }
 
     #shop-sidebar__catalog__checkbox:checked ~ .shop-app .shop-sidebar__catalog__backdrop,
+    #shop-sidebar__catalog__radio:checked ~ .shop-app .shop-sidebar__catalog__backdrop,
     .shop-sidebar__search__backdrop {
         display: none;
     }
@@ -808,14 +812,14 @@
         opacity: 0.5;
     }
 
-    #shop-sidebar__home__checkbox:checked ~ .shop-app .shop-sidebar__menu-block--home,
-    #shop-sidebar__catalog__checkbox:checked ~ .shop-app .shop-sidebar__menu-block--catalog,
-    #shop-sidebar__menu-account__checkbox:checked ~ .shop-app .shop-sidebar__menu-account__btn,
+    #shop-sidebar__home__radio:checked ~ .shop-app .shop-sidebar__menu-block--home,
+    #shop-sidebar__catalog__radio:checked ~ .shop-app .shop-sidebar__menu-block--catalog,
+    #shop-sidebar__menu-account__radio:checked ~ .shop-app .shop-sidebar__menu-account__btn,
     .shop-sidebar__menu-block.shop-active {
         opacity: 1;
     }
 
-    #shop-sidebar__menu-account__checkbox:checked ~ .shop-app .shop-sidebar__menu-account__dropdown {
+    #shop-sidebar__menu-account__radio:checked ~ .shop-app .shop-sidebar__menu-account__dropdown {
         display: block;
     }
 
@@ -830,7 +834,7 @@
         display: none;
     }
 
-    #shop-sidebar__home__checkbox:not(:checked) ~ .shop-app .shop-sidebar__home__btn {
+    #shop-sidebar__home__radio:not(:checked) ~ .shop-app .shop-sidebar__home__btn {
         display: block;
     }
 
@@ -863,19 +867,4 @@
     .shop-sidebar__menu-account__close > * {
         display: none;
     }
-
-    /*.shop-sidebar__menu-account:focus ~ .shop-sidebar__menu-account__close,*/
-    /*.shop-sidebar__menu-account:focus-within ~ .shop-sidebar__menu-account__close {*/
-    /*    display: block;*/
-    /*    width: 100%;*/
-    /*    height: 3rem;*/
-    /*    position: fixed;*/
-    /*    left: 0;*/
-    /*    top: auto;*/
-    /*    bottom: 0;*/
-    /*}*/
-    /*.shop-sidebar__menu-account:focus .shop-sidebar__menu-account__btn,*/
-    /*.shop-sidebar__menu-account:focus-within .shop-sidebar__menu-account__btn {*/
-    /*    opacity: 1;*/
-    /*}*/
 }

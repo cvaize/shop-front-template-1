@@ -18,26 +18,16 @@
     <script src="./components/products/products.js" defer></script>
 </head>
 <body class="shop-body">
-<input id="shop-sidebar__home__checkbox"
-       type="radio"
-       name="shop-sidebar__menu-radio"
-       hidden checked>
-<input id="shop-sidebar__catalog__checkbox"
-       type="radio"
-       name="shop-sidebar__menu-radio"
-       hidden>
-<input id="shop-sidebar__menu-account__checkbox"
-       type="radio"
-       name="shop-sidebar__menu-radio"
-       hidden>
-<input id="shop-sidebar__search__checkbox"
-       type="checkbox"
-       hidden>
+<input id="shop-sidebar__home__radio" type="radio" name="shop-sidebar__menu-radio" hidden checked>
+<input id="shop-sidebar__catalog__checkbox" type="checkbox" hidden>
+<input id="shop-sidebar__catalog__radio" type="radio" name="shop-sidebar__menu-radio" hidden>
+<input id="shop-sidebar__menu-account__radio" type="radio" name="shop-sidebar__menu-radio" hidden>
+<input id="shop-sidebar__search__checkbox" type="checkbox" hidden>
 
 <div class="shop-app">
     <header class="shop-header">
         <div class="shop-sidebar">
-            <label for="shop-sidebar__home__checkbox" class="shop-sidebar__home__btn"></label>
+            <label for="shop-sidebar__home__radio" class="shop-sidebar__home__btn"></label>
             <div class="shop-sidebar__container shop-container">
                 <a href="/public/index.html" class="shop-sidebar__brand">
                     Shop Front
@@ -56,7 +46,7 @@
                     <span class="shop-sidebar__burger"></span>
                     <span class="shop-sidebar__catalog__btn__text">Каталог</span>
                 </label>
-                <label for="shop-sidebar__catalog__checkbox" class="shop-sidebar__menu-block shop-sidebar__menu-block--catalog">
+                <label for="shop-sidebar__catalog__radio" class="shop-sidebar__menu-block shop-sidebar__menu-block--catalog">
                     <svg class="shop-sidebar__menu-block__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 2-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>
                 </label>
                 <form class="shop-sidebar__search">
@@ -83,7 +73,7 @@
                 <div class="shop-sidebar__menu-account__wrapper">
                     <div class="shop-sidebar__menu-account" tabindex="0">
                         <div class="shop-sidebar__menu-account__btn">
-                            <label for="shop-sidebar__menu-account__checkbox" class="shop-sidebar__menu-account__label"></label>
+                            <label for="shop-sidebar__menu-account__radio" class="shop-sidebar__menu-account__label"></label>
                             <svg class="shop-sidebar__menu-account__icon-svg shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.35 18.5C8.66 17.56 10.26 17 12 17s3.34.56 4.65 1.5c-1.31.94-2.91 1.5-4.65 1.5s-3.34-.56-4.65-1.5zm10.79-1.38a9.947 9.947 0 0 0-12.28 0A7.957 7.957 0 0 1 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.95-.7 3.73-1.86 5.12z"/><path d="M12 6c-1.93 0-3.5 1.57-3.5 3.5S10.07 13 12 13s3.5-1.57 3.5-3.5S13.93 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
                         </div>
                         <ul class="shop-sidebar__menu-account__dropdown">
