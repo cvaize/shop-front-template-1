@@ -927,4 +927,31 @@
     .shop-sidebar__menu-account__close > * {
         display: none;
     }
+
+    .shop-sidebar__search {
+        display: none;
+        position: fixed;
+        left: 1rem;
+        top: 1rem;
+        width: calc(100% - 2rem);
+    }
+
+    .shop-sidebar__search:before {
+        content: '';
+        position: absolute;
+        left: -1rem;
+        top: -1rem;
+        width: calc(100% + 2rem);
+        height: calc(100% + 1.7rem);
+        background: rgb(var(--shop-app-background-color));
+        box-shadow: 0 1px 1px 0 rgba(var(--shop-app-color), 0.5);
+    }
+
+    #shop-sidebar__catalog__radio:checked ~ .shop-app .shop-sidebar__search {
+        display: block;
+    }
+
+    .shop-sidebar__search__results {
+        max-height: calc(100vh - 10rem);
+    }
 }
