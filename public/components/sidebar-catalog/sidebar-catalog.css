@@ -185,4 +185,8 @@
     .shop-sidebar-catalog__header__link {
         font-size: 1.4rem;
     }
+
+    .shop-sidebar-catalog__submenu__item {
+        width: 50%;
+    }
 }
