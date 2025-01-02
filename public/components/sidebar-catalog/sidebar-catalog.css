@@ -1,0 +1,188 @@
+.shop-sidebar-catalog {
+    --shop-sidebar-catalog-count: 1;
+    display: grid;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    grid-template-areas: 'A B';
+    grid-template-columns: 14rem auto;
+    column-gap: 0;
+    row-gap: 0;
+    grid-gap: 0;
+    align-items: start;
+    align-content: start;
+    grid-template-rows: repeat(var(--shop-sidebar-catalog-count), calc(2rem + 1px));
+}
+
+.shop-sidebar-catalog__label {
+    grid-area: A;
+    padding: 0.35rem 2rem 0.25rem 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    background: transparent;
+    /*width: 14rem;*/
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    user-select: none;
+}
+
+.shop-sidebar-catalog__label:after {
+    content: '';
+    position: absolute;
+    display: block;
+    right: 1rem;
+    top: 50%;
+    width: 0.6rem;
+    height: 0.6rem;
+    transform: translateY(-50%) rotate(-135deg);
+    border-left: 2px solid rgb(var(--shop-app-light-background-color));
+    border-bottom: 2px solid rgb(var(--shop-app-light-background-color));
+}
+
+.shop-sidebar-catalog__radio:checked + .shop-sidebar-catalog__label,
+.shop-sidebar-catalog__label:hover {
+    background: rgba(var(--shop-app-light-background-color), 0.5);
+}
+
+.shop-sidebar-catalog__label__icon {
+    font-size: 1.2rem;
+}
+
+.shop-sidebar-catalog__content {
+    display: none;
+    grid-area: B;
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+}
+
+.shop-sidebar-catalog__radio:checked + .shop-sidebar-catalog__label + .shop-sidebar-catalog__content {
+    display: block;
+}
+
+.shop-sidebar-catalog__header {
+    margin-bottom: 1rem;
+}
+
+.shop-sidebar-catalog__header__link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.shop-sidebar-catalog__header__link:hover {
+    opacity: 0.5;
+}
+
+.shop-sidebar-catalog__submenu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.shop-sidebar-catalog__submenu__item {
+    position: relative;
+    width: 25%;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+}
+
+.shop-sidebar-catalog__submenu__header-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    font-weight: 700;
+    padding: 0.1rem 0.5rem 0.1rem 0;
+    margin-bottom: 0.4rem;
+}
+
+.shop-sidebar-catalog__submenu__link:hover,
+.shop-sidebar-catalog__submenu__header-link:hover {
+    opacity: 0.5;
+}
+
+.shop-sidebar-catalog__submenu__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 0.1rem 0.5rem 0.1rem 0;
+    font-weight: 500;
+}
+
+.shop-sidebar-catalog__submenu__item__collapse__checkbox:checked ~ .shop-sidebar-catalog__submenu__item__collapse {
+    max-height: 50rem;
+}
+
+.shop-sidebar-catalog__submenu__item__collapse__checkbox:checked ~ .shop-sidebar-catalog__submenu__item__collapse__label {
+    display: none;
+}
+
+.shop-sidebar-catalog__submenu__item__collapse__label {
+    width: 100%;
+    opacity: 0.6;
+    padding-right: 0.7rem;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.shop-sidebar-catalog__submenu__item__collapse__label:hover {
+    opacity: 0.4;
+}
+
+.shop-sidebar-catalog__submenu__item__collapse__label:after {
+    content: '';
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    transform: translateY(-0.2em) rotate(-45deg);
+    border-left: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    margin-left: 0.1rem;
+}
+
+.shop-sidebar-catalog__submenu__item__collapse {
+    max-height: 10rem;
+    overflow: hidden;
+}
+
+
+@media (max-width: 1199px) {
+    .shop-sidebar-catalog__submenu__item {
+        width: 33.3333%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .shop-sidebar-catalog__submenu__item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .shop-sidebar-catalog {
+        display: block;
+    }
+
+    .shop-sidebar-catalog__label {
+        display: none;
+    }
+
+    .shop-sidebar-catalog__content {
+        padding: 0;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .shop-sidebar-catalog__header {
+        margin-bottom: 0.5rem;
+    }
+
+    .shop-sidebar-catalog__header__link {
+        font-size: 1.4rem;
+    }
+}
