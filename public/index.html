@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="./components/pagination/pagination.css">
 
     <script src="./components/products/products.js" defer></script>
+    <script src="./components/slider/slider.js" defer></script>
+    <script src="./libraries/embla-carousel/embla-carousel.umd.js" defer></script>
+    <script src="./libraries/embla-carousel/embla-carousel-class-names.umd.js" defer></script>
 </head>
 <body class="shop-body">
 <input id="shop-sidebar__home__radio" type="radio" name="shop-sidebar__menu-radio" hidden checked>
@@ -423,74 +426,50 @@
     <main class="shop-content">
         <hr class="shop-hr">
         <div class="shop-container">
-            <div class="shop-slider">
-                <input id="shop-slider__checkbox__id-1" class="shop-slider__checkbox" name="shop-slider__checkbox__1"
-                       type="radio" hidden="hidden" checked>
-                <input id="shop-slider__checkbox__id-2" class="shop-slider__checkbox" name="shop-slider__checkbox__1"
-                       type="radio" hidden="hidden">
-                <input id="shop-slider__checkbox__id-3" class="shop-slider__checkbox" name="shop-slider__checkbox__1"
-                       type="radio" hidden="hidden">
-                <input id="shop-slider__checkbox__id-4" class="shop-slider__checkbox" name="shop-slider__checkbox__1"
-                       type="radio" hidden="hidden">
-                <input id="shop-slider__checkbox__id-5" class="shop-slider__checkbox" name="shop-slider__checkbox__1"
-                       type="radio" hidden="hidden">
-                <input id="shop-slider__checkbox__id-6" class="shop-slider__checkbox" name="shop-slider__checkbox__1"
-                       type="radio" hidden="hidden">
-                <div class="shop-slider__controls">
-                    <label for="shop-slider__checkbox__id-1" class="shop-slider__label"></label>
-                    <label for="shop-slider__checkbox__id-2" class="shop-slider__label"></label>
-                    <label for="shop-slider__checkbox__id-3" class="shop-slider__label"></label>
-                    <label for="shop-slider__checkbox__id-4" class="shop-slider__label"></label>
-                    <label for="shop-slider__checkbox__id-5" class="shop-slider__label"></label>
-                    <label for="shop-slider__checkbox__id-6" class="shop-slider__label"></label>
+            <section class="shop-slider">
+                <div class="shop-slider__viewport">
+                    <div class="shop-slider__container">
+                        <div class="shop-slider__slide">
+                            <a href="#" class="shop-slider__slide__link">
+                                <picture class="shop-slider__slide__content">
+                                    <img class="shop-slider__slide__img" src="./svg/720x300.svg" alt="">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="shop-slider__slide">
+                            <a href="#" class="shop-slider__slide__link">
+                                <picture class="shop-slider__slide__content">
+                                    <img class="shop-slider__slide__img" src="./svg/720x300.svg" alt="">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="shop-slider__slide">
+                            <a href="#" class="shop-slider__slide__link">
+                                <picture class="shop-slider__slide__content">
+                                    <img class="shop-slider__slide__img" src="./svg/720x300.svg" alt="">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="shop-slider__slide">
+                            <a href="#" class="shop-slider__slide__link">
+                                <picture class="shop-slider__slide__content">
+                                    <img class="shop-slider__slide__img" src="./svg/720x300.svg" alt="">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="shop-slider__slide">
+                            <a href="#" class="shop-slider__slide__link">
+                                <picture class="shop-slider__slide__content">
+                                    <img class="shop-slider__slide__img" src="./svg/720x300.svg" alt="">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="shop-slider__wrapper">
-                    <ul class="shop-slider__view">
-                        <li class="shop-slider__slide">
-                            <a href="#" class="shop-slider__link">
-                                <picture>
-                                    <img class="shop-slider__img" src="./svg/1428x300.svg" alt="Slider image">
-                                </picture>
-                            </a>
-                        </li>
-                        <li class="shop-slider__slide">
-                            <a href="#" class="shop-slider__link">
-                                <picture>
-                                    <img class="shop-slider__img" src="./svg/1428x300.svg" alt="Slider image">
-                                </picture>
-                            </a>
-                        </li>
-                        <li class="shop-slider__slide">
-                            <a href="#" class="shop-slider__link">
-                                <picture>
-                                    <img class="shop-slider__img" src="./svg/1428x300.svg" alt="Slider image">
-                                </picture>
-                            </a>
-                        </li>
-                        <li class="shop-slider__slide">
-                            <a href="#" class="shop-slider__link">
-                                <picture>
-                                    <img class="shop-slider__img" src="./svg/1428x300.svg" alt="Slider image">
-                                </picture>
-                            </a>
-                        </li>
-                        <li class="shop-slider__slide">
-                            <a href="#" class="shop-slider__link">
-                                <picture>
-                                    <img class="shop-slider__img" src="./svg/1428x300.svg" alt="Slider image">
-                                </picture>
-                            </a>
-                        </li>
-                        <li class="shop-slider__slide">
-                            <a href="#" class="shop-slider__link">
-                                <picture>
-                                    <img class="shop-slider__img" src="./svg/1428x300.svg" alt="Slider image">
-                                </picture>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                <button class="shop-slider__next"></button>
+                <button class="shop-slider__prev"></button>
+            </section>
+
             <div class="shop-products">
                 <div class="shop-products__item">
                     <div class="shop-products__item__wrapper">
