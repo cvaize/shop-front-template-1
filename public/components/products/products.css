@@ -210,10 +210,3 @@
         max-width: 50%;
     }
 }
-
-@media (max-width: 470px) {
-    .shop-products__item {
-        min-width: 100%;
-        max-width: 100%;
-    }
-}
