@@ -50,16 +50,15 @@
     }
 
     function handleReadySlider() {
-        if (window.EmblaCarousel) off('EmblaCarousel:Ready', document, handleReadySlider);
-        if (window.EmblaCarouselClassNames) off('EmblaCarouselClassNames:Ready', document, handleReadySlider);
-        if (window.EmblaCarousel && window.EmblaCarouselClassNames) {
+        if (window.EmblaCarousel) {
+            off('EmblaCarousel:Ready', document, handleReadySlider);
             const sliderNodes = document.querySelectorAll('.shop-slider');
             for (let i = 0; i < sliderNodes.length; i++) {
                 const sliderNode = sliderNodes[i];
-                const viewportNode = sliderNodes[i].querySelector('.shop-slider__viewport');
-                const containerNode = sliderNodes[i].querySelector('.shop-slider__container');
-                const nextNode = sliderNodes[i].querySelector('.shop-slider__next');
-                const prevNode = sliderNodes[i].querySelector('.shop-slider__prev');
+                const viewportNode = sliderNode.querySelector('.shop-slider__viewport');
+                const containerNode = sliderNode.querySelector('.shop-slider__container');
+                const nextNode = sliderNode.querySelector('.shop-slider__next');
+                const prevNode = sliderNode.querySelector('.shop-slider__prev');
                 let slider = {sliderNode}
                 sliderNode.classList.add('shop-slider--init');
                 if (viewportNode) {
@@ -100,7 +99,6 @@
 
     function destroy() {
         off('EmblaCarousel:Ready', document, handleReadySlider);
-        off('EmblaCarouselClassNames:Ready', document, handleReadySlider);
         for (let i = 0; i < sliders.length; i++) {
             sliders[i].api.destroy();
         }
@@ -110,7 +108,7 @@
     function init() {
         destroy();
         on('EmblaCarousel:Ready', document, handleReadySlider);
-        on('EmblaCarouselClassNames:Ready', document, handleReadySlider);
+        handleReadySlider();
     }
 
     init();

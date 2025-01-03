@@ -67,27 +67,33 @@
     border-radius: 0.25rem;
 }
 
-.shop-products__item__images__pictures {
+.shop-products__item__images__viewport {
     position: relative;
-    display: block;
+    overflow: hidden;
     width: 100%;
     padding-top: 120%;
+    border-radius: 0.6rem;
+}
+
+.shop-products__item__images__pictures {
+    position: absolute;
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .shop-products__item__images__picture {
-    display: block;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    display: block;
     border-radius: 0.6rem;
-    opacity: 0;
-}
-
-.shop-products__item__images__picture:first-child {
-    opacity: 1;
 }
 
 .shop-products__item__images__image {
@@ -114,12 +120,26 @@
     margin: 0 0.1rem;
 }
 
-.shop-products__item__images__link:hover ~ .shop-products__item__images__pictures {
-}
-
 .shop-products__item__images__link:hover ~ .shop-products__item__images__controls .shop-products__item__images__control {
     width: 0.3rem;
     background: rgba(var(--shop-app-color), 0.3);
+}
+
+.shop-products__item__images__pictures__link {
+    display: none;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    transform: translate3d(0, 0, 0);
+    margin-right: 10px;
+}
+
+.shop-products__item__images__pictures__link:first-child {
+    display: block;
+}
+
+.shop-products__item__images__link:hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link {
+    display: none;
 }
 
 .shop-products__item__images__link:nth-child(1):hover ~ .shop-products__item__images__controls .shop-products__item__images__control:nth-child(1),
@@ -139,17 +159,17 @@
     background: rgba(var(--shop-app-color), 0.6);
 }
 
-.shop-products__item__images__link:nth-child(1):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(1),
-.shop-products__item__images__link:nth-child(2):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(2),
-.shop-products__item__images__link:nth-child(3):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(3),
-.shop-products__item__images__link:nth-child(4):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(4),
-.shop-products__item__images__link:nth-child(5):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(5),
-.shop-products__item__images__link:nth-child(6):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(6),
-.shop-products__item__images__link:nth-child(7):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(7),
-.shop-products__item__images__link:nth-child(8):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(8),
-.shop-products__item__images__link:nth-child(9):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(9),
-.shop-products__item__images__link:nth-child(10):hover ~ .shop-products__item__images__pictures .shop-products__item__images__picture:nth-child(10) {
-    opacity: 1;
+.shop-products__item__images__link:nth-child(1):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(1),
+.shop-products__item__images__link:nth-child(2):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(2),
+.shop-products__item__images__link:nth-child(3):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(3),
+.shop-products__item__images__link:nth-child(4):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(4),
+.shop-products__item__images__link:nth-child(5):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(5),
+.shop-products__item__images__link:nth-child(6):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(6),
+.shop-products__item__images__link:nth-child(7):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(7),
+.shop-products__item__images__link:nth-child(8):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(8),
+.shop-products__item__images__link:nth-child(9):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(9),
+.shop-products__item__images__link:nth-child(10):hover ~ .shop-products__item__images__viewport .shop-products__item__images__pictures__link:nth-child(10) {
+    display: block;
 }
 
 .shop-products__item__name {
@@ -197,6 +217,21 @@
     }
 }
 
+@media (max-width: 992px) {
+    .shop-products__item__images__link {
+        display: none;
+    }
+    .shop-products__item__images__pictures__link {
+        display: block;
+    }
+    .shop-products__item__images__control, .shop-products__item__images__control:first-child {
+        background: rgba(var(--shop-app-color), 0.3);
+    }
+    .shop-products__item__images__control.shop-active {
+        background: rgba(var(--shop-app-color), 0.6);
+    }
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
     .shop-products__item {
         min-width: 33.333333%;
@@ -205,6 +240,13 @@
 }
 
 @media (max-width: 767px) {
+    .shop-products__item {
+        min-width: 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 470px) {
     .shop-products__item {
         min-width: 50%;
         max-width: 50%;

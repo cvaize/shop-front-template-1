@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./components/pagination/pagination.css">
 
     <script src="./components/products/products.js" defer></script>
+    <script src="./libraries/embla-carousel/embla-carousel.umd.js" defer></script>
 </head>
 <body class="shop-body">
 <input id="shop-sidebar__home__radio" type="radio" name="shop-sidebar__menu-radio" hidden checked>
@@ -442,13 +443,17 @@
                         </form>
                         <div class="shop-products__item__images" style="--shop-app-images-count: 1;">
 
-                            <a href="/public/product.html" class="shop-products__item__images__link"
+                            <a href="./product.html" class="shop-products__item__images__link"
                                style="--shop-app-images-index: 0;"></a>
 
-                            <div class="shop-products__item__images__pictures">
-                                <picture class="shop-products__item__images__picture">
-                                    <img class="shop-products__item__images__image" src="./svg/300x360.svg" alt="">
-                                </picture>
+                            <div class="shop-products__item__images__viewport">
+                                <div class="shop-products__item__images__pictures">
+                                    <a href="./product.html" class="shop-products__item__images__pictures__link">
+                                        <picture class="shop-products__item__images__picture">
+                                            <img class="shop-products__item__images__image" src="./svg/300x360.svg" alt="">
+                                        </picture>
+                                    </a>
+                                </div>
                             </div>
 
                             <div class="shop-products__item__images__controls">
@@ -491,13 +496,17 @@
                         linksHtml += `<a href="./product.html" class="shop-products__item__images__link"
                                style="--shop-app-images-index: ${i};"></a>`;
                         if (i % 2 === 0) {
-                            picturesHtml += `<picture class="shop-products__item__images__picture">
-                                    <img class="shop-products__item__images__image" src="./svg/300x360.svg" alt="">
-                                </picture>`;
+                            picturesHtml += `<a href="./product.html" class="shop-products__item__images__pictures__link">
+                                        <picture class="shop-products__item__images__picture">
+                                            <img class="shop-products__item__images__image" src="./svg/300x360.svg" alt="">
+                                        </picture>
+                                    </a>`;
                         } else {
-                            picturesHtml += `<picture class="shop-products__item__images__picture">
-                                    <img class="shop-products__item__images__image" src="./svg/300x360_2.svg" alt="">
-                                </picture>`;
+                            picturesHtml += `<a href="./product.html" class="shop-products__item__images__pictures__link">
+                                        <picture class="shop-products__item__images__picture">
+                                            <img class="shop-products__item__images__image" src="./svg/300x360_2.svg" alt="">
+                                        </picture>
+                                    </a>`;
                         }
                     }
 
