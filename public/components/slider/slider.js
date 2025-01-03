@@ -3,7 +3,6 @@
     'use strict';
 
     let sliders = [];
-    let events = ['select', 'pointerDown', 'pointerUp', 'slidesInView'];
 
     function isIterable(obj) {
         if (obj == null) return false;
@@ -69,7 +68,14 @@
                     slider.length = containerNode.children.length;
                     slider.api = window.EmblaCarousel(viewportNode, {
                         loop: true,
-                        watchDrag: false,
+                        breakpoints: {
+                            '(min-width: 471px)' : {
+                                watchDrag: false
+                            },
+                            '(max-width: 470px)' : {
+                                watchDrag: true
+                            }
+                        }
                     });
                     slider.api.off('slidesInView', handleSlidesInView);
                     slider.api.on('slidesInView', handleSlidesInView);
