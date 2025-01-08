@@ -13,21 +13,16 @@
     let submitBtn;
     let imagesSlider;
     let imagesSliderEmblaApi;
-
-    function isIterable(obj) {
-        if (obj == null) return false;
-        return typeof obj[Symbol.iterator] === 'function';
-    }
+    let comparisonForm;
+    let favoriteForm;
 
     function off(eventName, elements, handler) {
-        if (!isIterable(elements)) elements = [elements];
         for (let i = 0; i < elements.length; i++) {
             elements[i].removeEventListener(eventName, handler);
         }
     }
 
     function on(eventName, elements, handler) {
-        if (!isIterable(elements)) elements = [elements];
         for (let i = 0; i < elements.length; i++) {
             elements[i].addEventListener(eventName, handler);
         }
@@ -263,15 +258,15 @@
     function initImageSlider() {
         if (!imagesSlider) return;
         if (window.innerWidth > 470) {
-            off('resize', window, handleReInitImageSlider);
-            on('resize', window, handleReInitImageSlider);
+            off('resize', [window], handleReInitImageSlider);
+            on('resize', [window], handleReInitImageSlider);
             if (imagesSliderEmblaApi) {
                 imagesSliderEmblaApi.destroy();
                 imagesSliderEmblaApi = null;
             }
             return;
         }
-        off('resize', window, handleReInitImageSlider);
+        off('resize', [window], handleReInitImageSlider);
         if (imagesSliderEmblaApi) return;
 
         imagesSliderEmblaApi = window.EmblaCarousel(imagesSlider, {loop: false});
@@ -297,22 +292,93 @@
     }
 
     function handleReadyImageSlider() {
-        off('EmblaCarousel:Ready', document, initImageSlider);
+        off('EmblaCarousel:Ready', [document], initImageSlider);
         initImageSlider();
     }
 
     function handleReadyFancybox() {
-        off('Fancybox:Ready', document, initFancybox);
+        off('Fancybox:Ready', [document], initFancybox);
         initFancybox();
+    }
+
+    function comparisonUpload(form) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve();
+            }, 1000);
+        });
+    }
+
+    function submittingComparison(form) {
+        let btn = form.querySelector('.shop-product__comparison__btn');
+        btn.classList.add('shop-loading');
+    }
+
+    function submittedComparison(data, form) {
+        let btn = form.querySelector('.shop-product__comparison__btn');
+        btn.classList.remove('shop-loading');
+        if (btn.classList.contains('shop-active')) {
+            btn.classList.remove('shop-active');
+        } else {
+            btn.classList.add('shop-active');
+        }
+    }
+
+    function handleSubmitComparison(event) {
+        event.preventDefault();
+        let target = event.target.tagName === 'FORM' ? event.target : event.target.closest('form');
+        submittingComparison(target);
+        comparisonUpload(target).then(function (data) {
+            submittedComparison(data, target);
+        }).catch(function (data) {
+            submittedComparison(data, target);
+        });
+    }
+
+    function favoriteUpload(form) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve();
+            }, 1000);
+        });
+    }
+
+    function submittingFavorite(form) {
+        let btn = form.querySelector('.shop-product__favorite__btn');
+        btn.classList.add('shop-loading');
+    }
+
+    function submittedFavorite(data, form) {
+        let btn = form.querySelector('.shop-product__favorite__btn');
+        btn.classList.remove('shop-loading');
+        if (btn.classList.contains('shop-active')) {
+            btn.classList.remove('shop-active');
+        } else {
+            btn.classList.add('shop-active');
+        }
+    }
+
+    function handleSubmitFavorite(event) {
+        event.preventDefault();
+        let target = event.target.tagName === 'FORM' ? event.target : event.target.closest('form');
+        submittingFavorite(target);
+        favoriteUpload(target).then(function (data) {
+            submittedFavorite(data, target);
+        }).catch(function (data) {
+            submittedFavorite(data, target);
+        });
     }
 
     function destroy() {
         if (attributeValuesElements) off('click', attributeValuesElements, handleClickAttributeValue);
         if (thumbs) off('click', thumbs, handleClickThumb);
-        if (topBtn) off('click', topBtn, handleClickTopBtn);
-        if (bottomBtn) off('click', bottomBtn, handleClickBottomBtn);
-        if (scrollElement) off('scroll', scrollElement, handleScrollThumbs);
-        off('EmblaCarousel:Ready', document, handleReadyImageSlider);
+        if (topBtn) off('click', [topBtn], handleClickTopBtn);
+        if (bottomBtn) off('click', [bottomBtn], handleClickBottomBtn);
+        if (scrollElement) off('scroll', [scrollElement], handleScrollThumbs);
+        off('EmblaCarousel:Ready', [document], handleReadyImageSlider);
+
+        if (comparisonForm) off('submit', [comparisonForm], handleSubmitComparison);
+        if (favoriteForm) off('submit', [favoriteForm], handleSubmitFavorite);
     }
 
     function init() {
@@ -332,6 +398,8 @@
         attributeValuesElements = pageElement.querySelectorAll('.shop-product__attribute__value');
         submitBtn = pageElement.querySelector('.shop-product__submit');
         imagesSlider = pageElement.querySelector('.shop-product__images__slider');
+        comparisonForm = pageElement.querySelector('.shop-product__comparison');
+        favoriteForm = pageElement.querySelector('.shop-product__favorite');
 
 
         on('submit', pageElement.querySelectorAll('.shop-product__count__minus'), oneMinus);
@@ -342,14 +410,17 @@
         on('click', attributeValuesElements, handleClickAttributeValue);
         on('click', thumbs, handleClickThumb);
 
-        on('click', topBtn, handleClickTopBtn);
-        on('click', bottomBtn, handleClickBottomBtn);
-        on('scroll', scrollElement, handleScrollThumbs);
+        on('click', [topBtn], handleClickTopBtn);
+        on('click', [bottomBtn], handleClickBottomBtn);
+        on('scroll', [scrollElement], handleScrollThumbs);
         handleScrollThumbs();
 
+        on('submit', [comparisonForm], handleSubmitComparison);
+        on('submit', [favoriteForm], handleSubmitFavorite);
+
         if (imagesSlider) {
-            on('EmblaCarousel:Ready', document, handleReadyImageSlider);
-            on('Fancybox:Ready', document, handleReadyFancybox);
+            on('EmblaCarousel:Ready', [document], handleReadyImageSlider);
+            on('Fancybox:Ready', [document], handleReadyFancybox);
         }
     }
 
