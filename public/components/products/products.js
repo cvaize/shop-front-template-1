@@ -4,20 +4,13 @@
 
     let sliders = [];
 
-    function isIterable(obj) {
-        if (obj == null) return false;
-        return typeof obj[Symbol.iterator] === 'function';
-    }
-
     function off(eventName, elements, handler) {
-        if (!isIterable(elements)) elements = [elements];
         for (let i = 0; i < elements.length; i++) {
             elements[i].removeEventListener(eventName, handler);
         }
     }
 
     function on(eventName, elements, handler) {
-        if (!isIterable(elements)) elements = [elements];
         for (let i = 0; i < elements.length; i++) {
             elements[i].addEventListener(eventName, handler);
         }
@@ -52,7 +45,7 @@
 
     function handleReadySlider() {
         if (window.EmblaCarousel) {
-            off('EmblaCarousel:Ready', document, handleReadySlider);
+            off('EmblaCarousel:Ready', [document], handleReadySlider);
             const sliderNodes = document.querySelectorAll('.shop-products__item');
             for (let i = 0; i < sliderNodes.length; i++) {
                 const sliderNode = sliderNodes[i];
@@ -90,7 +83,7 @@
         for (let i = 0; i < favoriteForms.length; i++) {
             favoriteForms[i].removeEventListener('submit', handleSubmitFavorite);
         }
-        off('EmblaCarousel:Ready', document, handleReadySlider);
+        off('EmblaCarousel:Ready', [document], handleReadySlider);
         for (let i = 0; i < sliders.length; i++) {
             sliders[i].api.destroy();
         }
@@ -103,7 +96,7 @@
         for (let i = 0; i < favoriteForms.length; i++) {
             favoriteForms[i].addEventListener('submit', handleSubmitFavorite);
         }
-        on('EmblaCarousel:Ready', document, handleReadySlider);
+        on('EmblaCarousel:Ready', [document], handleReadySlider);
         handleReadySlider();
     }
 

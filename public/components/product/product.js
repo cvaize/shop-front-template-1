@@ -292,13 +292,17 @@
     }
 
     function handleReadyImageSlider() {
-        off('EmblaCarousel:Ready', [document], initImageSlider);
-        initImageSlider();
+        if (window.EmblaCarousel) {
+            off('EmblaCarousel:Ready', [document], handleReadyImageSlider);
+            initImageSlider();
+        }
     }
 
     function handleReadyFancybox() {
-        off('Fancybox:Ready', [document], initFancybox);
-        initFancybox();
+        if (window.Fancybox) {
+            off('Fancybox:Ready', [document], handleReadyFancybox);
+            initFancybox();
+        }
     }
 
     function comparisonUpload(form) {
@@ -376,6 +380,7 @@
         if (bottomBtn) off('click', [bottomBtn], handleClickBottomBtn);
         if (scrollElement) off('scroll', [scrollElement], handleScrollThumbs);
         off('EmblaCarousel:Ready', [document], handleReadyImageSlider);
+        off('Fancybox:Ready', [document], handleReadyFancybox);
 
         if (comparisonForm) off('submit', [comparisonForm], handleSubmitComparison);
         if (favoriteForm) off('submit', [favoriteForm], handleSubmitFavorite);
@@ -420,7 +425,9 @@
 
         if (imagesSlider) {
             on('EmblaCarousel:Ready', [document], handleReadyImageSlider);
+            handleReadyImageSlider();
             on('Fancybox:Ready', [document], handleReadyFancybox);
+            handleReadyFancybox();
         }
     }
 

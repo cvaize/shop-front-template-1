@@ -75,6 +75,11 @@ button, select {
     margin: 0.5rem 0;
 }
 
+.shop-img {
+    max-width: 100%;
+    height: auto;
+}
+
 .shop-icon--svg {
     width: 1.2em;
     height: 1.2em;

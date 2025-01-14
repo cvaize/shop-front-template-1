@@ -1,0 +1,18 @@
+.shop-support {
+    display: flex;
+}
+
+.shop-support__menu {
+    width: 17rem;
+    min-width: 17rem;
+    padding-right: 2rem;
+}
+
+.shop-support__content {
+    width: calc(100% - 17rem);
+    min-width: calc(100% - 17rem);
+}
+
+.shop-support:not(.shop-support__fancybox--loaded) a[data-fancybox]{
+    pointer-events: none;
+}
