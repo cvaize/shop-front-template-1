@@ -55,7 +55,7 @@
     box-shadow: none;
 }
 
-.shop-menu__list__item:hover > .shop-menu__list__link {
+.shop-menu__list__label:hover ~ .shop-menu__list__link {
     background-color: rgba(var(--shop-app-color), 0.1);
 }
 
