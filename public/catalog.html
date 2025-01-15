@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./components/pagination/pagination.css">
     <link rel="stylesheet" href="./components/catalog/catalog.css">
     <link rel="stylesheet" href="./components/s-collapse/s-collapse.css">
+    <link rel="stylesheet" href="./components/form/form.css">
 
     <script src="./components/products/products.js" defer></script>
     <script src="./libraries/embla-carousel/embla-carousel.umd.js" defer></script>
@@ -324,11 +325,14 @@
             </div>
         </div>
         <nav class="shop-sidebar__catalog">
-            <div class="shop-sidebar-catalog shop-container" style="--shop-sidebar-catalog-count: 1; grid-template-areas: 'A B';">
+            <div class="shop-sidebar-catalog shop-container"
+                 style="--shop-sidebar-catalog-count: 1; grid-template-areas: 'A B';">
 
-                <input id="shop-sidebar-catalog__radio-n" class="shop-sidebar-catalog__radio" type="radio" name="shop-sidebar-catalog__radio" hidden>
+                <input id="shop-sidebar-catalog__radio-n" class="shop-sidebar-catalog__radio" type="radio"
+                       name="shop-sidebar-catalog__radio" hidden>
                 <label for="shop-sidebar-catalog__radio-n" class="shop-sidebar-catalog__label" style="grid-area: A;">
-                    <svg class="shop-sidebar-catalog__label__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                    <svg class="shop-sidebar-catalog__label__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg"
+                         width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
                     </svg>
@@ -337,14 +341,19 @@
                 <div class="shop-sidebar-catalog__content" style="grid-area: B;">
                     <div class="shop-sidebar-catalog__header">
                         <a href="#" class="shop-sidebar-catalog__header__link">
-                            <svg class="shop-sidebar-catalog__header__icon shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                            <svg class="shop-sidebar-catalog__header__icon shop-icon--svg"
+                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
+                            </svg>
                             <span class="shop-sidebar-catalog__header__text">Одежда и обувь</span>
                             <img class="shop-sidebar-catalog__header__img" src="./svg/300x360.svg" alt="">
                         </a>
                     </div>
                     <div class="shop-sidebar-catalog__submenu">
                         <div class="shop-sidebar-catalog__submenu__item">
-                            <input id="shop-sidebar-catalog__submenu__item--n-collapse-checkbox--n" class="shop-sidebar-catalog__submenu__item__collapse__checkbox" type="checkbox" hidden="hidden">
+                            <input id="shop-sidebar-catalog__submenu__item--n-collapse-checkbox--n"
+                                   class="shop-sidebar-catalog__submenu__item__collapse__checkbox" type="checkbox"
+                                   hidden="hidden">
                             <div class="shop-sidebar-catalog__submenu__item__collapse">
                                 <a href="#" class="shop-sidebar-catalog__submenu__header-link">
                                     Всё для Нового года
@@ -371,7 +380,8 @@
                                     Ёлки искусственные
                                 </a>
                             </div>
-                            <label for="shop-sidebar-catalog__submenu__item--n-collapse-checkbox--n" class="shop-sidebar-catalog__submenu__item__collapse__label">
+                            <label for="shop-sidebar-catalog__submenu__item--n-collapse-checkbox--n"
+                                   class="shop-sidebar-catalog__submenu__item__collapse__label">
                                 Ещё
                             </label>
                         </div>
@@ -471,16 +481,150 @@
                             Ещё 4
                         </label>
                     </div>
+
+                    <div class="shop-catalog__filter">
+                        <div class="shop-catalog__filter__name">Цена, руб</div>
+                        <div class="shop-catalog__filter__content">
+                            <div style="display: flex;">
+                                <div style="width: 50%; padding-right: 0.25rem;">
+                                    <label for="shop-form__range-inputs__from">от</label>
+                                    <input id="shop-form__range-inputs__from" class="shop-form__control" type="text"
+                                           value="45">
+                                </div>
+                                <div style="width: 50%; padding-left: 0.25rem;">
+                                    <label for="shop-form__range-inputs__to">до</label>
+                                    <input id="shop-form__range-inputs__to" class="shop-form__control" type="text"
+                                           value="472842">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-catalog__filter">
+                        <div class="shop-catalog__filter__name">Срок доставки</div>
+                        <div class="shop-catalog__filter__content">
+                            <div>
+                                <input class="shop-form__radio" type="radio" name="flexRadioDefault" id="shop-shipping1"
+                                       hidden>
+                                <label class="shop-form__radio__label" for="shop-shipping1">
+                                    <svg class="shop-form__radio__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="5"/>
+                                    </svg>
+                                    Сегодня или завтра
+                                </label>
+                            </div>
+                            <div>
+                                <input class="shop-form__radio" type="radio" name="flexRadioDefault" id="shop-shipping2"
+                                       hidden>
+                                <label class="shop-form__radio__label" for="shop-shipping2">
+                                    <svg class="shop-form__radio__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="5"/>
+                                    </svg>
+                                    До 5 дней
+                                </label>
+                            </div>
+                            <div>
+                                <input class="shop-form__radio" type="radio" name="flexRadioDefault" id="shop-shipping3"
+                                       hidden checked>
+                                <label class="shop-form__radio__label" for="shop-shipping3">
+                                    <svg class="shop-form__radio__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="5"/>
+                                    </svg>
+                                    Любой
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-catalog__filter">
+                        <input id="shop-s-collapse__checkbox2" class="shop-s-collapse__checkbox" type="checkbox" hidden>
+                        <div class="shop-catalog__filter__name">Тип</div>
+                        <div class="shop-catalog__filter__content">
+                            <div>
+                                <input class="shop-form__checkbox" type="checkbox" value="" id="shop-filter-type1" hidden>
+                                <label class="shop-form__checkbox__label" for="shop-filter-type1">
+                                    <svg class="shop-form__checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                         width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                                    </svg>
+                                    Lorem ipsum
+                                </label>
+                            </div>
+                            <div>
+                                <input class="shop-form__checkbox" type="checkbox" value="" id="shop-filter-type2" hidden>
+                                <label class="shop-form__checkbox__label" for="shop-filter-type2">
+                                    <svg class="shop-form__checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                                    </svg>
+                                    Lorem ipsum dolor sit amet
+                                </label>
+                            </div>
+                            <div>
+                                <input class="shop-form__checkbox" type="checkbox" value="" id="shop-filter-type3" hidden>
+                                <label class="shop-form__checkbox__label" for="shop-filter-type3">
+                                    <svg class="shop-form__checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                                    </svg>
+                                    Lorem ipsum dolor
+                                </label>
+                            </div>
+                        </div>
+                        <div class="shop-catalog__filter__content shop-s-collapse">
+                            <div>
+                                <input class="shop-form__checkbox" type="checkbox" value="" id="shop-filter-type4" hidden>
+                                <label class="shop-form__checkbox__label" for="shop-filter-type4">
+                                    <svg class="shop-form__checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                         width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                                    </svg>
+                                    Lorem ipsum
+                                </label>
+                            </div>
+                            <div>
+                                <input class="shop-form__checkbox" type="checkbox" value="" id="shop-filter-type5" hidden>
+                                <label class="shop-form__checkbox__label" for="shop-filter-type5">
+                                    <svg class="shop-form__checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                                    </svg>
+                                    Lorem ipsum dolor sit amet
+                                </label>
+                            </div>
+                            <div>
+                                <input class="shop-form__checkbox" type="checkbox" value="" id="shop-filter-type6" hidden>
+                                <label class="shop-form__checkbox__label" for="shop-filter-type6">
+                                    <svg class="shop-form__checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                                    </svg>
+                                    Lorem ipsum dolor
+                                </label>
+                            </div>
+                        </div>
+                        <label for="shop-s-collapse__checkbox2" class="shop-s-collapse__label">
+                            Ещё 3
+                        </label>
+                    </div>
                 </div>
                 <div class="shop-catalog__content">
                     <div class="shop-products">
                         <div class="shop-products__item">
                             <div class="shop-products__item__wrapper">
-                                <form class="shop-products__item__favorite" action="/products/123/favorite" method="post">
+                                <form class="shop-products__item__favorite" action="/products/123/favorite"
+                                      method="post">
                                     <input type="hidden" name="id" value="123">
-                                    <button class="shop-products__item__favorite__btn shop-btn shop-btn--square" type="submit">
+                                    <button class="shop-products__item__favorite__btn shop-btn shop-btn--square"
+                                            type="submit">
                                         <svg class="shop-products__item__favorite__icon-svg shop-icon--svg"
-                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
                                             <path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
                                                   opacity=".3"/>
                                             <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
@@ -494,9 +638,11 @@
 
                                     <div class="shop-products__item__images__viewport">
                                         <div class="shop-products__item__images__pictures">
-                                            <a href="./product.html" class="shop-products__item__images__pictures__link">
+                                            <a href="./product.html"
+                                               class="shop-products__item__images__pictures__link">
                                                 <picture class="shop-products__item__images__picture">
-                                                    <img class="shop-products__item__images__image" src="./svg/300x360.svg" alt="">
+                                                    <img class="shop-products__item__images__image"
+                                                         src="./svg/300x360.svg" alt="">
                                                 </picture>
                                             </a>
                                         </div>
@@ -509,7 +655,8 @@
                                 </div>
                                 <a class="shop-products__item__link" href="/public/product.html">
                                     <div class="shop-products__item__name">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid cupiditate
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid
+                                        cupiditate
                                         dolor doloribus eius ex fugiat, harum illo inventore magni molestias optio porro
                                         possimus qui quis reprehenderit sapiente totam.
                                     </div>
