@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./components/b-tabs/b-tabs.css">
     <link rel="stylesheet" href="./components/b-checkbox/b-checkbox.css">
     <link rel="stylesheet" href="./components/b-radio/b-radio.css">
+    <link rel="stylesheet" href="./components/color-checkbox/color-checkbox.css">
 
     <script src="./components/products/products.js" defer></script>
     <script src="components/number-validate/number-validate.js" defer></script>
@@ -767,6 +768,48 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="shop-catalog__filter">
+                        <input id="shop-s-collapse__checkbox5" class="shop-s-collapse__checkbox" type="checkbox" hidden>
+                        <div class="shop-catalog__filter__name">Цвет</div>
+                        <div class="shop-catalog__filter__content">
+                            <label style="--checkbox-circle-color: black; --checkbox-chevron-color: white; margin-bottom: 0.2rem;"
+                                   class="shop-color-checkbox">
+                                <input class="shop-color-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-color-checkbox__box"></span>
+                                Черный
+                            </label>
+                            <label style="--checkbox-circle-color: gray; --checkbox-chevron-color: black; margin-bottom: 0.2rem;"
+                                   class="shop-color-checkbox">
+                                <input class="shop-color-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-color-checkbox__box"></span>
+                                Серый
+                            </label>
+                            <label style="--checkbox-circle-color: blue; --checkbox-chevron-color: white; margin-bottom: 0.2rem;"
+                                   class="shop-color-checkbox">
+                                <input class="shop-color-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-color-checkbox__box"></span>
+                                Синий
+                            </label>
+                        </div>
+                        <div class="shop-catalog__filter__content shop-s-collapse">
+                            <label style="--checkbox-circle-color: red; --checkbox-chevron-color: white; margin-bottom: 0.2rem;"
+                                   class="shop-color-checkbox">
+                                <input class="shop-color-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-color-checkbox__box"></span>
+                                Красный
+                            </label>
+                            <label style="--checkbox-circle-color: white; --checkbox-chevron-color: black; margin-bottom: 0.2rem;"
+                                   class="shop-color-checkbox">
+                                <input class="shop-color-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-color-checkbox__box"></span>
+                                Белый
+                            </label>
+                        </div>
+                        <label for="shop-s-collapse__checkbox5" class="shop-s-collapse__label">
+                            Ещё 2
+                        </label>
                     </div>
                 </div>
                 <div class="shop-catalog__content">

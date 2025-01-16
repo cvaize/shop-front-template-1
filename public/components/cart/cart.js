@@ -149,7 +149,7 @@
     <div class="shop-cart__item__checkbox__wrapper">
         <input class="shop-checkbox shop-cart__item__checkbox" type="checkbox"
                id="shop-cart__selecting__checkbox__${id}" hidden ${checked ? 'checked' : ''} form="shop-cart__selecting__form" name="items[${id}][selected]" value="${id}">
-        <label class="shop-checkbox__label" for="shop-cart__selecting__checkbox__${id}" tabindex="0">
+        <label class="shop-checkbox__label shop-checkbox__label--without-text" for="shop-cart__selecting__checkbox__${id}" tabindex="0">
             <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24" viewBox="0 0 24 24">

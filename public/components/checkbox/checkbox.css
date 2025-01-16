@@ -44,3 +44,11 @@
 .shop-danger .shop-checkbox__label {
     color: rgb(var(--shop-app-danger-color));
 }
+
+.shop-checkbox__label--without-text:focus {
+    box-shadow: none;
+}
+
+.shop-checkbox__label--without-text:focus .shop-checkbox__svg-icon {
+    box-shadow: inset 0 0 0 0.2em currentColor, var(--shop-app-focus-box-shadow);
+}
