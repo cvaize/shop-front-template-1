@@ -1,0 +1,55 @@
+.shop-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.shop-input {
+    display: block;
+    width: 100%;
+    padding: .3rem .7rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(var(--shop-app-color));
+    appearance: none;
+    background-color: rgb(var(--shop-app-background-color));
+    background-clip: padding-box;
+    border: 0.0625rem solid rgba(var(--shop-app-color), 0.2);
+    border-radius: 0.3rem;
+    outline: none;
+}
+
+.shop-input[type="range"] {
+    height: 0.2rem;
+    padding: 0;
+}
+
+.shop-text {
+    margin-top: .25rem;
+    font-size: .875em;
+    opacity: 0.8;
+}
+
+.shop-success .shop-label, .shop-success .shop-text {
+    color: rgb(var(--shop-app-success-color));
+}
+
+.shop-success .shop-input {
+    border-color: rgb(var(--shop-app-success-color));
+}
+
+.shop-success .shop-input[type="range"] {
+    background-color: rgb(var(--shop-app-success-color));
+}
+
+.shop-danger .shop-label, .shop-danger .shop-text {
+    color: rgb(var(--shop-app-danger-color));
+}
+
+.shop-danger .shop-input {
+    border-color: rgb(var(--shop-app-danger-color));
+}
+
+.shop-danger .shop-input[type="range"] {
+    background-color: rgb(var(--shop-app-danger-color));
+}

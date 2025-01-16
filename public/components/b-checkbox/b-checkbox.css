@@ -1,0 +1,43 @@
+.shop-b-checkbox__label {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 1.7em;
+}
+
+.shop-b-checkbox__label:before, .shop-b-checkbox__label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.32em;
+    height: 1.32em;
+    background: currentColor;
+    border-radius: 0.3em;
+    transform-origin: center;
+}
+
+.shop-b-checkbox__label:before {
+    opacity: 0.2;
+}
+
+.shop-b-checkbox__label:after {
+    border-radius: 0;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    width: 0.5em;
+    height: 0.9em;
+    background: transparent;
+    transform: rotate(45deg) translate(62%, -23%);
+    opacity: 0;
+}
+
+.shop-b-checkbox:checked + .shop-b-checkbox__label:after {
+    opacity: 1;
+}
+
+.shop-b-checkbox:disabled + .shop-b-checkbox__label:after {
+    opacity: 0.5;
+    cursor: auto;
+}
