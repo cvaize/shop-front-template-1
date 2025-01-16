@@ -116,3 +116,62 @@
 .shop-form__danger .shop-form__control[type="range"] {
     background-color: rgb(var(--shop-app-danger-color));
 }
+
+
+.shop-form__b-checkbox__label, .shop-form__b-radio__label {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 1.7em;
+}
+
+.shop-form__b-checkbox__label:before, .shop-form__b-checkbox__label:after,
+.shop-form__b-radio__label:before, .shop-form__b-radio__label:after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.32em;
+    height: 1.32em;
+    background: currentColor;
+    border-radius: 0.3em;
+    transform-origin: center;
+}
+
+.shop-form__b-radio__label:before, .shop-form__b-radio__label:after {
+    border-radius: 50%;
+}
+
+.shop-form__b-checkbox__label:before, .shop-form__b-radio__label:before
+{
+    opacity: 0.2;
+}
+
+.shop-form__b-radio__label:after {
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+.shop-form__b-checkbox__label:after {
+    border-radius: 0;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    width: 0.5em;
+    height: 0.9em;
+    background: transparent;
+    transform: rotate(45deg) translate(62%, -23%);
+    opacity: 0;
+}
+
+.shop-form__b-checkbox:checked + .shop-form__b-checkbox__label:after,
+.shop-form__b-radio:checked + .shop-form__b-radio__label:after {
+    opacity: 1;
+}
+
+.shop-form__b-checkbox:disabled + .shop-form__b-checkbox__label:after,
+.shop-form__b-radio:disabled + .shop-form__b-radio__label:after {
+    opacity: 0.5;
+    cursor: auto;
+}
