@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./components/form/form.css">
 
     <script src="./components/products/products.js" defer></script>
+    <script src="components/number-validate/number-validate.js" defer></script>
     <script src="./libraries/embla-carousel/embla-carousel.umd.js" defer></script>
 </head>
 <body class="shop-body">
@@ -488,13 +489,13 @@
                             <div style="display: flex;">
                                 <div style="width: 50%; padding-right: 0.25rem;">
                                     <label for="shop-form__range-inputs__from">от</label>
-                                    <input id="shop-form__range-inputs__from" class="shop-form__control" type="text"
-                                           value="45">
+                                    <input id="shop-form__range-inputs__from" class="shop-form__control js-number-validate" type="text"
+                                           value="45" min="45" max="472842">
                                 </div>
                                 <div style="width: 50%; padding-left: 0.25rem;">
                                     <label for="shop-form__range-inputs__to">до</label>
-                                    <input id="shop-form__range-inputs__to" class="shop-form__control" type="text"
-                                           value="472842">
+                                    <input id="shop-form__range-inputs__to" class="shop-form__control js-number-validate" type="text"
+                                           value="472842" min="45" max="472842">
                                 </div>
                             </div>
                         </div>
@@ -538,6 +539,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <label class="shop-catalog__filter shop-catalog__filter--switch">
+                        <input class="shop-catalog__filter--switch__checkbox" type="checkbox" hidden>
+                        <span class="shop-catalog__filter__name">Оригинал</span>
+                        <span class="shop-catalog__filter__content"></span>
+                    </label>
 
                     <div class="shop-catalog__filter">
                         <input id="shop-s-collapse__checkbox2" class="shop-s-collapse__checkbox" type="checkbox" hidden>
