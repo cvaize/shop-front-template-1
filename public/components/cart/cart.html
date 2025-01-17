@@ -1,0 +1,359 @@
+<div class="shop-cart">
+    <div class="shop-cart__header">
+        <h1 class="shop-h1 shop-cart__switch-content-is-empty" data-cart-empty-content="Корзина пуста" data-cart-noempty-content="Корзина">Корзина</h1>
+        <div class="shop-cart__header-products-count shop-cart__hide-is-empty">
+            2 товара
+        </div>
+    </div>
+    <div class="shop-cart__description shop-cart__switch-content-is-empty"
+         data-cart-noempty-content='Все элементы итерактивные и работают в демонстрационном режиме.
+                    Для добавления тестового товара в корзину, кликнете на заголовок "Корзина". Тестовых товаров 2 вида.
+                    Вы можете добавить тестовый промокод, который применится с вероятностью 50%, иначе покажется текст ошибки.
+                    Вы можете удалить товары из корзины, удаление сработает с вероятностью 50%, иначе покажется текст ошибки.'
+         data-cart-empty-content="Воспользуйтесь поиском, чтобы найти всё, что нужно"></div>
+    <a href="/" class="shop-btn shop-cart__show-is-empty" data-cart-empty-display="inline-block" style="display: none">
+        Начать покупки
+    </a>
+    <div class="shop-cart__container shop-cart__hide-is-empty" data-cart-empty-display="flex">
+        <div class="shop-cart__cards">
+            <form id="shop-cart__selecting__form" action="/cart/my/selecting" method="post" class="shop-cart__selecting__card shop-cart__card">
+                <input class="shop-checkbox shop-cart__selecting__checkbox" type="checkbox" id="shop-cart__selecting__checkbox" hidden>
+                <label class="shop-cart__selecting__checkbox__label shop-checkbox__label"
+                       for="shop-cart__selecting__checkbox" tabindex="0">
+                    <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                         height="24" viewBox="0 0 24 24">
+                        <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                    </svg>
+                    Выбрать все
+                </label>
+                <button class="shop-cart__remove-selecting-submit shop-btn" type="submit" name="action" value="remove">
+                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                         viewBox="0 0 24 24">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
+                    </svg>
+                    Удалить выбранные
+                </button>
+            </form>
+            <div class="shop-cart__card shop-cart__items">
+                <div class="shop-cart__item" data-cart-item-id="11">
+                    <div class="shop-cart__item__checkbox__wrapper">
+                        <input class="shop-checkbox shop-cart__item__checkbox" type="checkbox"
+                               id="shop-cart__selecting__checkbox__11" form="shop-cart__selecting__form" name="items[11][selected]" value="11" hidden>
+                        <label class="shop-checkbox__label shop-checkbox__label--without-text" for="shop-cart__selecting__checkbox__11" tabindex="0">
+                            <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24" viewBox="0 0 24 24">
+                                <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="shop-cart__item__image__wrapper">
+                        <a class="shop-cart__item__image__link" href="#">
+                            <picture class="shop-cart__item__image__picture">
+                                <img class="shop-cart__item__image" src="./svg/300x360.svg" alt="Product 1">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="shop-cart__item__content-wrapper">
+                        <a href="#" class="shop-cart__item__name">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid
+                            cupiditate dolor doloribus eius ex fugiat
+                        </a>
+                        <div class="shop-cart__item__characteristics">
+                            цвет белый, прозрачный; размер 44-46;
+                        </div>
+                    </div>
+                    <div class="shop-cart__item__price-wrapper">
+                        <div class="shop-cart__item__prices">
+                            <div class="shop-cart__item__price">501 руб.</div>
+                            <div class="shop-cart__item__old-price" style="display: none">1 525 руб.</div>
+                        </div>
+                        <div class="shop-cart__item__count">
+                            <form action="/cart/my/items/11/minus" method="post" class="shop-cart__item__count__minus">
+                                <input type="hidden" name="id" value="11">
+                                <button class="shop-cart__item__count__minus__submit shop-btn" type="submit"
+                                        disabled>
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/>
+                                    </svg>
+                                </button>
+                            </form>
+                            <form action="/cart/my/items/11/count" method="post" class="shop-cart__item__count__setter">
+                                <input type="hidden" name="id" value="11">
+                                <label class="shop-cart__item__count__label">
+                                    <input class="shop-cart__item__count__input" type="number" min="1"
+                                           max="100" value="1" name="count">
+                                </label>
+                            </form>
+                            <form action="/cart/my/items/11/plus" method="post" class="shop-cart__item__count__plus">
+                                <input type="hidden" name="id" value="11">
+                                <button class="shop-cart__item__count__plus__submit shop-btn" type="submit">
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="shop-cart__item__actions">
+                        <form action="/cart/my/items/11/favorite" method="post" class="shop-cart__item__favorite">
+                            <input type="hidden" name="id" value="11">
+                            <button class="shop-cart__item__favorite__btn shop-btn shop-active"
+                                    type="submit">
+                                <svg class="shop-cart__item__favorite__icon shop-icon--svg"
+                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                     viewBox="0 0 24 24">
+                                    <path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
+                                          opacity=".3"/>
+                                    <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+                                </svg>
+                            </button>
+                        </form>
+                        <form action="/cart/my/items/11/remove" method="post" class="shop-cart__item__remove">
+                            <input type="hidden" name="id" value="11">
+                            <button class="shop-cart__item__remove-btn shop-btn shop-btn--square" type="submit">
+                                <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                     height="24" viewBox="0 0 24 24">
+                                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="shop-cart__item" data-cart-item-id="22">
+                    <div class="shop-cart__item__checkbox__wrapper">
+                        <input class="shop-checkbox shop-cart__item__checkbox" type="checkbox"
+                               id="shop-cart__selecting__checkbox__22" form="shop-cart__selecting__form" name="items[22][selected]" value="22" hidden>
+                        <label class="shop-checkbox__label shop-checkbox__label--without-text" for="shop-cart__selecting__checkbox__22" tabindex="0">
+                            <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24" viewBox="0 0 24 24">
+                                <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="shop-cart__item__image__wrapper">
+                        <a class="shop-cart__item__image__link" href="#">
+                            <picture class="shop-cart__item__image__picture">
+                                <img class="shop-cart__item__image" src="./svg/300x360_2.svg" alt="Product 2">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="shop-cart__item__content-wrapper">
+                        <a href="#" class="shop-cart__item__name">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid
+                            cupiditate dolor doloribus eius ex fugiat
+                        </a>
+                        <div class="shop-cart__item__characteristics"></div>
+                    </div>
+                    <div class="shop-cart__item__price-wrapper">
+                        <div class="shop-cart__item__prices">
+                            <div class="shop-cart__item__price">501 руб.</div>
+                            <div class="shop-cart__item__old-price">1 525 руб.</div>
+                        </div>
+                        <div class="shop-cart__item__count">
+                            <form action="/cart/my/items/22/minus" method="post" class="shop-cart__item__count__minus">
+                                <input type="hidden" name="id" value="22">
+                                <button class="shop-cart__item__count__minus__submit shop-btn" type="submit"
+                                        disabled>
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"/>
+                                    </svg>
+                                </button>
+                            </form>
+                            <form action="/cart/my/items/22/count" method="post" class="shop-cart__item__count__setter">
+                                <input type="hidden" name="id" value="22">
+                                <label class="shop-cart__item__count__label">
+                                    <input class="shop-cart__item__count__input" type="number" min="1"
+                                           max="100" value="1" name="count">
+                                </label>
+                            </form>
+                            <form action="/cart/my/items/22/plus" method="post" class="shop-cart__item__count__plus">
+                                <input type="hidden" name="id" value="22">
+                                <button class="shop-cart__item__count__plus__submit shop-btn" type="submit">
+                                    <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24">
+                                        <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="shop-cart__item__actions">
+                        <form action="/cart/my/items/22/favorite" method="post" class="shop-cart__item__favorite">
+                            <input type="hidden" name="id" value="22">
+                            <button class="shop-cart__item__favorite__btn shop-btn shop-btn--square" type="submit">
+                                <svg class="shop-cart__item__favorite__icon shop-icon--svg"
+                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                     viewBox="0 0 24 24">
+                                    <path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
+                                          opacity=".3"/>
+                                    <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+                                </svg>
+                            </button>
+                        </form>
+                        <form action="/cart/my/items/22/remove" method="post" class="shop-cart__item__remove">
+                            <input type="hidden" name="id" value="22">
+                            <button class="shop-cart__item__remove-btn shop-btn shop-btn--square" type="submit">
+                                <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                                     height="24" viewBox="0 0 24 24">
+                                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shop-cart__sidebar">
+            <div class="shop-cart__sidebar__wrapper">
+                <div class="shop-cart__sidebar__header">
+                    <button class="shop-cart__sidebar__submit shop-btn" type="submit" form="shop-cart__selecting__form" name="action" value="checkout">
+                        Перейти к оформлению
+                    </button>
+                    <div class="shop-cart__sidebar__description">
+                        Доступные способы и время доставки можно выбрать при оформлении заказа
+                    </div>
+                    <div class="shop-cart__sidebar__description shop-cart__sidebar__error shop-text--danger"
+                         style="display: none"></div>
+                </div>
+                <div class="shop-cart__sidebar__body">
+                    <div class="shop-cart__sidebar__row shop-cart__sidebar__row--header">
+                        <div class="shop-cart__sidebar__total__label">
+                            Ваша корзина
+                        </div>
+                        <div class="shop-cart__sidebar__total__weight">
+                            2 товара • 1.01 кг
+                        </div>
+                    </div>
+                    <div class="shop-cart__sidebar__row">
+                        <div class="shop-cart__sidebar__total__name">
+                            Товары (2)
+                        </div>
+                        <div class="shop-cart__sidebar__total__value">
+                            1 722 руб.
+                        </div>
+                    </div>
+                    <div class="shop-cart__sidebar__row">
+                        <div class="shop-cart__sidebar__total__name">
+                            Скидка
+                        </div>
+                        <div class="shop-cart__sidebar__total__value shop-text--danger">
+                            - 911 руб.
+                        </div>
+                    </div>
+                    <div class="shop-cart__sidebar__row">
+                        <div class="shop-cart__sidebar__total__name">
+                            Купон AWD213
+                        </div>
+                        <div class="shop-cart__sidebar__total__value shop-text--danger">
+                            - 911 руб.
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-cart__sidebar__footer">
+                    <div class="shop-cart__sidebar__total__price__wrapper">
+                        <div class="shop-cart__sidebar__total__price__label">
+                            Итого
+                        </div>
+                        <div class="shop-cart__sidebar__total__price__value">
+                            2 765 руб.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-cart__sidebar__coupons__wrapper">
+                <form action="/set-coupon" class="shop-cart__coupons">
+                    <input class="shop-cart__coupons__input shop-input" id="shop-cart__coupons__input"
+                           type="text" placeholder="Введите купон" name="coupon">
+                    <label class="shop-cart__coupons__label" for="shop-cart__coupons__input">
+                        Промокод
+                    </label>
+                    <button type="submit" class="shop-cart__sidebar__coupons__submit shop-btn shop-btn--square">
+                        <svg class="shop-cart__sidebar__coupons__submit-icon shop-icon--svg"
+                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59a.996.996 0 0 0 0-1.41l-6.58-6.6a.996.996 0 1 0-1.41 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="shop-cart__sidebar__description shop-cart__sidebar__error shop-text--danger"
+                     style="display: none"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr class="shop-hr" style="margin: 1rem 0;">
+    <h2 class="shop-h2" style="margin-bottom: 0.5rem;">Может пригодиться</h2>
+    <div class="shop-products">
+        <div class="shop-products__item">
+            <div class="shop-products__item__wrapper">
+                <form class="shop-products__item__favorite" action="/products/123/favorite"
+                      method="post">
+                    <input type="hidden" name="id" value="123">
+                    <button class="shop-products__item__favorite__btn shop-btn shop-btn--square"
+                            type="submit">
+                        <svg class="shop-products__item__favorite__icon-svg shop-icon--svg"
+                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             viewBox="0 0 24 24">
+                            <path d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5 5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
+                                  opacity=".3"/>
+                            <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="shop-products__item__images" style="--shop-app-images-count: 2;">
+
+                    <a href="./product.html" class="shop-products__item__images__link"
+                       style="--shop-app-images-index: 0;"></a>
+                    <a href="./product.html" class="shop-products__item__images__link"
+                       style="--shop-app-images-index: 1;"></a>
+
+                    <div class="shop-products__item__images__viewport">
+                        <div class="shop-products__item__images__pictures">
+                            <a href="./product.html"
+                               class="shop-products__item__images__pictures__link">
+                                <picture class="shop-products__item__images__picture">
+                                    <img class="shop-products__item__images__image"
+                                         src="./svg/300x360.svg" alt="">
+                                </picture>
+                            </a>
+                            <a href="./product.html"
+                               class="shop-products__item__images__pictures__link">
+                                <picture class="shop-products__item__images__picture">
+                                    <img class="shop-products__item__images__image"
+                                         src="./svg/300x360.svg" alt="">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="shop-products__item__images__controls">
+                        <div class="shop-products__item__images__control"
+                             style="--shop-app-images-index: 0;"></div>
+                        <div class="shop-products__item__images__control"
+                             style="--shop-app-images-index: 1;"></div>
+                    </div>
+                </div>
+                <a class="shop-products__item__link" href="/public/product.html">
+                    <div class="shop-products__item__name">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid
+                        cupiditate
+                        dolor doloribus eius ex fugiat, harum illo inventore magni molestias optio porro
+                        possimus qui quis reprehenderit sapiente totam.
+                    </div>
+                    <div class="shop-products__item__prices">
+                        <div class="shop-products__item__old-price">
+                            500 руб
+                        </div>
+                        <div class="shop-products__item__price">
+                            245 руб
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
