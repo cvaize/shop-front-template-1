@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="./components/b-checkbox/b-checkbox.css">
     <link rel="stylesheet" href="./components/b-radio/b-radio.css">
     <link rel="stylesheet" href="./components/color-checkbox/color-checkbox.css">
+    <link rel="stylesheet" href="./components/a-radio/a-radio.css">
+    <link rel="stylesheet" href="./components/a-checkbox/a-checkbox.css">
 
     <script src="./components/products/products.js" defer></script>
     <script src="components/number-validate/number-validate.js" defer></script>
@@ -508,27 +510,21 @@
                     <div class="shop-catalog__filter">
                         <div class="shop-catalog__filter__name">Срок доставки</div>
                         <div class="shop-catalog__filter__content">
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-radio" type="radio" name="flexRadioDefault" id="shop-shipping1"
-                                       hidden>
-                                <label class="shop-b-radio__label" for="shop-shipping1">
-                                    Сегодня или завтра
-                                </label>
-                            </div>
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-radio" type="radio" name="flexRadioDefault" id="shop-shipping2"
-                                       hidden>
-                                <label class="shop-b-radio__label" for="shop-shipping2">
-                                    До 5 дней
-                                </label>
-                            </div>
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-radio" type="radio" name="flexRadioDefault" id="shop-shipping3"
-                                       hidden checked>
-                                <label class="shop-b-radio__label" for="shop-shipping3">
-                                    Любой
-                                </label>
-                            </div>
+                            <label class="shop-a-radio">
+                                <input class="shop-a-radio__input" type="radio" name="flexRadioDefault" hidden>
+                                <span class="shop-a-radio__box"></span>
+                                Сегодня или завтра
+                            </label>
+                            <label class="shop-a-radio">
+                                <input class="shop-a-radio__input" type="radio" name="flexRadioDefault" hidden>
+                                <span class="shop-a-radio__box"></span>
+                                До 5 дней
+                            </label>
+                            <label class="shop-a-radio">
+                                <input class="shop-a-radio__input" type="radio" name="flexRadioDefault" hidden checked>
+                                <span class="shop-a-radio__box"></span>
+                                Любой
+                            </label>
                         </div>
                     </div>
 
@@ -542,44 +538,38 @@
                         <input id="shop-s-collapse__checkbox2" class="shop-s-collapse__checkbox" type="checkbox" hidden>
                         <div class="shop-catalog__filter__name">Тип</div>
                         <div class="shop-catalog__filter__content">
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-type1" hidden>
-                                <label class="shop-b-checkbox__label" for="shop-filter-type1">
-                                    Lorem ipsum
-                                </label>
-                            </div>
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-type2" hidden>
-                                <label class="shop-b-checkbox__label" for="shop-filter-type2">
-                                    Lorem ipsum dolor sit amet
-                                </label>
-                            </div>
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-type3" hidden>
-                                <label class="shop-b-checkbox__label" for="shop-filter-type3">
-                                    Lorem ipsum dolor
-                                </label>
-                            </div>
+                            <label class="shop-a-checkbox">
+                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-a-checkbox__box"></span>
+                                Lorem ipsum
+                            </label>
+                            <label class="shop-a-checkbox">
+                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-a-checkbox__box"></span>
+                                Lorem ipsum
+                            </label>
+                            <label class="shop-a-checkbox">
+                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-a-checkbox__box"></span>
+                                Lorem ipsum
+                            </label>
                         </div>
                         <div class="shop-catalog__filter__content shop-s-collapse">
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-type4" hidden>
-                                <label class="shop-b-checkbox__label" for="shop-filter-type4">
-                                    Lorem ipsum
-                                </label>
-                            </div>
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-type5" hidden>
-                                <label class="shop-b-checkbox__label" for="shop-filter-type5">
-                                    Lorem ipsum dolor sit amet
-                                </label>
-                            </div>
-                            <div style="margin-bottom: 0.25rem;">
-                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-type6" hidden>
-                                <label class="shop-b-checkbox__label" for="shop-filter-type6">
-                                    Lorem ipsum dolor
-                                </label>
-                            </div>
+                            <label class="shop-a-checkbox">
+                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-a-checkbox__box"></span>
+                                Lorem ipsum
+                            </label>
+                            <label class="shop-a-checkbox">
+                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-a-checkbox__box"></span>
+                                Lorem ipsum
+                            </label>
+                            <label class="shop-a-checkbox">
+                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                <span class="shop-a-checkbox__box"></span>
+                                Lorem ipsum
+                            </label>
                         </div>
                         <label for="shop-s-collapse__checkbox2" class="shop-s-collapse__label">
                             Ещё 3
@@ -600,81 +590,69 @@
                                     <div class="shop-b-tabs__pane">
                                         <input id="shop-s-collapse__checkbox3" class="shop-s-collapse__checkbox" type="checkbox" hidden>
                                         <div style="display: flex; flex-wrap: wrap;">
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size1" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size1">
-                                                    38
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size2" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size2">
-                                                    40
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size3" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size3">
-                                                    42
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size4" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size4">
-                                                    44
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size5" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size5">
-                                                    46
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size6" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size6">
-                                                    48
-                                                </label>
-                                            </div>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                38
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                40
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                42
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                44
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                46
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                48
+                                            </label>
                                         </div>
                                         <div class="shop-s-collapse">
                                             <div style="display: flex; flex-wrap: wrap;">
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size7" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size7">
-                                                        50
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size8" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size8">
-                                                        52
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size9" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size9">
-                                                        54
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size10" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size10">
-                                                        56
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size11" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size11">
-                                                        58
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size12" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size12">
-                                                        60
-                                                    </label>
-                                                </div>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    50
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    52
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    54
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    56
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    58
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    60
+                                                </label>
                                             </div>
                                         </div>
                                         <label for="shop-s-collapse__checkbox3" class="shop-s-collapse__label">
@@ -684,81 +662,69 @@
                                     <div class="shop-b-tabs__pane">
                                         <input id="shop-s-collapse__checkbox4" class="shop-s-collapse__checkbox" type="checkbox" hidden>
                                         <div style="display: flex; flex-wrap: wrap;">
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size01" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size01">
-                                                    XXS
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size02" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size02">
-                                                    XS
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size03" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size03">
-                                                    S
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size04" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size04">
-                                                    L
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size05" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size05">
-                                                    XL
-                                                </label>
-                                            </div>
-                                            <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size06" hidden>
-                                                <label class="shop-b-checkbox__label" for="shop-filter-size06">
-                                                    XXL
-                                                </label>
-                                            </div>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                XXS
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                XS
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                S
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                L
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                XL
+                                            </label>
+                                            <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                <span class="shop-a-checkbox__box"></span>
+                                                XXL
+                                            </label>
                                         </div>
                                         <div class="shop-s-collapse">
                                             <div style="display: flex; flex-wrap: wrap;">
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size07" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size07">
-                                                        3XL
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size08" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size08">
-                                                        4XL
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size09" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size09">
-                                                        5XL
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size010" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size010">
-                                                        6XL
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size011" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size011">
-                                                        7XL
-                                                    </label>
-                                                </div>
-                                                <div style="margin-bottom: 0.25rem; min-width: 33.3333%; max-width: 33.3333%">
-                                                    <input class="shop-b-checkbox" type="checkbox" value="" id="shop-filter-size012" hidden>
-                                                    <label class="shop-b-checkbox__label" for="shop-filter-size012">
-                                                        8XL
-                                                    </label>
-                                                </div>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    3XL
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    4XL
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    5XL
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    6XL
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    7XL
+                                                </label>
+                                                <label class="shop-a-checkbox" style="min-width: 33.3333%; max-width: 33.3333%;">
+                                                    <input class="shop-a-checkbox__input" type="checkbox" hidden>
+                                                    <span class="shop-a-checkbox__box"></span>
+                                                    8XL
+                                                </label>
                                             </div>
                                         </div>
                                         <label for="shop-s-collapse__checkbox4" class="shop-s-collapse__label">
