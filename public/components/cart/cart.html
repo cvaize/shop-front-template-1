@@ -17,10 +17,9 @@
     <div class="shop-cart__container shop-cart__hide-is-empty" data-cart-empty-display="flex">
         <div class="shop-cart__cards">
             <form id="shop-cart__selecting__form" action="/cart/my/selecting" method="post" class="shop-cart__selecting__card shop-cart__card">
-                <input class="shop-checkbox shop-cart__selecting__checkbox" type="checkbox" id="shop-cart__selecting__checkbox" hidden>
-                <label class="shop-cart__selecting__checkbox__label shop-checkbox__label"
-                       for="shop-cart__selecting__checkbox" tabindex="0">
-                    <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                <label class="shop-cart__selecting__checkbox__label shop-c-checkbox" tabindex="0">
+                    <input id="shop-cart__selecting__checkbox" class="shop-c-checkbox__input shop-cart__selecting__checkbox" type="checkbox" hidden>
+                    <svg class="shop-c-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg" width="24"
                          height="24" viewBox="0 0 24 24">
                         <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
                     </svg>
@@ -37,10 +36,9 @@
             <div class="shop-cart__card shop-cart__items">
                 <div class="shop-cart__item" data-cart-item-id="11">
                     <div class="shop-cart__item__checkbox__wrapper">
-                        <input class="shop-checkbox shop-cart__item__checkbox" type="checkbox"
-                               id="shop-cart__selecting__checkbox__11" form="shop-cart__selecting__form" name="items[11][selected]" value="11" hidden>
-                        <label class="shop-checkbox__label shop-checkbox__label--without-text" for="shop-cart__selecting__checkbox__11" tabindex="0">
-                            <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
+                        <label class="shop-c-checkbox shop-c-checkbox--without-text" tabindex="0">
+                            <input class="shop-c-checkbox__input shop-cart__item__checkbox" type="checkbox" form="shop-cart__selecting__form" name="items[11][selected]" value="11" hidden>
+                            <svg class="shop-c-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
                                  width="24"
                                  height="24" viewBox="0 0 24 24">
                                 <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
@@ -124,10 +122,9 @@
                 </div>
                 <div class="shop-cart__item" data-cart-item-id="22">
                     <div class="shop-cart__item__checkbox__wrapper">
-                        <input class="shop-checkbox shop-cart__item__checkbox" type="checkbox"
-                               id="shop-cart__selecting__checkbox__22" form="shop-cart__selecting__form" name="items[22][selected]" value="22" hidden>
-                        <label class="shop-checkbox__label shop-checkbox__label--without-text" for="shop-cart__selecting__checkbox__22" tabindex="0">
-                            <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
+                        <label class="shop-c-checkbox shop-c-checkbox--without-text" tabindex="0">
+                            <input class="shop-c-checkbox__input shop-cart__item__checkbox" type="checkbox" form="shop-cart__selecting__form" name="items[22][selected]" value="22" hidden>
+                            <svg class="shop-c-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
                                  width="24"
                                  height="24" viewBox="0 0 24 24">
                                 <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>

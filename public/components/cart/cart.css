@@ -64,13 +64,13 @@
     border-top: 1px solid rgb(var(--shop-app-light-background-color));
 }
 
-.shop-cart__item__checkbox__wrapper .shop-checkbox__label {
+.shop-cart__item__checkbox__wrapper .shop-c-checkbox__label {
     display: block;
     line-height: 0;
     border-radius: 0.25rem;
 }
 
-.shop-cart__item__checkbox__wrapper .shop-checkbox__svg-icon {
+.shop-cart__item__checkbox__wrapper .shop-c-checkbox__svg-icon {
     margin: 0;
     top: 0;
     line-height: 0;
@@ -324,7 +324,7 @@ a.shop-cart__item__name:hover {
     border-radius: 0.25rem;
 }
 
-.shop-cart__selecting__checkbox__label .shop-checkbox__svg-icon {
+.shop-cart__selecting__checkbox__label .shop-c-checkbox__svg-icon {
 
 }
 
