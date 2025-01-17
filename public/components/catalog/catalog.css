@@ -35,7 +35,7 @@
     padding-left: 0.05rem;
 }
 
-.shop-catalog__filter__content ~ .shop-s-collapse__label{
+.shop-catalog__filter__content ~ .shop-s-collapse__label {
     margin-top: 0.25rem;
 }
 
@@ -104,22 +104,22 @@
 .shop-catalog__tags {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25rem;
     font-size: inherit;
 }
 
 .shop-catalog__tag {
     display: flex;
     flex-wrap: wrap;
-    margin-right: 0.5em;
+    margin-right: 0.5rem;
 }
 
 .shop-catalog__tag__name {
     display: block;
-    margin-right: 0.5em;
+    margin-right: 0.5rem;
     color: rgb(var(--shop-app-color));
     font-weight: 700;
-    padding-top: 0.25em;
+    padding-top: 0.25rem;
 }
 
 .shop-catalog__tag__value {
@@ -127,18 +127,22 @@
     background-color: rgb(var(--shop-app-color));
     color: rgb(var(--shop-app-background-color));
     margin-right: 0.2rem;
-    padding: 0.2em 0.6em;
-    border-radius: 1em;
-    margin-bottom: 0.5em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .shop-catalog__tag__close {
     display: block;
-    width: 1.2em;
-    height: 1.2em;
+    width: 1.2rem;
+    height: 1.2rem;
     position: relative;
-    margin-left: 0.2em;
-    top: 0.0625em;
+    margin-left: 0.2rem;
+    top: 0.0625rem;
+}
+
+.shop-catalog__tag__close:hover {
+    opacity: 0.8;
 }
 
 .shop-catalog__tag__close:before, .shop-catalog__tag__close:after {
@@ -148,7 +152,7 @@
     top: 50%;
     left: 10%;
     width: 80%;
-    height: 0.0625em;
+    height: 0.0625rem;
     background-color: rgb(var(--shop-app-background-color));
     transform-origin: center;
     transform: rotate(45deg);
@@ -156,4 +160,29 @@
 
 .shop-catalog__tag__close:after {
     transform: rotate(-45deg);
+}
+
+.shop-catalog__sorts {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.shop-catalog__sort {
+    color: inherit;
+    text-decoration: none;
+    margin-right: 0.6rem;
+    font-size: 0.9rem;
+}
+
+.shop-catalog__sort.shop-active {
+    font-weight: 500;
+}
+
+a.shop-catalog__sort {
+    text-decoration: underline;
+}
+
+a.shop-catalog__sort:hover {
+    opacity: 0.8;
 }
