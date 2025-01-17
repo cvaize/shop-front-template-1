@@ -24,15 +24,15 @@
     opacity: 0;
 }
 
-.shop-checkbox:checked + .shop-checkbox__label > .shop-checkbox__svg-icon path {
+.shop-checkbox:checked ~ .shop-checkbox__label > .shop-checkbox__svg-icon path {
     opacity: 1;
 }
 
-.shop-checkbox:checked + .shop-checkbox__label::after {
+.shop-checkbox:checked ~ .shop-checkbox__label::after {
     opacity: 1;
 }
 
-.shop-checkbox:disabled + .shop-checkbox__label {
+.shop-checkbox:disabled ~ .shop-checkbox__label {
     opacity: 0.5;
     cursor: auto;
 }

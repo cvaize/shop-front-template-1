@@ -33,11 +33,11 @@
     opacity: 0;
 }
 
-.shop-b-checkbox:checked + .shop-b-checkbox__label:after {
+.shop-b-checkbox:checked ~ .shop-b-checkbox__label:after {
     opacity: 1;
 }
 
-.shop-b-checkbox:disabled + .shop-b-checkbox__label:after {
+.shop-b-checkbox:disabled ~ .shop-b-checkbox__label:after {
     opacity: 0.5;
     cursor: auto;
 }

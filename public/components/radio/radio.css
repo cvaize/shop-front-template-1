@@ -20,15 +20,15 @@
     opacity: 0;
 }
 
-.shop-radio:checked + .shop-radio__label > .shop-radio__svg-icon circle {
+.shop-radio:checked ~ .shop-radio__label > .shop-radio__svg-icon circle {
     opacity: 1;
 }
 
-.shop-radio:checked + .shop-radio__label::after {
+.shop-radio:checked ~ .shop-radio__label::after {
     opacity: 1;
 }
 
-.shop-radio:disabled + .shop-radio__label {
+.shop-radio:disabled ~ .shop-radio__label {
     opacity: 0.5;
     cursor: auto;
 }

@@ -31,11 +31,11 @@
     opacity: 0;
 }
 
-.shop-b-radio:checked + .shop-b-radio__label:after {
+.shop-b-radio:checked ~ .shop-b-radio__label:after {
     opacity: 1;
 }
 
-.shop-b-radio:disabled + .shop-b-radio__label:after {
+.shop-b-radio:disabled ~ .shop-b-radio__label:after {
     opacity: 0.5;
     cursor: auto;
 }

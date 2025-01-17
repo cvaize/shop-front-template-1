@@ -2,10 +2,13 @@
     --checkbox-circle-color: rgb(var(--shop-app-color));
     --checkbox-chevron-color: rgb(var(--shop-app-background-color));
     position: relative;
-    cursor: pointer;
     user-select: none;
     display: block;
     padding: 2px;
+}
+
+.shop-color-checkbox__text {
+    cursor: pointer;
 }
 
 .shop-color-checkbox__box {
@@ -46,11 +49,12 @@
     opacity: 0;
 }
 
-.shop-color-checkbox__input:checked + .shop-color-checkbox__box:after {
+.shop-color-checkbox__input:checked ~ .shop-color-checkbox__box:after {
     opacity: 1;
 }
 
-.shop-color-checkbox__input:disabled + .shop-color-checkbox__box:after {
+.shop-color-checkbox__input:disabled ~ .shop-color-checkbox__box,
+.shop-color-checkbox__input:disabled ~ .shop-color-checkbox__text {
     opacity: 0.5;
     cursor: auto;
 }
