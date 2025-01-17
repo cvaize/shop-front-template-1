@@ -147,10 +147,9 @@
         return `
 <div class="shop-cart__item" data-cart-item-id="${id}">
     <div class="shop-cart__item__checkbox__wrapper">
-        <input class="shop-checkbox shop-cart__item__checkbox" type="checkbox"
-               id="shop-cart__selecting__checkbox__${id}" hidden ${checked ? 'checked' : ''} form="shop-cart__selecting__form" name="items[${id}][selected]" value="${id}">
-        <label class="shop-checkbox__label shop-checkbox__label--without-text" for="shop-cart__selecting__checkbox__${id}" tabindex="0">
-            <svg class="shop-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
+        <label class="shop-c-checkbox shop-c-checkbox--without-text" tabindex="0">
+            <input class="shop-c-checkbox__input shop-cart__item__checkbox" type="checkbox" form="shop-cart__selecting__form" name="items[${id}][selected]" value="${id}" hidden ${checked ? 'checked' : ''}>
+            <svg class="shop-c-checkbox__svg-icon" xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24" viewBox="0 0 24 24">
                 <path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/>
