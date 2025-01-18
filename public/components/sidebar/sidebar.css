@@ -238,6 +238,7 @@
     opacity: 1;
     outline: none;
     border-radius: 0.4rem;
+    user-select: none;
 }
 
 .shop-sidebar__menu-block:hover {
@@ -274,6 +275,7 @@
 
 .shop-sidebar__menu-account__wrapper {
     position: relative;
+    user-select: none;
 }
 
 .shop-sidebar__menu-account__close {

@@ -187,7 +187,7 @@ a.shop-catalog__sort:hover {
     opacity: 0.8;
 }
 
-.shop-catalog__sidebar__btn {
+.shop-catalog__sidebar__btn, .shop-catalog__sidebar__header {
     display: none;
 }
 
