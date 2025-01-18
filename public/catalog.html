@@ -33,6 +33,7 @@
 <input id="shop-sidebar__catalog__radio" type="radio" name="shop-sidebar__menu-radio" hidden>
 <input id="shop-sidebar__menu-account__radio" type="radio" name="shop-sidebar__menu-radio" hidden>
 <input id="shop-sidebar__search__checkbox" type="checkbox" hidden>
+<input id="shop-catalog__sidebar__checkbox" type="checkbox" hidden>
 
 <div class="shop-app">
     <header class="shop-header">
@@ -442,9 +443,12 @@
         <hr class="shop-hr">
         <div class="shop-container">
             <br>
-            <h1 class="shop-h1">Мужская одежда</h1>
+            <h1 class="shop-catalog__h1 shop-h1">Мужская одежда</h1>
             <div class="shop-catalog">
                 <div class="shop-catalog__sidebar">
+                    <div class="shop-catalog__sidebar__header">Фильтры</div>
+                    <label for="shop-catalog__sidebar__checkbox" class="shop-catalog__sidebar__close"></label>
+
                     <div class="shop-catalog__filter shop-catalog__filter--links">
                         <input id="shop-s-collapse__checkbox" class="shop-s-collapse__checkbox" type="checkbox" hidden>
                         <div class="shop-catalog__filter__name">Все категории</div>
@@ -776,7 +780,12 @@
                         </label>
                     </div>
                 </div>
+
                 <div class="shop-catalog__content">
+                    <label for="shop-catalog__sidebar__checkbox" class="shop-catalog__sidebar__btn shop-btn">
+                        <svg class="shop-icon--svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 6h10l-5.01 6.3L7 6zm-2.75-.39C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39A.998.998 0 0 0 18.95 4H5.04c-.83 0-1.3.95-.79 1.61z"/></svg>
+                        <span class="shop-catalog__sidebar__btn__text">Фильтры</span>
+                    </label>
                     <div class="shop-catalog__tags">
                         <div class="shop-catalog__tag">
                             <div class="shop-catalog__tag__name">Цвет:</div>
