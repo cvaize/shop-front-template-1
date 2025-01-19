@@ -26,8 +26,7 @@
     box-sizing: border-box;
 }
 
-*[class*="shop-"]:focus
-{
+*[class*="shop-"]:focus {
     box-shadow: var(--shop-app-focus-box-shadow);
     outline: none;
 }
@@ -64,9 +63,12 @@ button, select {
     background: rgb(var(--shop-app-background-color));
 }
 
+.shop-header {
+    padding-top: 4.5rem;
+}
+
 .shop-content {
     width: 100%;
-    padding-top: 3.5rem;
     min-height: calc(100vh - 16rem);
 }
 
@@ -139,13 +141,17 @@ button, select {
         max-width: 540px;
     }
 
-    .shop-content {
-        padding-top: 5.5rem;
+    .shop-header {
+        padding-top: 6.5rem;
     }
 }
 
 @media (max-width: 470px) {
     .shop-container {
         max-width: none;
+    }
+
+    .shop-header {
+        padding-top: 4.5rem;
     }
 }

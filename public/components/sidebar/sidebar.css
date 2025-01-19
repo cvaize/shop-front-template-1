@@ -6,6 +6,7 @@
     height: 3.5rem;
     background: rgb(var(--shop-app-background-color));
     z-index: 200;
+    box-shadow: 0 0 0 2px rgba(var(--shop-app-light-background-color), 1);
 }
 
 .shop-sidebar__mobile {
@@ -755,10 +756,6 @@
 }
 
 @media (max-width: 470px) {
-    .shop-content {
-        padding-top: 0;
-    }
-
     .shop-sidebar {
         position: fixed;
         left: 0;
@@ -785,12 +782,6 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-    }
-
-    .shop-sidebar__search {
-        display: none;
-        width: 100%;
-        margin: 0;
     }
 
     #shop-sidebar__search__checkbox:checked ~ .shop-app .shop-sidebar__search,
@@ -937,11 +928,12 @@
     }
 
     .shop-sidebar__search {
-        display: none;
+        display: block;
         position: fixed;
         left: 1rem;
         top: 1rem;
         width: calc(100% - 2rem);
+        margin: 0;
     }
 
     .shop-sidebar__search:before {
