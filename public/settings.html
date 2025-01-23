@@ -496,6 +496,33 @@
                                 </select>
                             </label>
                         </div>
+                        <div class="shop-setting shop-setting--currency">
+                            <div class="shop-setting__label">Валюта</div>
+                            <div class="shop-setting__value">RUB</div>
+                            <label class="shop-setting__input__label">
+                                <select class="shop-setting__input shop-input" name="currency">
+                                    <option name="RUB" selected>Рубли - RUB</option>
+                                    <option name="USD">Доллары США - USD</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="shop-setting shop-setting--pick-up">
+                            <div class="shop-setting__label">Выдача товаров</div>
+                            <div class="shop-setting__value">Пункт выдачи: ул. Ленина, 999</div>
+                            <label class="shop-setting__input__label">
+                                <input class="shop-setting__input shop-input"
+                                       autocomplete="shipping street-address billing postal-code"
+                                       type="text" name="pick_up" value="Пункт выдачи: ул. Ленина, 999"
+                                       placeholder="Пункт выдачи"  list="shop-pick-up-datalist">
+                                <datalist id="shop-pick-up-datalist">
+                                    <option value="Пункт выдачи: ул. Ленина, 999">
+                                    <option value="Курьером: ул. Ленина, 111">
+                                    <option value="Курьером: ул. Ленина, 222">
+                                    <option value="Пункт выдачи: ул. Ленина, 333">
+                                    <option value="Пункт выдачи: ул. Ленина, 444">
+                                </datalist>
+                            </label>
+                        </div>
                     </div>
                     <div class="shop-settings__footer">
                         <label class="shop-settings__edit__btn shop-btn" for="shop-settings__edit__checkbox-1">Изменить учётные данные</label>
