@@ -59,7 +59,7 @@
     top: -100vh;
     width: 100%;
     z-index: 190;
-    padding-top: 4rem;
+    padding-top: 5.5rem;
     padding-bottom: 1rem;
     height: calc(100vh - 2rem);
     background: rgb(var(--shop-app-background-color));
@@ -635,10 +635,11 @@
     text-decoration: none;
     margin-left: 1rem;
     white-space: nowrap;
+    opacity: 0.8;
 }
 
 .shop-sidebar__head__currency:hover, .shop-sidebar__head__pick-up:hover, .shop-sidebar__head__link:hover {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
@@ -709,7 +710,7 @@
     }
 
     .shop-sidebar__catalog {
-        padding-top: 5.5rem;
+        padding-top: 7.5rem;
         height: 100vh;
     }
 
@@ -834,9 +835,15 @@
     }
 
     .shop-sidebar__brand {
-        width: calc(100% - 3rem);
-        margin: 0 0 0.5rem 0;
-        display: none;
+        position: fixed;
+        left: 1rem;
+        top: 0.25rem;
+        z-index: 110;
+        margin: 0;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        font-size: 1rem;
+        width: 6rem;
     }
 
     .shop-sidebar__catalog {
@@ -1032,6 +1039,7 @@
         top: 0;
         width: 100%;
         z-index: 110;
+        padding-top: 0.5rem;
     }
 
     .shop-sidebar__head__link {
@@ -1041,9 +1049,11 @@
     .shop-sidebar__head__currency {
         margin-left: auto;
         margin-right: 0.5rem;
+        display: none;
     }
 
     .shop-sidebar__head__pick-up {
         margin-right: 0;
+        margin-left: auto;
     }
 }
