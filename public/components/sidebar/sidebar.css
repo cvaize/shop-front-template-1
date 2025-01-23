@@ -3,7 +3,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 3.5rem;
+    height: 5rem;
     background: rgb(var(--shop-app-background-color));
     z-index: 200;
     box-shadow: 0 0 0 2px rgba(var(--shop-app-light-background-color), 1);
@@ -20,7 +20,7 @@
     z-index: 1;
 }
 
-.shop-sidebar__container {
+.shop-sidebar__main {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     display: flex;
@@ -74,7 +74,7 @@
     width: 100%;
 }
 
-.shop-sidebar__catalog__btn {
+.shop-btn.shop-sidebar__catalog__btn {
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -608,6 +608,39 @@
     display: none;
 }
 
+.shop-sidebar__head {
+    display: flex;
+    padding-top: 0.25rem;
+    overflow: hidden;
+    height: 1.5rem;
+}
+
+.shop-sidebar__head__currency {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+
+.shop-sidebar__head__pick-up {
+    color: inherit;
+    text-decoration: none;
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.shop-sidebar__head__link {
+    color: inherit;
+    text-decoration: none;
+    margin-left: 1rem;
+    white-space: nowrap;
+}
+
+.shop-sidebar__head__currency:hover, .shop-sidebar__head__pick-up:hover, .shop-sidebar__head__link:hover {
+    opacity: 0.8;
+}
+
 @media (min-width: 1200px) and (max-width: 1399px) {
     .shop-sidebar__search {
         margin-right: 1rem;
@@ -672,7 +705,7 @@
     }
 
     .shop-sidebar {
-        height: 5.5rem;
+        height: 7.5rem;
     }
 
     .shop-sidebar__catalog {
@@ -778,7 +811,7 @@
         z-index: 9;
     }
 
-    .shop-sidebar__container {
+    .shop-sidebar__main {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -931,7 +964,7 @@
         display: block;
         position: fixed;
         left: 1rem;
-        top: 1rem;
+        top: 2rem;
         width: calc(100% - 2rem);
         margin: 0;
     }
@@ -940,9 +973,9 @@
         content: '';
         position: absolute;
         left: -1rem;
-        top: -1rem;
+        top: -2rem;
         width: calc(100% + 2rem);
-        height: calc(100% + 1.7rem);
+        height: calc(100% + 2.7rem);
         background: rgb(var(--shop-app-background-color));
         box-shadow: 0 1px 1px 0 rgba(var(--shop-app-color), 0.5);
     }
@@ -991,5 +1024,26 @@
 
     .shop-sidebar__search__submit__text {
         display: none;
+    }
+
+    .shop-sidebar__head {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 110;
+    }
+
+    .shop-sidebar__head__link {
+        display: none;
+    }
+
+    .shop-sidebar__head__currency {
+        margin-left: auto;
+        margin-right: 0.5rem;
+    }
+
+    .shop-sidebar__head__pick-up {
+        margin-right: 0;
     }
 }

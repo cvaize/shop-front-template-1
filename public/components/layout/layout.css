@@ -64,7 +64,7 @@ button, select {
 }
 
 .shop-header {
-    padding-top: 4.5rem;
+    padding-top: 6rem;
 }
 
 .shop-content {
@@ -142,7 +142,7 @@ button, select {
     }
 
     .shop-header {
-        padding-top: 6.5rem;
+        padding-top: 8rem;
     }
 }
 
@@ -152,6 +152,6 @@ button, select {
     }
 
     .shop-header {
-        padding-top: 4.5rem;
+        padding-top: 5.5rem;
     }
 }
