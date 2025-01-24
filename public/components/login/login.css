@@ -1,0 +1,70 @@
+.shop-login {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 16rem);
+}
+
+.shop-login__container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+.shop-login__card {
+    width: 288px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(var(--shop-app-light-background-color), 0.5);
+}
+
+.shop-login__header {
+
+}
+
+.shop-login__field {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.shop-login__field__input {
+    font-size: 0.9rem;
+}
+
+.shop-login__nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.shop-login__forgot-link {
+    margin-right: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.shop-login__register-link {
+    margin-left: auto;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+}
+
+.shop-login__forgot-link:hover, .shop-login__register-link:hover {
+    opacity: 0.8;
+}
+
+.shop-btn.shop-login__submit {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    color: rgb(var(--shop-app-background-color));
+    border-color: rgb(var(--shop-app-color));
+    background-color: rgb(var(--shop-app-color));
+}

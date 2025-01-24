@@ -1,4 +1,8 @@
-.shop-input {
+.shop-field {
+    font-size: 0.8rem;
+}
+
+.shop-field__input {
     display: block;
     width: 100%;
     padding: .3rem .7rem;
@@ -14,23 +18,27 @@
     outline: none;
 }
 
-.shop-input[type="range"] {
+.shop-field__input[type="range"] {
     height: 0.2rem;
     padding: 0;
 }
 
-.shop-success .shop-input {
+.shop-field__text {
+
+}
+
+.shop-success .shop-field__input {
     border-color: rgb(var(--shop-app-success-color));
 }
 
-.shop-success .shop-input[type="range"] {
+.shop-success .shop-field__input[type="range"] {
     background-color: rgb(var(--shop-app-success-color));
 }
 
-.shop-danger .shop-input {
+.shop-danger .shop-field__input {
     border-color: rgb(var(--shop-app-danger-color));
 }
 
-.shop-danger .shop-input[type="range"] {
+.shop-danger .shop-field__input[type="range"] {
     background-color: rgb(var(--shop-app-danger-color));
 }
