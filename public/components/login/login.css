@@ -42,6 +42,10 @@
     margin-top: 0.5rem;
 }
 
+.shop-login__back {
+    margin-bottom: 0.5rem;
+}
+
 .shop-login__forgot-link {
     margin-right: 0.5rem;
     text-decoration: none;
@@ -56,7 +60,13 @@
     font-weight: 700;
 }
 
-.shop-login__forgot-link:hover, .shop-login__register-link:hover {
+.shop-login__back-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.shop-login__forgot-link:hover, .shop-login__register-link:hover, .shop-login__back-link:hover {
     opacity: 0.8;
 }
 
