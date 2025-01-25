@@ -18,19 +18,3 @@
     height: 0.2rem;
     padding: 0;
 }
-
-.shop-success .shop-input {
-    border-color: rgb(var(--shop-app-success-color));
-}
-
-.shop-success .shop-input[type="range"] {
-    background-color: rgb(var(--shop-app-success-color));
-}
-
-.shop-danger .shop-input {
-    border-color: rgb(var(--shop-app-danger-color));
-}
-
-.shop-danger .shop-input[type="range"] {
-    background-color: rgb(var(--shop-app-danger-color));
-}

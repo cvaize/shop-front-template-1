@@ -28,23 +28,6 @@
     opacity: 1;
 }
 
-/*.shop-c-checkbox__input:checked + .shop-c-checkbox::after {*/
-/*    opacity: 1;*/
-/*}*/
-
-/*.shop-c-checkbox__input:disabled + .shop-c-checkbox {*/
-/*    opacity: 0.5;*/
-/*    cursor: auto;*/
-/*}*/
-
-.shop-success .shop-c-checkbox {
-    color: rgb(var(--shop-app-success-color));
-}
-
-.shop-danger .shop-c-checkbox {
-    color: rgb(var(--shop-app-danger-color));
-}
-
 .shop-c-checkbox--without-text:focus {
     box-shadow: none;
 }
