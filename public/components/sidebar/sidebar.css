@@ -47,7 +47,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: left center;
@@ -921,6 +921,13 @@
 
     #shop-sidebar__menu-account__radio:checked ~ .shop-app .shop-sidebar__menu-account__dropdown {
         display: block;
+    }
+
+    #shop-sidebar__menu-account__radio:checked ~ .shop-app .shop-sidebar__head,
+    #shop-sidebar__menu-account__radio:checked ~ .shop-app .shop-sidebar__brand {
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
     }
 
     .shop-sidebar__home__btn {
