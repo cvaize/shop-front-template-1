@@ -253,6 +253,7 @@ a.shop-catalog__sort:hover {
         right: 1rem;
         width: 2rem;
         height: 2rem;
+        cursor: pointer;
     }
 
     .shop-catalog__sidebar__close:before, .shop-catalog__sidebar__close:after {
@@ -298,8 +299,8 @@ a.shop-catalog__sort:hover {
 
 @media (max-width: 470px) {
     .shop-catalog__sidebar {
-        z-index: 99;
-        padding: 3rem 1rem 4rem 1rem;
+        z-index: 200;
+        padding: 3rem 1rem 2rem 1rem;
     }
 
     .shop-catalog__sidebar__btn {
